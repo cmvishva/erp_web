@@ -1,0 +1,103 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<!-- main-content -->
+<div class="main-content">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12">
+      <div class="panel mb-g">
+        <div class="panel-heading">
+          <h3>Add Branch Details</h3>
+        </div>
+        <ul class="messages" style="display: none;">
+            {% if messages %}
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+        <form class="add-product" action="" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="panel-body">
+              <div class="row g-lg-4 g-2 align-items-center">
+                  <div class="col-sm-4">
+                      <label for="AddProduct">Branch Name :</label>
+                  </div>
+                  <div class="col-sm-8">
+                      <input type="text" id="ProductName" name="{{ bd.name.name }}" value="{{ bd.name.value|default_if_none:'' }}" class="form-control form-control-lg" required/>
+                  </div>
+                  <div class="col-sm-4">
+                      <label for="ProductName">Branch Email :</label>
+                  </div>
+                  <div class="col-sm-8">
+                      <input type="email" id="ProductName" name="{{ bd.email.name }}" value="{{ bd.email.value|default_if_none:'' }}" class="form-control form-control-lg" required/>
+                  </div>
+                  <div class="col-sm-4">
+                      <label for="ProductPrice">Branch Code:</label>
+                  </div>
+                  <div class="col-sm-8">
+                      <div class="input-group">
+                          <input type="text" id="ProductPrice" name="{{ bd.code.name }}" value="{{ bd.code.value|default_if_none:'' }}" class="form-control form-control-lg" min="2" required/>
+                      </div>
+                  </div>
+                  <div class="col-sm-4">
+                      <label for="ProductDscr">Branch Address :</label>
+                  </div>
+                  <div class="col-sm-8">
+                      <textarea name="{{ bd.address.name }}" id="ProductDscr" rows="5" class="form-control form-control-lg" required>{{ bd.address.value|default_if_none:'' }}</textarea>
+                  </div>
+                  <div class="col-sm-4">
+                      <label for="Status">Branch Contact No :</label>
+                  </div>
+                  <div class="col-sm-8">
+                      <input type="number" id="ProductName" name="{{ bd.contactno.name }}" value="{{ bd.contactno.value|default_if_none:'' }}" class="form-control form-control-lg" required/>
+                  </div>
+                  <div class="col-sm-4">
+                      <label for="AddProduct">Manager Name :</label>
+                  </div>
+                  <div class="col-sm-8">
+                      <input type="text" id="ProductName" name="{{ bd.manager_name.name }}" value="{{ bd.manager_name.value|default_if_none:'' }}" class="form-control form-control-lg" required/>
+                  </div>
+                  <div class="col-sm-4">
+                    <label for="AddProduct">Manager Email :</label>
+                </div>
+                <div class="col-sm-8">
+                    <input type="text" id="ProductName" name="{{ bd.manager_email.name }}" value="{{ bd.manager_email.value|default_if_none:'' }}" class="form-control form-control-lg" required/>
+                </div>
+                  <div class="col-sm-4">
+                      <label for="AddProduct"> Openning Date :</label>
+                  </div>
+                  <div class="col-sm-8">
+                      <input type="date" id="ProductName" name="{{ bd.oppening_date.name }}" value="{{ bd.initial.oppening_date|date:'Y-m-d' }}" class="form-control form-control-lg" required/>
+                  </div>
+                  <div class="col-sm-4">
+                      <label for="AddProduct"> Branch Type :</label>
+                  </div>
+                  <div class="col-sm-8">
+                      <input type="text" id="ProductName" name="{{ bd.branch_type.name }}" value="{{ bd.branch_type.value|default_if_none:'' }}" class="form-control form-control-lg" required/>
+                  </div>
+                  <div class="col-12">
+                      <div class="btn-box justify-content-end">
+                          <input type="reset" class="btn btn-secondary" value="Reset" />
+                          <input type="submit" value="Submit" class="btn btn-primary" />
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- main-content -->
+
+<script>
+    $(document).ready(function() {
+        var messages = $('.messages li');
+        if (messages.length > 0) {
+            messages.each(function() {
+                alert($(this).text());
+            });
+        }
+    });
+</script>
+
+{% endblock %}

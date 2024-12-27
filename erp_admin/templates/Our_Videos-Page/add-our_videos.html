@@ -1,0 +1,72 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<!-- main-content -->
+<div class="main-content">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12">
+      <div class="panel mb-g">
+        <div class="panel-heading">
+          <h3>Add Videos</h3>
+        </div>
+        <form action="" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="panel-body">
+            <form class="add-product">
+              <div class="row g-lg-4 g-2 align-items-center">
+                <div class="col-sm-4">
+                  <label for="AddProduct"> Video :</label>
+              </div>
+              <div class="col-sm-8">
+                  <input type="file" id="AddProduct" name="{{ ov.video.name }}" value="{{ ov.initial.video }}" class="form-control form-control-lg" accept=".jpg,.jpeg,.png,.mp3,.mov,.mp4" multiple>Image Path : {{ ov.initial.video }}
+              </div>
+
+                <div class="col-sm-4">
+                  <label for="ProductName"> Title :</label>
+                </div>
+                <div class="col-sm-8">
+                  <input
+                    type="text"
+                    id="ProductName"
+                    name="{{ ov.title.name }}"
+                    value="{{ ov.initial.title }}"
+                    class="form-control form-control-lg"
+                  />
+                </div>
+
+                <div class="col-sm-4">
+                  <label for="ProductName"> Price :</label>
+                </div>
+                <div class="col-sm-8">
+                  <input
+                    type="text"
+                    id="ProductName"
+                    name="{{ ov.price.name }}"
+                    value="{{ ov.initial.price }}"
+                    class="form-control form-control-lg"
+                  />
+                </div>
+
+                <div class="col-12">
+                  <div class="btn-box justify-content-end">
+                    <input
+                      type="reset"
+                      class="btn btn-secondary"
+                      value="Reset"
+                    />
+                    <input
+                      type="submit"
+                      value="Add"
+                      class="btn btn-primary"
+                    />
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- main-content -->
+
+{% endblock %}

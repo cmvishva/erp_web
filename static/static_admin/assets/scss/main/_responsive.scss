@@ -1,0 +1,2453 @@
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+
+    /*======================================================================================
+     Global Style
+     ======================================================================================*/
+    .panel .panel-body {
+        padding: 20px;
+    }
+    
+    /*======================================================================================
+     Header Section
+     ======================================================================================*/
+    .header .top-header .logo {
+        width: 270px;
+    }
+
+    /*======================================================================================
+     Main Content Section
+     ======================================================================================*/
+
+    /*=============================== Dashboard Sales ===============================*/
+    .progress-box .progress {
+        height: 8px;
+    }
+    .product-status .table tbody tr td:nth-child(6) {
+        width: 37%;
+    }
+    .product-status .table tbody tr td:nth-child(7) {
+        width: 27%;
+    }
+    .product-status .table tbody tr td .progress {
+        height: 8px;
+    }
+
+    /*=============================== Dashboard Service ===============================*/
+    .top-box .single-box {
+        padding: 20px;
+    }
+    .top-box .single-box .part-icon {
+        font-size: 50px;
+    }
+    .top-box .single-box .part-txt p {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    .top-box .single-box .part-txt h3 {
+        font-size: 22px;
+    }
+
+    .review-record .table {
+        min-width: max-content;
+    }
+    .review-record .table tbody tr td {
+        padding: 5px 10px;
+    }
+
+    /*=============================== Authentication Page ===============================*/
+    .authentication-area .form-row {
+        padding: 60px 0;
+    }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1299px) {
+
+    /*======================================================================================
+     Global Style
+     ======================================================================================*/
+    .panel .panel-body {
+        padding: 20px;
+    }
+    
+    /*======================================================================================
+     Header Section
+     ======================================================================================*/
+    .header .top-header .logo {
+        width: 245px;
+    }
+
+    /*======================================================================================
+     Fixed Sidebar Section
+     ======================================================================================*/
+    .fixed-sidebar.sidebar-mini {
+        transform: translateX(-105%);
+    }
+
+    /*======================================================================================
+     Main Content Section
+     ======================================================================================*/
+    .main-content {
+        padding-left: 0;
+    }
+
+    /*=============================== Dashboard Sales ===============================*/
+    .progress-box .progress {
+        height: 8px;
+    }
+    .product-status .table tbody tr td:nth-child(1) {
+        width: 7%;
+    }
+    .product-status .table tbody tr td:nth-child(6) {
+        width: 40%;
+    }
+    .product-status .table tbody tr td:nth-child(7) {
+        width: 23%;
+    }
+    .product-status .table tbody tr td .progress {
+        height: 8px;
+    }
+
+    /*=============================== Dashboard Service ===============================*/
+    .top-box .single-box {
+        padding: 20px;
+    }
+    .top-box .single-box .part-icon {
+        font-size: 50px;
+    }
+    .top-box .single-box .part-txt p {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    .top-box .single-box .part-txt h3 {
+        font-size: 22px;
+    }
+
+    .review-record .table {
+        min-width: max-content;
+    }
+    .review-record .table tbody tr td {
+        padding: 5px 10px;
+    }
+
+    /*=============================== Authentication Page ===============================*/
+    .authentication-area .form-row {
+        padding: 60px 0;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+    /* Global Style */
+    body {
+        padding-top: 84px;
+        padding-bottom: 0;
+    }
+    body.active {
+        padding-top: 144px;
+    }
+    .container-fluid {
+        padding: 0 24px;
+    }
+    .panel .panel-body {
+        padding: 20px;
+    }
+
+    /*======================================================================================
+     Fixed Sidebar Section
+     ======================================================================================*/
+    .fixed-sidebar.sidebar-mini {
+        transform: translateX(-105%);
+    }
+
+    /*======================================================================================
+     Main Content Section
+     ======================================================================================*/
+    .main-content {
+        padding-left: 0;
+    }
+    .main-content.no-sidebar {
+        margin: 0;
+    }
+
+    /*=============================== Dashboard Sales ===============================*/
+    .sale-top-box .part-icon {
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        font-size: 25px;
+    }
+    .sale-top-box .part-txt h5 {
+        font-size: 14px;
+    }
+
+    .progress-box .progress {
+        height: 5px;
+    }
+
+    .product-status .table {
+        min-width: max-content;
+    }
+    .product-status .table tbody tr td:nth-child(4) {
+        width: 15%;
+    }
+    .product-status .table tbody tr td:nth-child(5) {
+        width: 15%;
+    }
+    .product-status .table tbody tr td:nth-child(6) {
+        width: 30%;
+    }
+    .product-status .table tbody tr td:nth-child(7) {
+        width: 25%;
+    }
+    .product-status .table tbody tr td .progress {
+        height: 5px;
+    }
+
+    /*=============================== Dashboard Service ===============================*/
+    .top-box .single-box {
+        padding: 20px;
+    }
+    .top-box .single-box .part-icon {
+        font-size: 50px;
+    }
+    .top-box .single-box .part-txt p {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    .top-box .single-box .part-txt h3 {
+        font-size: 20px;
+    }
+
+    .review-record .table {
+        min-width: max-content;
+    }
+    .review-record .table tbody tr td {
+        padding: 5px 10px;
+    }
+
+    /*=============================== Dashboard Finance ===============================*/
+    .some-statics h5 span {
+        font-size: 14px;
+    }
+
+    /*=============================== Carousel Page ===============================*/
+    .carousel-control-prev {
+        left: 10px;
+        width: 35px;
+        height: 35px;
+    }
+    .carousel-control-prev .carousel-control-prev-icon {
+        background-size: 70%;
+    }
+    .carousel-control-next {
+        right: 10px;
+        width: 35px;
+        height: 35px;
+    }
+    .carousel-control-next .carousel-control-next-icon {
+        background-size: 70%;
+    }
+    .carousel-indicators {
+        margin-bottom: 15px;
+    }
+    .carousel-indicators [data-bs-target] {
+        height: 5px;
+    }
+    .carousel-caption {
+        padding: 15px;
+    }
+
+    /*=============================== Widget Page ===============================*/
+    .chat-box .chat-panel .chat-scroll .message .txt-wrap .part-txt .media {
+        width: 100%;
+    }
+
+    /*=============================== Icon Page ===============================*/
+    .icons .demo-icon-wrapper {
+        padding: 5px 15px;
+    }
+
+    /*=============================== Authentication Page ===============================*/
+    .authentication-area .form-row {
+        padding: 60px 0;
+        width: 500px;
+    }
+
+    /*=============================== Error Page ===============================*/
+    .error-area .error-row {
+        padding: 60px 0;
+        width: 500px;
+    }
+    .error-area .error-row .error-panel .part-img {
+        width: 100%;
+    }
+    .error-area .error-row .error-panel .part-txt h2 {
+        font-size: 40px;
+    }
+    .error-area .error-row .error-panel .part-txt p {
+        font-size: 18px;
+        line-height: 26px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    /* Global Style */
+    body {
+        font-size: 12px;
+        padding-top: 84px;
+        padding-bottom: 0;
+    }
+    body.active {
+        padding-top: 124px;
+    }
+    .container-fluid {
+        padding: 0 24px;
+    }
+    .panel .panel-heading {
+        padding: 0 15px;
+        height: 40px;
+    }
+    .panel .panel-heading h3 {
+        font-size: 15px;
+        line-height: 40px;
+        letter-spacing: 0.5px;
+    }
+    .panel .panel-body {
+        padding: 15px;
+    }
+    .inline-heading h4 {
+        font-size: 14px;
+    }
+
+    /*======================================================================================
+     Offcanvas Section
+     ======================================================================================*/
+    .offcanvas .offcanvas-header {
+        padding: 20px 15px;
+    }
+    .offcanvas .offcanvas-header h4 {
+        font-size: 20px;
+    }
+    .offcanvas .offcanvas-body {
+        padding: 15px;
+    }
+
+    /*======================================================================================
+     Header Section 
+     ======================================================================================*/
+    .header .top-header .row {
+        margin: 0;
+        >* {
+            padding: 0;
+        }
+    }
+    .header .top-header .logo {
+        width: 120px;
+        order: 2;
+    }
+    .header .top-header .logo .logo-big {
+        width: 100%;
+    }
+    .header .top-header .sidebar-collapse {
+        width: 25px;
+        height: 25px;
+        line-height: 27px;
+        font-size: 20px;
+        margin-right: 10px;
+    }
+    .header .top-header .top-right .navbar .nav-form {
+        border-radius: 3px;
+    }
+    .header .top-header .top-right .navbar .nav-form input {
+        height: 25px;
+    }
+    .header .top-header .top-right .navbar .nav-form button {
+        width: 25px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav {
+        padding-left: 5px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .dropdown button {
+        width: 25px;
+        height: 25px;
+        line-height: 14px;
+        font-size: 14px;
+        border-radius: 3px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .dropdown button.profile-dropdown {
+        width: 25px;
+        height: 25px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .nav-item {
+        padding: 0 5px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .nav-item .nav-link {
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        font-size: 20px;
+    }
+    .dropdown-menu {
+        min-width: 150px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .dropdown .dropdown-menu.notification-dropdown-menu {
+        width: 200px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .dropdown .dropdown-menu.message-dropdown-menu {
+        width: 235px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .dropdown .dropdown-menu li a {
+        display: flex;
+        font-size: 12px;
+        padding: 10px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .dropdown .dropdown-menu.message-dropdown-menu li a img {
+        width: 25px;
+        height: 25px;
+    }
+    .navbar-dark .navbar-toggler {
+        border-color: var(--white);
+        padding: 0;
+        span {
+            width: 30px;
+            height: 30px;
+            background: url(../images/navbar-toggler-icon.svg) center center no-repeat;
+            background-size: 20px;
+        }
+    }
+    .header .horizontal-menu .navbar-nav {
+        margin-bottom: 0 !important;
+        max-height: 250px;
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .header .horizontal-menu .navbar .navbar-nav .nav-item {
+        padding: 0;
+    }
+    .header .horizontal-menu .navbar .navbar-nav .nav-item .nav-link {
+        height: 40px;
+        line-height: 40px;
+    }
+    .header .horizontal-menu .navbar .navbar-nav .nav-item .dropdown-menu li a {
+        font-size: 12px;
+    }
+
+    /*======================================================================================
+     Fixed Sidebar Section
+     ======================================================================================*/
+    .fixed-sidebar.sidebar-mini {
+        transform: translateX(-105%);
+    }
+
+    /*======================================================================================
+     Main Content Section
+     ======================================================================================*/
+    .main-content {
+        padding-left: 0;
+    }
+    .main-content.no-sidebar {
+        margin: 0;
+    }
+
+    /*=============================== Dashboard Sales ===============================*/
+    .sale-top-box .part-icon {
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        font-size: 25px;
+    }
+
+    .total-sale h5 {
+        font-size: 16px;
+    }
+    .total-sale h5 span {
+        font-size: 14px;
+    }
+    .total-expense h5 {
+        font-size: 14px;
+    }
+    .total-expense h5 span {
+        font-size: 12px;
+    }
+    .progress-box p {
+        font-size: 12px;
+        padding-left: 15px;
+    }
+    .progress-box p:after {
+        border-width: 5px;
+    }
+    .progress-box .progress {
+        height: 5px;
+    }
+
+    .production .box .txt {
+        width: 50%;
+    }
+    .production .box .txt h5 {
+        font-size: 14px;
+    }
+    .production .box .txt h5 span {
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+    .production .box .chart {
+        width: 50%;
+    }
+
+    .others-status h5 {
+        font-size: 16px;
+    }
+    .product-status .table {
+        min-width: max-content;
+    }
+    .product-status .table tbody tr td .progress {
+        height: 5px;
+    }
+
+    /*=============================== Dashboard Marketing ===============================*/
+    .some-statics h5 {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+    .some-statics h5 span {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    /*=============================== Dashboard Service ===============================*/
+    .top-box .single-box {
+        padding: 15px;
+    }
+    .top-box .single-box .part-icon {
+        font-size: 45px;
+    }
+    .top-box .single-box .part-txt p {
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .top-box .single-box .part-txt h3 {
+        font-size: 20px;
+    }
+
+    .progress-box .top-txt h5 {
+        font-size: 16px;
+    }
+    .progress-box .top-txt h5 span {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .review-record .table {
+        min-width: max-content;
+    }
+    .review-record .table tbody tr td .progress {
+        height: 5px;
+    }
+
+    /*=============================== Dashboard IT ===============================*/
+    .developing-team .part-txt h6 {
+        font-size: 14px;
+    }
+    .developing-team .part-txt .bottom-txt h5 {
+        font-size: 14px;
+    }
+    .developing-team .part-txt .bottom-txt h5 span {
+        font-size: 12px;
+    }
+
+    .it-status p {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    .it-status h2 {
+        font-size: 20px;
+        margin-bottom: 7px;
+    }
+
+    /*=============================== Ecommerce Pages ===============================*/
+    .ecommerce-table .table-top-control {
+        padding: 15px;
+    }
+    .ecommerce-table .table-top-control .dataTables_length label .form-control {
+        margin-left: 10px;
+    }
+
+    /*=============================== Breadcrumb Sections For All Inner Page ===============================*/
+    .breadcrumb-wrap h2 {
+        letter-spacing: 0;
+    }
+
+    /*=============================== Button Page ===============================*/
+    .btn {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+    .btn-group-sm>.btn, .btn-sm {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+    .btn-group-lg>.btn, .btn-lg {
+        font-size: 16px;
+        padding: 7px 15px;
+    }
+    .dropdown-menu li a {
+        font-size: 12px;
+    }
+
+    /*=============================== Card Page ===============================*/
+    .card-title {
+        font-size: 16px;
+    }
+    .blockquote {
+        font-size: 14px;
+    }
+
+    /*=============================== Progress Page ===============================*/
+    .progress-wrap {
+        row-gap: 15px;
+    }
+    .progress {
+        height: 10px;
+    }
+    .progress.h-md {
+        height: 5px;
+    }
+    .progress.h-lg {
+        height: 7px;
+    }
+    .progress.h-xl {
+        height: 12px;
+    }
+    .progress-bar {
+        font-size: 0.6rem;
+    }
+
+    /*=============================== Extra Component Page ===============================*/
+    .dragula-box {
+        padding: 15px;
+        row-gap: 15px;
+    }
+    .dragula-box > * {
+        padding: 15px;
+    }
+
+    /*=============================== Form Element Page ===============================*/
+    .form-control {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+    .form-control-sm {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+    .form-control-lg {
+        padding: 7px 10px;
+        font-size: 14px;
+    }
+    .input-group>.btn, .input-group>.form-control, .input-group>.form-select, .input-group>.input-group-text {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+    .input-group-sm>.btn, .input-group-sm>.form-control, .input-group-sm>.form-select, .input-group-sm>.input-group-text {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+    .input-group-lg>.btn, .input-group-lg>.form-control, .input-group-lg>.form-select, .input-group-lg>.input-group-text {
+        padding: 7px 10px;
+        font-size: 14;
+    }
+    .form-check:not(.form-switch) input {
+        margin-top: 4px;
+    }
+
+    /*=============================== Data Table Page ===============================*/
+    .table-top-control {
+        padding: 15px;
+    }
+    .dtr-details > * {
+        display: flex;
+        align-items: center;
+    }
+    .dtr-data {
+        width: 100%;
+    }
+
+    /*=============================== Icon Page ===============================*/
+    .icons .demo-icon-wrapper {
+        padding: 5px 15px;
+    }
+
+    /*=============================== Authentication Page ===============================*/
+    .authentication-area .form-row {
+        padding: 60px 0;
+        width: 500px;
+    }
+    .authentication-area .form-row .panel {
+        padding: 25px;
+    }
+    .authentication-area .form-row .panel .panel-body {
+        padding: 5px;
+    }
+    .authentication-area a {
+        font-size: 12px;
+    }
+    .authentication-area .form-row .panel .logo img {
+        width: 150px;
+    }
+
+    /*=============================== Error Page ===============================*/
+    .error-area .error-row {
+        padding: 60px 0;
+        width: 500px;
+    }
+    .error-area .error-row .error-panel .part-img {
+        width: 100%;
+    }
+    .error-area .error-row .error-panel .part-txt h2 {
+        font-size: 35px;
+    }
+    .error-area .error-row .error-panel .part-txt p {
+        font-size: 16px;
+        line-height: 26px;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+
+    /* Global Style */
+    body {
+        font-size: 12px;
+        padding-top: 84px;
+        padding-bottom: 0;
+    }
+    body.active {
+        padding-top: 124px;
+    }
+    .container-fluid {
+        padding: 0 24px;
+    }
+    .panel .panel-heading {
+        padding: 0 15px;
+        height: 40px;
+    }
+    .panel .panel-heading h3 {
+        font-size: 15px;
+        line-height: 40px;
+        letter-spacing: 0.5px;
+    }
+    .panel .panel-body {
+        padding: 15px;
+    }
+    .inline-heading h4 {
+        font-size: 14px;
+    }
+
+    /*======================================================================================
+     Offcanvas Section
+     ======================================================================================*/
+    .offcanvas .offcanvas-header {
+        padding: 20px 15px;
+    }
+    .offcanvas .offcanvas-header h4 {
+        font-size: 20px;
+    }
+    .offcanvas .offcanvas-body {
+        padding: 15px;
+    }
+
+    /*======================================================================================
+     Header Section 
+     ======================================================================================*/
+    .header .top-header .row {
+        margin: 0;
+        >* {
+            padding: 0;
+        }
+    }
+    .header .top-header .logo {
+        width: 120px;
+        order: 2;
+    }
+    .header .top-header .logo .logo-big {
+        width: 100%;
+    }
+    .header .top-header .sidebar-collapse {
+        width: 25px;
+        height: 25px;
+        line-height: 27px;
+        font-size: 20px;
+        margin-right: 10px;
+    }
+    .header .top-header .top-right .navbar .nav-form {
+        border-radius: 3px;
+    }
+    .header .top-header .top-right .navbar .nav-form input {
+        height: 25px;
+    }
+    .header .top-header .top-right .navbar .nav-form button {
+        width: 25px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav {
+        padding-left: 5px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .dropdown button {
+        width: 25px;
+        height: 25px;
+        line-height: 14px;
+        font-size: 14px;
+        border-radius: 3px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .dropdown button.profile-dropdown {
+        width: 25px;
+        height: 25px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .nav-item {
+        padding: 0 5px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .nav-item .nav-link {
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        font-size: 20px;
+    }
+    .dropdown-menu {
+        min-width: 150px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .dropdown .dropdown-menu.notification-dropdown-menu {
+        width: 200px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .dropdown .dropdown-menu.message-dropdown-menu {
+        width: 235px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .dropdown .dropdown-menu li a {
+        display: flex;
+        font-size: 12px;
+        padding: 10px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .dropdown .dropdown-menu.message-dropdown-menu li a img {
+        width: 25px;
+        height: 25px;
+    }
+    .navbar-dark .navbar-toggler {
+        border-color: var(--white);
+        padding: 0;
+        span {
+            width: 30px;
+            height: 30px;
+            background: url(../images/navbar-toggler-icon.svg) center center no-repeat;
+            background-size: 20px;
+        }
+    }
+    .header .horizontal-menu .navbar-nav {
+        margin-bottom: 0 !important;
+        max-height: 250px;
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .header .horizontal-menu .navbar .navbar-nav .nav-item {
+        padding: 0;
+    }
+    .header .horizontal-menu .navbar .navbar-nav .nav-item .nav-link {
+        height: 40px;
+        line-height: 40px;
+    }
+    .header .horizontal-menu .navbar .navbar-nav .nav-item .dropdown-menu li a {
+        font-size: 12px;
+    }
+
+    /*======================================================================================
+     Fixed Sidebar Section
+     ======================================================================================*/
+    .fixed-sidebar.sidebar-mini {
+        transform: translateX(-105%);
+    }
+
+    /*======================================================================================
+     Main Content Section
+     ======================================================================================*/
+    .main-content {
+        padding-left: 0;
+    }
+    .main-content.no-sidebar {
+        margin: 0;
+    }
+
+    /*=============================== Dashboard Sales ===============================*/
+    .sale-top-box .part-icon {
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        font-size: 25px;
+    }
+
+    .total-sale h5 {
+        font-size: 16px;
+    }
+    .total-sale h5 span {
+        font-size: 14px;
+    }
+    .total-expense h5 {
+        font-size: 14px;
+    }
+    .total-expense h5 span {
+        font-size: 12px;
+    }
+    .progress-box p {
+        font-size: 12px;
+        padding-left: 15px;
+    }
+    .progress-box p:after {
+        border-width: 5px;
+    }
+    .progress-box .progress {
+        height: 5px;
+    }
+
+    .production .box .txt {
+        width: 50%;
+    }
+    .production .box .txt h5 {
+        font-size: 14px;
+    }
+    .production .box .txt h5 span {
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+    .production .box .chart {
+        width: 50%;
+    }
+
+    .others-status h5 {
+        font-size: 16px;
+    }
+    .product-status .table {
+        min-width: max-content;
+    }
+    .product-status .table tbody tr td .progress {
+        height: 5px;
+    }
+
+    /*=============================== Dashboard Marketing ===============================*/
+    .total-transiction .part-txt .box {
+        margin-top: 10px;
+    }
+    .total-transiction .part-txt .box h4 {
+        font-size: 14px;
+        margin-bottom: 0px;
+    }
+    .total-transiction .part-txt .box p {
+        display: inline-block;
+    }
+    .custom-arrow {
+        padding-left: 15px;
+    }
+    .custom-arrow:after {
+        border-width: 5px;
+    }
+
+    .some-statics h5 {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+    .some-statics h5 span {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    /*=============================== Dashboard Service ===============================*/
+    .top-box .single-box {
+        padding: 15px;
+    }
+    .top-box .single-box .part-icon {
+        font-size: 45px;
+    }
+    .top-box .single-box .part-txt p {
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .top-box .single-box .part-txt h3 {
+        font-size: 20px;
+    }
+
+    .progress-box .top-txt h5 {
+        font-size: 16px;
+    }
+    .progress-box .top-txt h5 span {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .review-record .table {
+        min-width: max-content;
+    }
+    .review-record .table tbody tr td .progress {
+        height: 5px;
+    }
+
+    /*=============================== Dashboard Finance ===============================*/
+    .user-feedback .table {
+        min-width: max-content;
+    }
+
+    /*=============================== Dashboard IT ===============================*/
+    .developing-team .part-txt h6 {
+        font-size: 14px;
+    }
+    .developing-team .part-txt .bottom-txt h5 {
+        font-size: 14px;
+    }
+    .developing-team .part-txt .bottom-txt h5 span {
+        font-size: 12px;
+    }
+
+    .it-status p {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    .it-status h2 {
+        font-size: 20px;
+        margin-bottom: 7px;
+    }
+
+    .ongoing-it-projects .table {
+        min-width: max-content;
+    }
+
+    /*=============================== Ecommerce Pages ===============================*/
+    .ecommerce-table .table-top-control {
+        padding: 15px;
+    }
+    .ecommerce-table .table-top-control .dataTables_length label .form-control {
+        margin-left: 10px;
+    }
+    .ecommerce-table .table tbody tr td .product-thumbnail {
+        width: 30px;
+        height: 30px;
+    }
+    .table tbody tr td img {
+        width: 30px;
+        height: 30px;
+    }
+
+    /*=============================== Breadcrumb Sections For All Inner Page ===============================*/
+    .breadcrumb-wrap h2 {
+        font-size: 24px;
+        letter-spacing: 0;
+    }
+    .breadcrumb-wrap .breadcrumb li {
+        font-size: 14px;
+        &:first-child {
+            padding-left: 0;
+        }
+    }
+    .breadcrumb-wrap .breadcrumb li i {
+        font-size: 12px;
+    }
+
+    /*=============================== Button Page ===============================*/
+    .btn {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+    .btn-group-sm>.btn, .btn-sm {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+    .btn-group-lg>.btn, .btn-lg {
+        font-size: 16px;
+        padding: 7px 15px;
+    }
+    .dropdown-menu li a {
+        font-size: 12px;
+    }
+
+    /*=============================== Card Page ===============================*/
+    .card-title {
+        font-size: 16px;
+    }
+    .blockquote {
+        font-size: 14px;
+    }
+
+    /*=============================== Carousel Page ===============================*/
+    .carousel-control-prev {
+        left: 10px;
+        width: 35px;
+        height: 35px;
+    }
+    .carousel-control-prev .carousel-control-prev-icon {
+        background-size: 70%;
+    }
+    .carousel-control-next {
+        right: 10px;
+        width: 35px;
+        height: 35px;
+    }
+    .carousel-control-next .carousel-control-next-icon {
+        background-size: 70%;
+    }
+    .carousel-indicators {
+        margin-bottom: 15px;
+    }
+    .carousel-indicators [data-bs-target] {
+        height: 5px;
+    }
+
+    /*=============================== Modal Page ===============================*/
+    .modal-title {
+        font-size: 16px;
+    }
+
+    /*=============================== Progress Page ===============================*/
+    .progress-wrap {
+        row-gap: 15px;
+    }
+    .progress {
+        height: 10px;
+    }
+    .progress.h-md {
+        height: 5px;
+    }
+    .progress.h-lg {
+        height: 7px;
+    }
+    .progress.h-xl {
+        height: 12px;
+    }
+    .progress-bar {
+        font-size: 0.6rem;
+    }
+
+    /*=============================== Extra Component Page ===============================*/
+    .dragula-box {
+        padding: 15px;
+        row-gap: 15px;
+    }
+    .dragula-box > * {
+        padding: 10px;
+    }
+
+    /*=============================== Form Element Page ===============================*/
+    .form-control {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+    .form-control-sm {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+    .form-control-lg {
+        padding: 7px 10px;
+        font-size: 14px;
+    }
+    .input-group>.btn, .input-group>.form-control, .input-group>.form-select, .input-group>.input-group-text {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+    .input-group-sm>.btn, .input-group-sm>.form-control, .input-group-sm>.form-select, .input-group-sm>.input-group-text {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+    .input-group-lg>.btn, .input-group-lg>.form-control, .input-group-lg>.form-select, .input-group-lg>.input-group-text {
+        padding: 7px 10px;
+        font-size: 14;
+    }
+    .form-check:not(.form-switch) input {
+        margin-top: 4px;
+    }
+
+    /*=============================== Data Table Page ===============================*/
+    .table-top-control {
+        padding: 15px;
+    }
+    .dtr-details > * {
+        display: flex;
+        align-items: center;
+    }
+    .dtr-data {
+        width: 100%;
+    }
+
+    /*=============================== Widget Page ===============================*/
+    .chat-box .top img {
+        width: 30px;
+        height: 30px;
+    }
+    .chat-box .chat-panel .chat-scroll .message {
+        max-width: calc(100% - 25px);
+    }
+    .chat-box .chat-panel .chat-scroll .message.message-out {
+        margin-left: 25px;
+    }
+    .chat-box .chat-panel .chat-scroll .message .part-img {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+    }
+    .chat-box .chat-panel .chat-scroll .message.message-out .part-img {
+        margin-left: 10px;
+    }
+    .chat-box .chat-panel .chat-scroll .message .txt-wrap {
+        max-width: calc(100% - 40px);
+    }
+    .chat-box .chat-panel .chat-scroll .message .txt-wrap .part-txt p {
+        font-size: 12px;
+        line-height: 22px;
+    }
+
+    /*=============================== Icon Page ===============================*/
+    .icons .demo-icon-wrapper {
+        padding: 5px 15px;
+    }
+
+    /*=============================== Email Page ===============================*/
+    .mail-area .tab-content .tab-pane .table-message .table-messages-row td {
+        padding: 10px 5px;
+    }
+    .mail-area .tab-content .tab-pane .table-message .table-messages-row .td-checkbox {
+        width: 1%;
+    }
+    .mail-area .tab-content .tab-pane .table-message .table-messages-row .td-icon {
+        width: 1%;
+    }
+    .mail-area .tab-content .tab-pane .table-message .table-messages-row .td-name {
+        width: 17%;
+    }
+    .mail-area .tab-content .tab-pane .table-message .table-messages-row .td-date {
+        width: 13%;
+    }
+
+    /*=============================== Authentication Page ===============================*/
+    .authentication-area .form-row {
+        padding: 60px 0;
+        width: 400px;
+    }
+    .authentication-area .form-row .panel {
+        padding: 20px;
+    }
+    .authentication-area .form-row .panel .panel-body {
+        padding: 0;
+    }
+    .authentication-area a {
+        font-size: 12px;
+    }
+    .authentication-area .form-row .panel .logo img {
+        width: 150px;
+    }
+
+    /*=============================== Error Page ===============================*/
+    .error-area .error-row {
+        padding: 60px 0;
+        width: 400px;
+    }
+    .error-area .error-row .error-panel .part-img {
+        width: 100%;
+    }
+    .error-area .error-row .error-panel .part-txt h2 {
+        font-size: 35px;
+    }
+    .error-area .error-row .error-panel .part-txt p {
+        font-size: 16px;
+        line-height: 26px;
+    }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 575px) {
+
+    /* Global Style */
+    body {
+        font-size: 12px;
+        padding-top: 84px;
+        padding-bottom: 0;
+    }
+    body.active {
+        padding-top: 124px;
+    }
+    .container-fluid {
+        padding: 0 24px;
+    }
+    .panel .panel-heading {
+        padding: 0 15px;
+        height: 40px;
+    }
+    .panel .panel-heading h3 {
+        font-size: 15px;
+        line-height: 40px;
+        letter-spacing: 0.5px;
+    }
+    .panel .panel-body {
+        padding: 15px;
+    }
+    .inline-heading h4 {
+        font-size: 14px;
+    }
+
+    /*======================================================================================
+     Offcanvas Section
+     ======================================================================================*/
+    .offcanvas .offcanvas-header {
+        padding: 20px 15px;
+    }
+    .offcanvas .offcanvas-header h4 {
+        font-size: 20px;
+    }
+    .offcanvas .offcanvas-body {
+        padding: 15px;
+    }
+
+    /*======================================================================================
+     Header Section 
+     ======================================================================================*/
+    .header .top-header .row {
+        margin: 0;
+        >* {
+            padding: 0;
+        }
+    }
+    .header .top-header .logo {
+        width: 120px;
+        order: 2;
+    }
+    .header .top-header .logo .logo-big {
+        width: 100%;
+    }
+    .header .top-header .sidebar-collapse {
+        width: 25px;
+        height: 25px;
+        line-height: 27px;
+        font-size: 20px;
+        margin-right: 10px;
+    }
+    .header .top-header .top-right .navbar .nav-form {
+        display: none !important;
+    }
+    .header .top-header .top-right .navbar .navbar-nav {
+        padding-left: 0;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .dropdown button {
+        width: 25px;
+        height: 25px;
+        line-height: 14px;
+        font-size: 14px;
+        border-radius: 3px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .dropdown button.profile-dropdown {
+        width: 25px;
+        height: 25px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .nav-item {
+        padding: 0 5px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .nav-item .nav-link {
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        font-size: 20px;
+    }
+    .dropdown-menu {
+        min-width: 150px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .dropdown .dropdown-menu.notification-dropdown-menu {
+        width: 200px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .dropdown .dropdown-menu.message-dropdown-menu {
+        width: 235px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .dropdown .dropdown-menu li a {
+        display: flex;
+        font-size: 12px;
+        padding: 10px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .dropdown .dropdown-menu.message-dropdown-menu li a img {
+        width: 25px;
+        height: 25px;
+    }
+    .navbar-dark .navbar-toggler {
+        border-color: var(--white);
+        padding: 0;
+        span {
+            width: 30px;
+            height: 30px;
+            background: url(../images/navbar-toggler-icon.svg) center center no-repeat;
+            background-size: 20px;
+        }
+    }
+    .header .horizontal-menu .navbar-nav {
+        margin-bottom: 0 !important;
+        max-height: 250px;
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .header .horizontal-menu .navbar .navbar-nav .nav-item {
+        padding: 0;
+    }
+    .header .horizontal-menu .navbar .navbar-nav .nav-item .nav-link {
+        height: 40px;
+        line-height: 40px;
+    }
+    .header .horizontal-menu .navbar .navbar-nav .nav-item .dropdown-menu li a {
+        font-size: 12px;
+    }
+
+    /*======================================================================================
+     Fixed Sidebar Section
+     ======================================================================================*/
+    .fixed-sidebar.sidebar-mini {
+        transform: translateX(-105%);
+    }
+
+    /*======================================================================================
+     Main Content Section
+     ======================================================================================*/
+    .main-content {
+        padding-left: 0;
+    }
+    .main-content.no-sidebar {
+        margin: 0;
+    }
+
+    /*=============================== Dashboard Sales ===============================*/
+    .sale-top-box .part-icon {
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        font-size: 25px;
+    }
+
+    .total-sale h5 {
+        font-size: 16px;
+    }
+    .total-sale h5 span {
+        font-size: 14px;
+    }
+    .total-expense h5 {
+        font-size: 14px;
+    }
+    .total-expense h5 span {
+        font-size: 12px;
+    }
+    .progress-box p {
+        font-size: 12px;
+        padding-left: 15px;
+    }
+    .progress-box p:after {
+        border-width: 5px;
+    }
+    .progress-box .progress {
+        height: 5px;
+    }
+
+    .production .box .txt {
+        width: 50%;
+    }
+    .production .box .txt h5 {
+        font-size: 14px;
+    }
+    .production .box .txt h5 span {
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+    .production .box .chart {
+        width: 50%;
+    }
+
+    .others-status h5 {
+        font-size: 16px;
+    }
+    .product-status .table {
+        min-width: max-content;
+    }
+    .product-status .table tbody tr td .progress {
+        height: 5px;
+    }
+
+    /*=============================== Dashboard Marketing ===============================*/
+    .total-transiction .part-txt {
+        flex-direction: column;
+    }
+    .total-transiction .part-txt .box {
+        margin-top: 10px;
+    }
+    .total-transiction .part-txt .box h4 {
+        font-size: 14px;
+        margin-bottom: 0px;
+    }
+    .total-transiction .part-txt .box p {
+        display: inline-block;
+    }
+
+    .users ul li .user .img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .social-activity .table {
+        min-width: max-content;
+    }
+
+    .some-statics h5 {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+    .some-statics h5 span {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    /*=============================== Dashboard Service ===============================*/
+    .top-box .single-box {
+        padding: 15px;
+    }
+    .top-box .single-box .part-icon {
+        font-size: 45px;
+    }
+    .top-box .single-box .part-txt p {
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .top-box .single-box .part-txt h3 {
+        font-size: 20px;
+    }
+
+    .progress-box .top-txt h5 {
+        font-size: 16px;
+    }
+    .progress-box .top-txt h5 span {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .review-record .table {
+        min-width: max-content;
+    }
+    .review-record .table tbody tr td .progress {
+        height: 5px;
+    }
+
+    /*=============================== Dashboard Finance ===============================*/
+    .user-feedback .table {
+        min-width: max-content;
+    }
+
+    /*=============================== Dashboard IT ===============================*/
+    .developing-team .part-txt h6 {
+        font-size: 14px;
+    }
+    .developing-team .part-txt .bottom-txt h5 {
+        font-size: 14px;
+    }
+    .developing-team .part-txt .bottom-txt h5 span {
+        font-size: 12px;
+    }
+
+    .it-status p {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    .it-status h2 {
+        font-size: 20px;
+        margin-bottom: 7px;
+    }
+
+    .ongoing-it-projects .project-control {
+        flex-direction: column;
+        row-gap: 10px;
+    }
+    .ongoing-it-projects .table {
+        min-width: max-content;
+    }
+
+    /*=============================== Add Product ===============================*/
+    .bs-dropzone .bs-dropzone-area .bs-dropzone-box {
+        font-size: 14px;
+    }
+
+    /*=============================== Ecommerce Pages ===============================*/
+    .ecommerce-table .table-top-control {
+        padding: 15px;
+    }
+    .ecommerce-table .table-bottom-control {
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 20px;
+    }
+    .data-table.table thead tr th {
+        padding: 10px 30px 10px 10px;
+    }
+    .data-table.table tbody tr td {
+        padding: 5px;
+    }
+    .ecommerce-table .table tbody tr td .product-thumbnail {
+        width: 30px;
+        height: 30px;
+    }
+    .table tbody tr td img {
+        width: 30px;
+        height: 30px;
+    }
+
+    /*=============================== Breadcrumb Sections For All Inner Page ===============================*/
+    .breadcrumb-wrap {
+        padding: 20px;
+    }
+    .breadcrumb-wrap h2 {
+        font-size: 24px;
+        margin-bottom: 12px;
+        letter-spacing: 0;
+    }
+    .breadcrumb-wrap .breadcrumb {
+        justify-content: flex-start;
+    }
+    .breadcrumb-wrap .breadcrumb li {
+        font-size: 14px;
+        &:first-child {
+            padding-left: 0;
+        }
+    }
+    .breadcrumb-wrap .breadcrumb li i {
+        font-size: 12px;
+    }
+
+    /*=============================== Accordion Page ===============================*/
+    .accordion-button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    .accordion-button::after {
+        width: 14px;
+        height: 14px;
+        background-size: 14px;
+    }
+    .accordion-body {
+        padding: 15px;
+    }
+
+    /*=============================== Button Page ===============================*/
+    .btn {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+    .btn-group-sm>.btn, .btn-sm {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+    .btn-group-lg>.btn, .btn-lg {
+        font-size: 16px;
+        padding: 7px 15px;
+    }
+    .dropdown-menu li a {
+        font-size: 12px;
+    }
+
+    /*=============================== Card Page ===============================*/
+    .card-title {
+        font-size: 16px;
+    }
+    .blockquote {
+        font-size: 14px;
+    }
+
+    /*=============================== Carousel Page ===============================*/
+    .carousel-control-prev {
+        left: 10px;
+        width: 35px;
+        height: 35px;
+    }
+    .carousel-control-prev .carousel-control-prev-icon {
+        background-size: 70%;
+    }
+    .carousel-control-next {
+        right: 10px;
+        width: 35px;
+        height: 35px;
+    }
+    .carousel-control-next .carousel-control-next-icon {
+        background-size: 70%;
+    }
+    .carousel-indicators {
+        margin-bottom: 15px;
+    }
+    .carousel-indicators [data-bs-target] {
+        height: 5px;
+    }
+
+    /*=============================== Modal Page ===============================*/
+    .modal-title {
+        font-size: 16px;
+    }
+
+    /*=============================== Progress Page ===============================*/
+    .progress-wrap {
+        row-gap: 15px;
+    }
+    .progress {
+        height: 10px;
+    }
+    .progress.h-md {
+        height: 5px;
+    }
+    .progress.h-lg {
+        height: 7px;
+    }
+    .progress.h-xl {
+        height: 12px;
+    }
+    .progress-bar {
+        font-size: 0.6rem;
+    }
+
+    /*=============================== Extra Component Page ===============================*/
+    .dragula-box {
+        padding: 10px;
+        row-gap: 10px;
+    }
+    .dragula-box > * {
+        padding: 10px;
+    }
+
+    /*=============================== Form Element Page ===============================*/
+    .form-control {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+    .form-control-sm {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+    .form-control-lg {
+        padding: 7px 10px;
+        font-size: 14px;
+    }
+    .input-group>.btn, .input-group>.form-control, .input-group>.form-select, .input-group>.input-group-text {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+    .input-group-sm>.btn, .input-group-sm>.form-control, .input-group-sm>.form-select, .input-group-sm>.input-group-text {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+    .input-group-lg>.btn, .input-group-lg>.form-control, .input-group-lg>.form-select, .input-group-lg>.input-group-text {
+        padding: 7px 10px;
+        font-size: 14;
+    }
+    .form-check:not(.form-switch) input {
+        margin-top: 4px;
+    }
+
+    /*=============================== Data Table Page ===============================*/
+    .table-top-control {
+        padding: 15px;
+    }
+    .dtr-details > * {
+        display: flex;
+        align-items: center;
+    }
+    .dtr-data {
+        width: 100%;
+    }
+
+    /*=============================== Widget Page ===============================*/
+    .chat-box .top img {
+        width: 30px;
+        height: 30px;
+    }
+    .chat-box .chat-panel .chat-scroll .message {
+        max-width: calc(100% - 25px);
+    }
+    .chat-box .chat-panel .chat-scroll .message.message-out {
+        margin-left: 25px;
+    }
+    .chat-box .chat-panel .chat-scroll .message .part-img {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+    }
+    .chat-box .chat-panel .chat-scroll .message.message-out .part-img {
+        margin-left: 10px;
+    }
+    .chat-box .chat-panel .chat-scroll .message .txt-wrap {
+        max-width: calc(100% - 40px);
+    }
+    .chat-box .chat-panel .chat-scroll .message .txt-wrap .part-txt p {
+        font-size: 12px;
+        line-height: 22px;
+    }
+    .chat-box .chat-panel .chat-scroll .message .txt-wrap .part-txt .media {
+        width: 100%;
+    }
+
+    /*=============================== Icon Page ===============================*/
+    .icons .demo-icon-wrapper {
+        padding: 5px 15px;
+    }
+
+    /*=============================== Email Page ===============================*/
+    .mail-area .tab-content .tab-pane .table-message .table-messages-row td {
+        padding: 10px 5px;
+    }
+    .mail-area .tab-content .tab-pane .table-message .table-messages-row .td-checkbox {
+        width: 1%;
+    }
+    .mail-area .tab-content .tab-pane .table-message .table-messages-row .td-icon {
+        width: 1%;
+    }
+    .mail-area .tab-content .tab-pane .table-message .table-messages-row .td-name {
+        width: 18%;
+    }
+
+    /*=============================== Authentication Page ===============================*/
+    .authentication-area .form-row {
+        padding: 60px 0;
+        width: calc(100% - 30px);
+        margin: 0 15px;
+    }
+    .authentication-area .form-row .panel {
+        padding: 20px;
+    }
+    .authentication-area .form-row .panel .panel-body {
+        padding: 0;
+    }
+    .authentication-area a {
+        font-size: 12px;
+    }
+    .authentication-area .form-row .panel .logo img {
+        width: 150px;
+    }
+
+    /*=============================== Error Page ===============================*/
+    .error-area .error-row {
+        padding: 60px 0;
+        width: calc(100% - 30px);
+        margin: 0 15px;
+    }
+    .error-area .error-row .error-panel .part-img {
+        width: 100%;
+    }
+    .error-area .error-row .error-panel .part-txt h2 {
+        font-size: 35px;
+    }
+    .error-area .error-row .error-panel .part-txt p {
+        font-size: 16px;
+        line-height: 26px;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 479px) {
+
+    /* Global Style */
+    body {
+        font-size: 12px;
+        padding-top: 75px;
+        padding-bottom: 0;
+    }
+    body.active {
+        padding-top: 115px;
+    }
+    .container-fluid {
+        padding: 0 15px;
+    }
+    .panel .panel-heading {
+        padding: 0 15px;
+        height: 40px;
+    }
+    .panel .panel-heading h3 {
+        font-size: 15px;
+        line-height: 40px;
+        letter-spacing: 0.5px;
+    }
+    .panel .panel-body {
+        padding: 15px;
+    }
+    .inline-heading h4 {
+        font-size: 14px;
+    }
+    .btn-box {
+        gap: 5px;
+    }
+
+    /*======================================================================================
+     Offcanvas Section
+     ======================================================================================*/
+    .offcanvas .offcanvas-header {
+        padding: 20px 15px;
+    }
+    .offcanvas .offcanvas-header h4 {
+        font-size: 20px;
+    }
+    .offcanvas .offcanvas-body {
+        padding: 15px;
+    }
+    .btn-color {
+        width: 25px;
+        height: 25px;
+    }
+
+    /*======================================================================================
+     Header Section 
+     ======================================================================================*/
+    .header .top-header .row {
+        margin: 0;
+        >* {
+            padding: 0;
+        }
+    }
+    .header .top-header .logo {
+        width: calc(100% - 35px);
+        max-width: 120px;
+        order: 2;
+    }
+    .header .top-header .logo .logo-big {
+        width: 100%;
+    }
+    .header .top-header .sidebar-collapse {
+        width: 25px;
+        height: 25px;
+        line-height: 27px;
+        font-size: 20px;
+        margin-right: 10px;
+    }
+    .header .top-header .top-right .navbar .nav-form {
+        display: none !important;
+    }
+    .header .top-header .top-right .navbar .navbar-nav {
+        padding-left: 0;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .dropdown button {
+        width: 25px;
+        height: 25px;
+        line-height: 14px;
+        font-size: 14px;
+        border-radius: 3px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .dropdown button.profile-dropdown {
+        width: 25px;
+        height: 25px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .nav-item {
+        padding: 0 5px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .nav-item .nav-link {
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        font-size: 20px;
+    }
+    .dropdown-menu {
+        min-width: 150px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .dropdown .dropdown-menu.notification-dropdown-menu {
+        width: 200px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .dropdown .dropdown-menu.message-dropdown-menu {
+        width: 235px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .dropdown .dropdown-menu li a {
+        display: flex;
+        font-size: 12px;
+        padding: 10px;
+    }
+    .header .top-header .top-right .navbar .navbar-nav .dropdown .dropdown-menu.message-dropdown-menu li a img {
+        width: 25px;
+        height: 25px;
+    }
+    .navbar-dark .navbar-toggler {
+        border-color: var(--white);
+        padding: 0;
+        span {
+            width: 30px;
+            height: 30px;
+            background: url(../images/navbar-toggler-icon.svg) center center no-repeat;
+            background-size: 20px;
+        }
+    }
+    .header .horizontal-menu .navbar-nav {
+        margin-bottom: 0 !important;
+        max-height: 250px;
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .header .horizontal-menu .navbar .navbar-nav .nav-item {
+        padding: 0;
+    }
+    .header .horizontal-menu .navbar .navbar-nav .nav-item .nav-link {
+        height: 40px;
+        line-height: 40px;
+    }
+    .header .horizontal-menu .navbar .navbar-nav .nav-item .dropdown-menu li a {
+        font-size: 12px;
+    }
+
+    /*======================================================================================
+     Fixed Sidebar Section
+     ======================================================================================*/
+    .fixed-sidebar.sidebar-mini {
+        transform: translateX(-105%);
+    }
+
+    /*======================================================================================
+     Main Content Section
+     ======================================================================================*/
+    .main-content {
+        padding-left: 0;
+    }
+    .main-content.no-sidebar {
+        margin: 0;
+    }
+
+    /*=============================== Dashboard Sales ===============================*/
+    .sale-top-box .part-icon {
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        font-size: 25px;
+    }
+
+    .total-sale h5 {
+        font-size: 16px;
+    }
+    .total-sale h5 span {
+        font-size: 14px;
+    }
+    .total-expense h5 {
+        font-size: 14px;
+    }
+    .total-expense h5 span {
+        font-size: 12px;
+    }
+    .progress-box p {
+        font-size: 12px;
+        padding-left: 15px;
+    }
+    .progress-box p:after {
+        border-width: 5px;
+    }
+    .progress-box .progress {
+        height: 5px;
+    }
+
+    .production .box .txt {
+        width: 50%;
+    }
+    .production .box .txt h5 {
+        font-size: 14px;
+    }
+    .production .box .txt h5 span {
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+    .production .box .chart {
+        width: 50%;
+    }
+
+    .others-status h5 {
+        font-size: 16px;
+    }
+    .product-status .table {
+        min-width: max-content;
+    }
+    .product-status .table tbody tr td .progress {
+        height: 5px;
+    }
+
+    /*=============================== Dashboard Marketing ===============================*/
+    .total-transiction .part-txt {
+        flex-direction: column;
+    }
+    .total-transiction .part-txt .box {
+        margin-top: 10px;
+    }
+    .total-transiction .part-txt .box h4 {
+        font-size: 14px;
+        margin-bottom: 0px;
+    }
+    .total-transiction .part-txt .box p {
+        display: inline-block;
+    }
+
+    .users ul li .user .img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .social-activity .table {
+        min-width: max-content;
+    }
+
+    .some-statics h5 {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+    .some-statics h5 span {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    /*=============================== Dashboard Service ===============================*/
+    .top-box .single-box {
+        padding: 15px;
+    }
+    .top-box .single-box .part-icon {
+        font-size: 45px;
+    }
+    .top-box .single-box .part-txt p {
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .top-box .single-box .part-txt h3 {
+        font-size: 20px;
+    }
+
+    .progress-box .top-txt h5 {
+        font-size: 16px;
+    }
+    .progress-box .top-txt h5 span {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .review-record .table {
+        min-width: max-content;
+    }
+    .review-record .table tbody tr td .progress {
+        height: 5px;
+    }
+
+    /*=============================== Dashboard Finance ===============================*/
+    .user-feedback .table {
+        min-width: max-content;
+    }
+
+    /*=============================== Dashboard IT ===============================*/
+    .developing-team .part-txt h6 {
+        font-size: 14px;
+    }
+    .developing-team .part-txt .bottom-txt h5 {
+        font-size: 14px;
+    }
+    .developing-team .part-txt .bottom-txt h5 span {
+        font-size: 12px;
+    }
+
+    .it-status p {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    .it-status h2 {
+        font-size: 20px;
+        margin-bottom: 7px;
+    }
+
+    .ongoing-it-projects .project-control {
+        flex-direction: column;
+        row-gap: 10px;
+    }
+    .ongoing-it-projects .table {
+        min-width: max-content;
+    }
+
+    /*=============================== Add Product ===============================*/
+    .bs-dropzone .bs-dropzone-area .bs-dropzone-box {
+        font-size: 14px;
+    }
+
+    /*=============================== Ecommerce Pages ===============================*/
+    .ecommerce-table .table-top-control {
+        padding: 15px;
+    }
+    .ecommerce-table .table-bottom-control {
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 20px;
+    }
+    .data-table.table thead tr th {
+        padding: 10px 30px 10px 10px;
+    }
+    .data-table.table tbody tr td {
+        padding: 5px;
+    }
+    .ecommerce-table .table tbody tr td .product-thumbnail {
+        width: 30px;
+        height: 30px;
+    }
+    .table tbody tr td img {
+        width: 30px;
+        height: 30px;
+    }
+
+    /*=============================== Breadcrumb Sections For All Inner Page ===============================*/
+    .breadcrumb-wrap {
+        padding: 20px;
+    }
+    .breadcrumb-wrap h2 {
+        font-size: 24px;
+        margin-bottom: 12px;
+        letter-spacing: 0;
+    }
+    .breadcrumb-wrap .breadcrumb {
+        justify-content: flex-start;
+    }
+    .breadcrumb-wrap .breadcrumb li {
+        font-size: 14px;
+        &:first-child {
+            padding-left: 0;
+        }
+    }
+    .breadcrumb-wrap .breadcrumb li i {
+        font-size: 12px;
+    }
+
+    /*=============================== Accordion Page ===============================*/
+    .accordion-button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    .accordion-button::after {
+        width: 14px;
+        height: 14px;
+        background-size: 14px;
+    }
+    .accordion-body {
+        padding: 15px;
+    }
+
+    /*=============================== Button Page ===============================*/
+    .btn {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+    .btn-group-sm>.btn, .btn-sm {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+    .btn-group-lg>.btn, .btn-lg {
+        font-size: 16px;
+        padding: 7px 15px;
+    }
+    .dropdown-menu li a {
+        font-size: 12px;
+    }
+
+    /*=============================== Card Page ===============================*/
+    .card-title {
+        font-size: 16px;
+    }
+    .blockquote {
+        font-size: 14px;
+    }
+
+    /*=============================== Carousel Page ===============================*/
+    .carousel-control-prev {
+        left: 10px;
+        width: 35px;
+        height: 35px;
+    }
+    .carousel-control-prev .carousel-control-prev-icon {
+        background-size: 70%;
+    }
+    .carousel-control-next {
+        right: 10px;
+        width: 35px;
+        height: 35px;
+    }
+    .carousel-control-next .carousel-control-next-icon {
+        background-size: 70%;
+    }
+    .carousel-indicators {
+        margin-bottom: 10px;
+    }
+    .carousel-indicators [data-bs-target] {
+        height: 5px;
+    }
+
+    /*=============================== Modal Page ===============================*/
+    .modal-title {
+        font-size: 16px;
+    }
+
+    /*=============================== Progress Page ===============================*/
+    .progress-wrap {
+        row-gap: 15px;
+    }
+    .progress {
+        height: 10px;
+    }
+    .progress.h-md {
+        height: 5px;
+    }
+    .progress.h-lg {
+        height: 7px;
+    }
+    .progress.h-xl {
+        height: 12px;
+    }
+    .progress-bar {
+        font-size: 0.6rem;
+    }
+
+    /*=============================== Extra Component Page ===============================*/
+    .dragula-box {
+        padding: 5px;
+        row-gap: 5px;
+    }
+    .dragula-box > * {
+        padding: 5px;
+    }
+
+    /*=============================== Form Element Page ===============================*/
+    .form-control {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+    .form-control-sm {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+    .form-control-lg {
+        padding: 7px 10px;
+        font-size: 14px;
+    }
+    .input-group>.btn, .input-group>.form-control, .input-group>.form-select, .input-group>.input-group-text {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+    .input-group-sm>.btn, .input-group-sm>.form-control, .input-group-sm>.form-select, .input-group-sm>.input-group-text {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+    .input-group-lg>.btn, .input-group-lg>.form-control, .input-group-lg>.form-select, .input-group-lg>.input-group-text {
+        padding: 7px 10px;
+        font-size: 14;
+    }
+    .form-check:not(.form-switch) input {
+        margin-top: 4px;
+    }
+
+    /*=============================== Table Page ===============================*/
+    .table {
+        min-width: max-content;
+    }
+
+    /*=============================== Data Table Page ===============================*/
+    .table-top-control {
+        padding: 15px;
+    }
+    .dtr-details > * {
+        display: flex;
+        align-items: center;
+    }
+    .dtr-data {
+        width: 100%;
+    }
+
+    /*=============================== Widget Page ===============================*/
+    .chat-box .top img {
+        width: 30px;
+        height: 30px;
+    }
+    .chat-box .chat-panel .chat-scroll .message {
+        max-width: calc(100% - 25px);
+    }
+    .chat-box .chat-panel .chat-scroll .message.message-out {
+        margin-left: 25px;
+    }
+    .chat-box .chat-panel .chat-scroll .message .part-img {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+    }
+    .chat-box .chat-panel .chat-scroll .message.message-out .part-img {
+        margin-left: 10px;
+    }
+    .chat-box .chat-panel .chat-scroll .message .txt-wrap {
+        max-width: calc(100% - 40px);
+    }
+    .chat-box .chat-panel .chat-scroll .message .txt-wrap .part-txt p {
+        font-size: 12px;
+        line-height: 22px;
+    }
+    .chat-box .chat-panel .chat-scroll .message .txt-wrap .part-txt .media {
+        width: 100%;
+    }
+    .chat-box .chat-panel .chat-scroll .message .txt-wrap .part-txt .media iframe {
+        height: 120%;
+    }
+    .chat-box .message-type form label {
+        width: 40px;
+        height: 40px;
+        line-height: 38px;
+    }
+    .chat-box .message-type form textarea {
+        width: calc(100% - 80px);
+        height: 40px;
+        padding: 10px;
+        font-size: 12px;
+    }
+    .chat-box .message-type form button {
+        width: 40px;
+        height: 40px;
+        line-height: 38px;
+    }
+
+    /*=============================== Icon Page ===============================*/
+    .icons .demo-icon-wrapper {
+        padding: 5px 15px;
+    }
+
+    /*=============================== Email Page ===============================*/
+    .mail-area .tab-content .tab-pane .top-bar .right-btn .info {
+        display: none;
+    }
+    .mail-area .tab-content .tab-pane .table-message .table-messages-row td {
+        padding: 10px 5px;
+    }
+    .mail-area .tab-content .tab-pane .table-message .table-messages-row .td-checkbox {
+        width: 1%;
+    }
+    .mail-area .tab-content .tab-pane .table-message .table-messages-row .td-icon {
+        width: 1%;
+    }
+    .mail-area .tab-content .tab-pane .table-message .table-messages-row .td-name {
+        width: 18%;
+    }
+
+    /*=============================== Authentication Page ===============================*/
+    .authentication-area .form-row {
+        padding: 60px 0;
+        width: calc(100% - 30px);
+        margin: 0 15px;
+    }
+    .authentication-area .form-row .panel {
+        padding: 20px;
+    }
+    .authentication-area .form-row .panel .panel-body {
+        padding: 0;
+    }
+    .authentication-area a {
+        font-size: 12px;
+    }
+    .authentication-area .form-row .panel .logo img {
+        width: 150px;
+    }
+
+    /*=============================== Error Page ===============================*/
+    .error-area .error-row {
+        padding: 60px 0;
+        width: calc(100% - 30px);
+        margin: 0 15px;
+    }
+    .error-area .error-row .error-panel .part-img {
+        width: 100%;
+    }
+    .error-area .error-row .error-panel .part-txt h2 {
+        font-size: 35px;
+    }
+    .error-area .error-row .error-panel .part-txt p {
+        font-size: 16px;
+        line-height: 26px;
+    }
+}

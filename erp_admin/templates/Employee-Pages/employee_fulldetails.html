@@ -1,0 +1,132 @@
+
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- main-content -->
+<div class="main-content">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12">
+            <div class="panel mb-g">
+                <div class="panel-heading">
+                    <h3>Employee Full Details :</h3>
+                </div>
+
+                <ul class="messages" style="display: none;">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+                
+                <div class="panel-body">
+                    <div class="ecommerce-table">
+                        <div class="table-top-control mb-g" >
+                            <div class="row g-lg-4 g-md-3 g-sm-2 g-3" >
+                                <center><div class="col-sm-6" id="tableRowConut"></div>
+                                <div class="col-sm-4" id="tableSearch" hidden></div>
+                            </div>
+                        </div>
+
+                                <table id="myTable" class="table data-table col-lg-6">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Fields</th>
+                                            <th scope="col">Data</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        {% if emp_fulldetails %}
+
+                                        <tr>
+                                            <td>Image</td>
+                                            <td><img src="{{ emp_fulldetails.image.url }}" alt="{{ emp_fulldetails.image }}" width="100px" height="100px"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Branch </td>
+                                            <td>{{emp_fulldetails.branch_details.name}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Manager</td>    
+                                            <td>{{emp_fulldetails.manager_details.fname}} {{emp_fulldetails.manager_details.lname}} {{emp_fulldetails.manager_details.surname}}</td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>Joinning Date</td>
+                                            <td>{{emp_fulldetails.joinningdate}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Full Name</td>
+                                            <td>{{emp_fulldetails.fname}} {{emp_fulldetails.lname}} {{emp_fulldetails.surname}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gender</td>
+                                            <td>{{emp_fulldetails.gender}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Date Of Birth</td>
+                                            <td>{{emp_fulldetails.birthdate}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td>{{emp_fulldetails.email}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mobile No.</td>
+                                            <td>{{emp_fulldetails.mobile}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Address</td>
+                                            <td>{{emp_fulldetails.address}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Username</td>
+                                            <td>{{emp_fulldetails.username}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Password</td>
+                                            <td>{{emp_fulldetails.password}}</td>
+                                        </tr>
+                                        
+                                        {% else %}
+                                        <p>No details available for this branch.</p>
+                                        
+                                    {% endif %}
+                                    
+                                    </tbody>
+                                </table>
+                           
+
+                        <div class="table-bottom-control"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- main-content -->
+
+
+{% endblock %}
+
+<!-- main-content -->
+<script>
+    $(document).ready(function() {
+        var messages = $('.messages li');
+        if (messages.length > 0) {
+            messages.each(function() {
+                alert($(this).text());
+            });
+        }
+    });
+</script>
+
+<!-- main-content -->
+
+

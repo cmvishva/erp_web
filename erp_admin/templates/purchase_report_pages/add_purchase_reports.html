@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <!-- main-content -->
+        <div class="main-content">
+            <div class="row">
+               <div class="col-xl-12">
+                
+                    <div class="panel mb-g">
+                        <div class="panel-heading">
+                            <h3>Add Purchase Report</h3>
+                        </div>
+
+   
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="panel-body">
+                                <div class="row g-lg-4 g-2 align-items-center">
+                                    
+                                    <div class="col-sm-2">
+                                        <label for="order_id">Purchase Order ID :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="purchaseid" name="purchaseid" value="{{ apr.instance.purchaseid|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Purchase ID" required>
+                                    </div>
+                        
+                                    <div class="col-sm-2">
+                                        <label for="password">Date of Purchase :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="date" id="dateofpurchase" name="dateof_purchase" value="{{ apr.instance.dateof_purchase|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Purchase Date" required>
+                                    </div>
+                                
+                                    <div class="col-sm-2">
+                                        <label for="vendor_name">Vendor Name :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="vendor_name" name="vendor_name" value="{{ apr.instance.vendor_name|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Vendor Name" required>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <label for="vendor_contact">Vendor Contact :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="vendor_contact" name="vendor_contact" value="{{ apr.instance.vendor_contact|default_if_none:'' }}" maxlength="10" class="form-control form-control-lg" placeholder="Enter Vendor Contact" required>
+                                    </div>
+                        
+                                    <div class="col-sm-2">
+                                        <label for="product_name">Product Name :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="product_name" name="product_name" value="{{ apr.instance.product_name|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Product Name" required>
+                                    </div>
+                        
+                                    <div class="col-sm-2">
+                                        <label for="product_category">Product Category :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="product_category" name="product_category" value="{{ apr.instance.product_category|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Product Category" required>
+                                    </div>
+                        
+                                    <div class="col-sm-2">
+                                        <label for="quantity_purchased">Quantity Purchased  :</label>
+                                    </div>
+                                    <div class="col-sm-4"> 
+                                        <input type="number" id="quantity_purchase" name="quantity_purchase" value="{{ apr.instance.quantity_purchase|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Quantity Purchased" required>
+                                    </div>
+                        
+                                    <div class="col-sm-2">
+                                        <label for="unitprice">Unit Price  :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="number" id="unitprice" name="unitprice" value="{{ apr.instance.unitprice|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Unit Price" required>
+                                    </div>
+                                
+                                    <div class="col-sm-2">
+                                        <label for="total_purchase_cost">Total Purchase Cost  :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="number" id="status" name="total_purchasecost" value="{{ apr.instance.total_purchasecost|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Purchase Cost" required>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <label for="payment_method">Payment Method :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input class="form-check-input" type="radio" name="payment_method" id="payment_method" value="cash on delivery" {% if apr.instance.payment_method == 'cash on delivery' %}checked{% endif %}>
+                                        <label class="form-check-label me-3 " for="cash on delivery">Cash On Delivary</label>
+                                        <input class="form-check-input" type="radio" name="payment_method" id="payment_method" value="online" {% if apr.instance.payment_method == 'online' %}checked{% endif %}>
+                                        <label class="form-check-label" for="online">Online</label>
+                                    </div>
+                                    
+                                    <div class="col-sm-2">
+                                        <label for="status">Status  :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="status" name="status" value="{{ apr.instance.status|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Status" required>
+                                    </div>
+                                    
+                                    <div class="col-12">
+                                        <div class="btn-box justify-content-end">
+                                            <input type="reset" class="btn btn-secondary" value="Reset">
+                                            <input type="submit" value="Submit" class="btn btn-primary">
+                                        </div>
+                                    </div> 
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+               </div>
+
+            </div>
+        </div>
+
+        
+        <!-- main-content -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+{% endblock %}

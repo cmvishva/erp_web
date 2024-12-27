@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <!-- main-content -->
+        <div class="main-content">
+            <div class="row">
+               <div class="col-xl-12">
+                
+                    <div class="panel mb-g">
+                        <div class="panel-heading">
+                            <h3>Add Purchase Report</h3>
+                        </div>
+   
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="panel-body">
+                                <div class="row g-lg-4 g-2 align-items-center">
+                                    
+                                    <div class="col-sm-4">
+                                        <label for="order_id">Full Name :</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <select name="fullname" id="fullname" class="form-control form-control-lg">
+                                            <option value="" disabled {% if not fullname %}selected{% endif %}>Select Employee Name</option>
+                                            {% for emp in allemp %}
+                                                <option value="{{ emp.id }}" {% if emp.id == fullname.id %}selected{% endif %}>{{ emp.fname }} {{ emp.lname }} {{ emp.surname }}</option>
+                                            {% endfor %}
+                                        </select>
+                                        
+                                    </div>
+                        
+                                    <div class="col-sm-4">
+                                        <label for="password">Work :</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="work" name="work" value="{{ todo_work.instance.work|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Your Work" required>
+                                    </div>
+                                
+                                    <div class="col-sm-4">
+                                        <label for="vendor_name">Start Date :</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="date" id="start_date" name="start_date" value="{{ todo_work.instance.start_date|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Start Date" required>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <label for="vendor_contact">End Date :</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="date" id="end_date" name="end_date" value="{{ todo_work.instance.end_date|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter End Date" required>
+                                    </div>
+                                    
+                                    <div class="col-sm-4">
+                                        <label for="vendor_contact">Work Description :</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <textarea name="work_desc" id="work_desc" class="form-control form-control-lg" placeholder="Enter Work Full Description">{{ todo_work.instance.work_desc|default_if_none:'' }}</textarea>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <label for="product_name">Status :</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <select name="status" id="status" class="form-control form-control-lg" required>
+                                            <option value="" disabled {% if not status %}selected{% endif %}>Select Status</option>
+                                            <option value="Inprocess" {% if status == 'Inprocess' %}selected{% endif %}>Inprocess</option>
+                                            <option value="Completed" {% if status == 'Completed' %}selected{% endif %}>Completed</option>
+                                            <option value="Cancel" {% if status == 'Cancel' %}selected{% endif %}>Cancel</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <label for="delay_reason">Work Delay Reason :</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <textarea name="delay_reason" id="delay_reason" class="form-control form-control-lg" placeholder="Enter Work Delay Reason" >{{ todo_work.instance.delay_reason|default_if_none:'' }}</textarea>
+                                    </div>
+                        
+                                    <div class="col-12">
+                                        <div class="btn-box justify-content-center">
+                                            <input type="reset" class="btn btn-secondary" value="Reset">
+                                            <input type="submit" value="submit" class="btn btn-primary">
+                                        </div>
+                                    </div> 
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+               </div>
+
+            </div>
+        </div>
+
+        
+        <!-- main-content -->
+
+        
+        
+{% endblock %}

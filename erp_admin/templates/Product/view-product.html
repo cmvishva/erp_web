@@ -1,0 +1,216 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- main-content -->
+<div class="main-content">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12">
+            <div class="panel mb-g">
+                <div class="panel-heading">
+                    <h3>Products</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="ecommerce-table">
+                        <div class="table-top-control mb-g">
+                            <div class="row g-lg-4 g-md-3 g-sm-2 g-3">
+                                <center><div class="col-sm-6" id="tableRowConut"></div></center>
+                                
+                                <div class="col-sm-4" id="tableSearch" hidden></div>
+                            </div>
+                        </div>
+                        <table id="myTable" class="table data-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for pt in viewpd %}
+                                <tr>
+                                    <td>{{pt.id}}</td>
+                                    <td>
+                                        <a href="#" class="product-thumbnail" title="Product-1" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" tabindex="0">
+                                            <img src="{{MEDIA_ROOT}}/{{ pt.pimage }}" alt="image">
+                                        </a>
+                                    </td>
+                                    <td>{{pt.catfk.categoryname}}</td>
+                                    <td>Rs.{{pt.pprice}}</td>
+                                    <td>
+                                        <ul>
+                                            {% if pt.pweight_500gm %}
+                                            <li>500gm</li>
+                                            {% endif %}
+                                            {% if pt.pweight_1kg %}
+                                            <li>1kg</li>
+                                            {% endif %}
+                                            {% if pt.pweight_1_5kg %}
+                                            <li>1.5kg</li>
+                                            {% endif %}
+                                            {% if pt.pweight_2kg %}
+                                            <li>2kg</li>
+                                            {% endif %}
+                                            {% if pt.pweight_2_5kg %}
+                                            <li>2.5kg</li>
+                                            {% endif %}
+                                            {% if pt.pweight_3kg %}
+                                            <li>3kg</li>
+                                            {% endif %}
+                                            {% if pt.pweight_3_5kg %}
+                                            <li>3.5kg</li>
+                                            {% endif %}
+                                            {% if pt.pweight_4kg %}
+                                            <li>4kg</li>
+                                            {% endif %}
+                                            {% if pt.pweight_4_5kg %}
+                                            <li>4.5kg</li>
+                                            {% endif %}
+                                            {% if pt.pweight_5kg %}
+                                            <li>5kg</li>
+                                            {% endif %}
+                                        </ul>
+                                    
+                                    </td>
+                                    <td><span class="badge bg-success">{{pt.pstatus}}</span></td>
+                                    <td>
+                                        <div class="btn-box">
+                                            <button class="btn btn-sm btn-success"><a href="/updateproduct/{{ pt.id }}"
+                                                    class="text-white"><i class="bi bi-pencil-square"></a></i></button>
+                                            <!-- <button class="btn btn-sm btn-danger"><i class="bi bi-trash"><a href= "/deleteproduct/ {{pt.id}} "></a></i></button> -->
+                                            <button class="btn btn-sm btn-danger"><a href="/deleteproduct/{{ pt.id }}"
+                                                    class="text-white"><i class="bi bi-trash"></a></i></button>
+
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                {% endfor %}
+                                
+                                
+                                
+                            </tbody>
+                        </table>
+                        <div class="table-bottom-control"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- main-content -->
+
+<!-- main-content -->
+{% comment %} <div class="main-content">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12">
+            <div class="panel mb-g">
+                <div class="panel-heading">
+                    <h3>All Products</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="ecommerce-table">
+                        <div class="table-top-control mb-g">
+                            <div class="row g-lg-4 g-md-3 g-sm-2 g-3">
+                                <div class="col-sm-4" id="tableRowConut"></div>
+                            
+                                <div class="col-sm-4" id="tableSearch"></div>
+                            </div>
+                        </div>
+                        </div>
+                        <table id="myTable" class="table data-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Product</th>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Price(500gm)</th>
+                                    <th scope="col">Weight</th>
+                                    <th scope="col">Stock</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for pt in viewpd %}
+                                <tr>
+                                    <td>{{pt.id}}</td>
+                                    <td>
+                                        <a href="#" class="product-thumbnail" title="Product-1" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" tabindex="0">
+                                            <img src="{{MEDIA_ROOT}}/{{ pt.pimage }}" alt="image">
+                                        </a>
+                                    </td>
+                                    <td>{{pt.catfk.categoryname}}</td>
+                                    <td>Rs.{{pt.pprice}}</td>
+                                    <td>
+                                        <ul>
+                                            {% if pt.pweight_500gm %}
+                                            <li>500gm</li>
+                                            {% endif %}
+                                            {% if pt.pweight_1kg %}
+                                            <li>1kg</li>
+                                            {% endif %}
+                                            {% if pt.pweight_1_5kg %}
+                                            <li>1.5kg</li>
+                                            {% endif %}
+                                            {% if pt.pweight_2kg %}
+                                            <li>2kg</li>
+                                            {% endif %}
+                                            {% if pt.pweight_2_5kg %}
+                                            <li>2.5kg</li>
+                                            {% endif %}
+                                            {% if pt.pweight_3kg %}
+                                            <li>3kg</li>
+                                            {% endif %}
+                                            {% if pt.pweight_3_5kg %}
+                                            <li>3.5kg</li>
+                                            {% endif %}
+                                            {% if pt.pweight_4kg %}
+                                            <li>4kg</li>
+                                            {% endif %}
+                                            {% if pt.pweight_4_5kg %}
+                                            <li>4.5kg</li>
+                                            {% endif %}
+                                            {% if pt.pweight_5kg %}
+                                            <li>5kg</li>
+                                            {% endif %}
+                                        </ul>
+                                       
+
+                                        <!-- {% for weight in weights %}
+                                        <li>{{ weight }}</li>
+                                        {% endfor %} -->
+                                    </td>
+                                    <td><span class="badge bg-success">{{pt.pstatus}}</span></td>
+                                    <td>
+                                        <div class="btn-box">
+                                            <button class="btn btn-sm btn-success"><a href="/updateproduct/{{ pt.id }}"
+                                                    class="text-white"><i class="bi bi-pencil-square"></a></i></button>
+                                            <!-- <button class="btn btn-sm btn-danger"><i class="bi bi-trash"><a href= "/deleteproduct/ {{pt.id}} "></a></i></button> -->
+                                            <button class="btn btn-sm btn-danger"><a href="/deleteproduct/{{ pt.id }}"
+                                                    class="text-white"><i class="bi bi-trash"></a></i></button>
+
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                        <div class="table-bottom-control"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> {% endcomment %}
+<!-- main-content -->
+{% endblock %}

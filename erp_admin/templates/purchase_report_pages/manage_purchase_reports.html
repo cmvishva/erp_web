@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <!-- main-content -->
+        <div class="main-content">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="panel mb-g">
+                        <div class="panel-heading">
+                            <h3>Manage Purchase</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="ecommerce-table">
+                                <div class="table-top-control mb-g">
+                                    <div class="row g-lg-4 g-md-3 g-sm-2 g-3">
+                                        <div class="col-sm-6" id="tableRowConut"></div>
+                                        <div class="col-sm-6" id="tableSearch"></div> 
+                                    </div>
+
+                                    <div class="row g-lg-4 g-md-3 g-sm-2 g-3 mt-2">
+                                        <form method="GET" action="{% url 'manage_purchasereport' %}" class="col-sm-12">
+                                            {% csrf_token %}
+                                            <div class="row g-lg-4 g-md-3 g-sm-2 g-3">
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="purchaseid" value="{{ purchaseid_query }}" class="form-control" placeholder="Search by Purchase ID">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="dateof_purchase" value="{{ dateof_purchase_query }}" class="form-control" placeholder="Search By Date Of Purchase">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="vendor_name" value="{{ vendor_name_query }}" class="form-control" placeholder="Search By Vendor Name">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="vendor_contact" value="{{ vendor_contact_query }}" class="form-control" placeholder="Search By Vendor Contact">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="product_name" value="{{ product_name_query }}" class="form-control" placeholder="Search By Product Name">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="product_category" value="{{ product_category_query }}" class="form-control" placeholder="Search By Product Category">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="quantity_purchase" value="{{ quantity_purchase_query }}" class="form-control" placeholder="Search By Quantity Purchase">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="payment_method" value="{{ payment_method_query }}" class="form-control" placeholder="Search By Payment Method">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="unitprice" value="{{ unitprice_query }}" class="form-control" placeholder="Search By Unit Price">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="total_purchasecost" value="{{ total_purchasecost_query }}" class="form-control" placeholder="Search by Total Purchase Cost">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="status" value="{{ status_query }}" class="form-control" placeholder="Search By Status">
+                                            </div>
+                                            
+                                            <div class="col-md-3 mt-2 ">
+                                                <button type="submit" class="btn btn-primary">Search</button>
+                                            </div>
+                                        </div>
+                                        
+                                        </form>
+                                    </div>
+
+                                </div>
+                                <table id="myTable" class="table data-table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Purchase ID</th>
+                                            <th scope="col">Date Of Purchase</th>
+                                            <th scope="col">Vendor Name</th>
+                                            <th scope="col">Vendor Contact</th>
+                                            <th scope="col">Product Name</th>
+                                            <th scope="col">Product Category</th>
+                                            <th scope="col">Quantity Sold</th>
+                                            <th scope="col">Unit Price</th>
+                                            <th scope="col">Total</th>
+                                            <th scope="col">Payment Method</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      {% for vpr in purchase_report %}
+                                        <tr>
+                                            <td>{{vpr.purchaseid}}</td>
+                                            <td>{{vpr.dateof_purchase}}</td>
+                                            <td>{{vpr.vendor_name}}</td>
+                                            <td>{{vpr.vendor_contact}}</td>
+                                            <td>{{vpr.product_name}}</td>
+                                            <td>{{vpr.product_category}}</td>
+                                            <td>{{vpr.quantity_purchase}}</td>
+                                            <td>{{vpr.unitprice}}</td>
+                                            <td>{{vpr.total_purchasecost}}</td>
+                                            <td>{{vpr.payment_method}}</td>
+                                            <td>{{vpr.status}}</td>
+                                           
+                                            <td>
+                                                <div class="btn-box">
+                                                    <!-- <a href="/view_purchasereport_fulldetails/{{ vpr.id }}" class="btn btn-sm btn-secondary text-white"><i class="bi bi-eye-fill"></a></i> -->
+                                                    <a href="/update_purchasereport/{{ vpr.id }}" class="btn btn-sm btn-success text-white"><i class="bi bi-pencil-square"></a></i>
+                                                    <a href="/delete_purchasereport/{{ vpr.id }}" class="btn btn-sm btn-danger text-white"><i class="bi bi-trash"></a></i>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                <div class="table-bottom-control"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- main-content -->
+
+        
+{% endblock %}

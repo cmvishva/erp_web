@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+<!-- main-content -->
+<div class="main-content">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12">
+            <div class="panel mb-g">
+                <div class="panel-heading">
+                    <h3>Profile</h3>
+                </div>
+                <ul class="messages" style="display: none;">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="panel-body">
+                        <form class="add-product">
+                            <div class="row g-lg-4 g-2 align-items-center">
+                                <div class="logo logo-dashboard mb-4 text-center">
+                                    <img src="{% static '/static_admin/assets/images/logo.jpeg' %}">
+                                    <p class="text-center mt-20"><span class="d-block fw-bold mb-10 fs-6">Hello!
+                                            {{request.user.username}}</span> </p>
+                                    <p class="text-center mt-20"><span
+                                            class="d-block fw-bold mb-10 fs-6">ASK Import Export Services</span>Welcome To
+                                        Dashboard </p>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- main-content -->
+ 
+<script>
+    $(document).ready(function() {
+        var messages = $('.messages li');
+        if (messages.length > 0) {
+            messages.each(function() {
+                alert($(this).text());
+            });
+        }
+    });
+</script>
+
+{% endblock %}

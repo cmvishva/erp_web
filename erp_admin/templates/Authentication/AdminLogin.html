@@ -1,0 +1,136 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP System</title>
+
+    <link rel="shortcut icon" href="{% static '/static_admin/assets/images/logo.jpeg' %}">
+    <link rel="stylesheet" href="{% static '/static_admin/assets/vendor/bootstrap-icon/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static '/static_admin/assets/vendor/css/simplebar.css' %}">
+    <link rel="stylesheet" href="{% static '/static_admin/assets/vendor/css/prettify.css' %}">
+    <link rel="stylesheet" href="{% static '/static_admin/assets/vendor/css/bootstrap.min.css' %}">
+    <link id="styles" rel="stylesheet" href="{% static '/static_admin/assets/css/style.css' %}">
+    <!-- <link id="styles" rel="stylesheet" href="{% static 'assets/css/color-9.css' %}">
+    <link id="styles" rel="stylesheet" href="{% static 'assets/css/color-8.css' %}">
+    <link id="styles" rel="stylesheet" href="{% static 'assets/css/color-7.css' %}"> -->
+    
+   
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="authentication-area">
+            <div class="form-row">
+                
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="logo mb-4">
+                            <img src="{% static '/static_admin/assets/images/logo.jpeg' %}">
+                            <p class="text-center mt-20"><span class="d-block fw-bold mb-10 fs-6">Hello! let's get started</span> Sign in to continue.</p>
+                        </div>
+
+                        <ul class="messages" style="display: none;">
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <li>{{ message }}</li>
+                                {% endfor %}
+                            {% endif %}
+                        </ul>
+                        
+                        <form class="mb-4" action="" method="post">
+                            
+                            {% csrf_token %}
+                            <div class="mb-4">
+                                <div class="form-group has-icon-left">
+                                    <select name="role" id="Category" required class="form-select form-control form-control-lg">
+                                        <option value="" disabled selected>Select Your Role</option>
+                                        <option value="Admin">Admin</option>
+                                        <option value="Employee">Employee</option>
+                                    </select>
+                                </div>
+                            </div>
+                           
+                           <div class="mb-4">
+                                <div class="form-group has-icon-left">
+                                    <input type="text" class="form-control form-control-lg" placeholder="@username" name="username">
+                                    <div class="form-control-icon">
+                                        <i class="bi bi-person-fill"></i>
+                                    </div>
+                                </div>
+                            </div> 
+
+                            <div class="mb-4">
+                                <div class="form-group has-icon-left">
+                                    <input type="password" class="form-control form-control-lg" id="password" placeholder="Password" name="password">
+                                    <div class="form-control-icon" style="cursor: pointer;">
+                                        <i class="bi bi-eye-slash" id="togglePassword"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-lg btn-primary w-100">Sign In</button>
+                        </form>
+                        <!-- <p>Don't have an account? <a href="register.html">Sign up</a> here</p> -->
+                        <a href="admin_change_password">Change Password</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script src="{% static '/static_admin/assets/vendor/js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static '/static_admin/assets/vendor/js/simplebar.min.js' %}"></script>
+    <script src="{% static '/static_admin/assets/vendor/js/prettify.js' %}"></script>
+    <script src="{% static '/static_admin/assets/vendor/js/dragula.min.js' %}"></script>
+    <script src="{% static '/static_admin/assets/vendor/js/bs-dropzone.min.js' %}"></script>
+    <script src="{% static '/static_admin/assets/vendor/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static '/static_admin/assets/js/main.js' %}"></script>
+
+
+    
+    
+    <script>
+        $(document).ready(function() {
+            var messages = $('.messages li');
+            if (messages.length > 0) {
+                messages.each(function() {
+                    alert($(this).text());
+                });
+            }
+        });
+    </script>
+
+    <script>
+        document.getElementById('togglePassword').addEventListener('click', function () {
+            // Get the password input field and the icon element
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = this;
+        
+            // Check if the password field type is 'password'
+            if (passwordInput.type === 'password') {
+                // Change it to 'text' to show the password
+                passwordInput.type = 'text';
+                // Change the icon to 'eye' to indicate the password is visible
+                toggleIcon.classList.remove('bi-eye-slash');
+                toggleIcon.classList.add('bi-eye');
+            } else {
+                // Change it back to 'password' to hide the password
+                passwordInput.type = 'password';
+                // Revert the icon back to 'eye-slash'
+                toggleIcon.classList.remove('bi-eye');
+                toggleIcon.classList.add('bi-eye-slash');
+            }
+        });
+    </script>
+
+ 
+</body>
+
+
+</html>

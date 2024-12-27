@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <!-- main-content -->
+        <div class="main-content">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="panel mb-g">
+                        <div class="panel-heading">
+                            <h3>Manage Sales Report</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="ecommerce-table">
+                                <div class="table-top-control mb-g">
+                                    <div class="row g-lg-4 g-md-3 g-sm-2 g-3">
+                                        <div class="col-sm-6" id="tableRowConut"></div>
+                                        <div class="col-sm-6" id="tableSearch" name="search"></div>
+                                    </div>
+                                </div>
+                                <table id="myTable" class="table data-table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Order ID</th>
+                                            <th scope="col">Date Of Sale</th>
+                                            <th scope="col">Customer Name</th>
+                                            <th scope="col">Customer Contact</th>
+                                            <th scope="col">Product Name</th>
+                                            <th scope="col">Product Category</th>
+                                            <th scope="col">Quantity Sold</th>
+                                            <th scope="col">Payment Method</th>
+                                            <th scope="col">Unit Price</th>
+                                            <th scope="col">Total</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">Action</th>
+                                                
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      {% for esr in emp_sales_report %}
+                                        <tr>
+                                            <td>{{esr.orderid}}</td>
+                                            <td>{{esr.dateof_sale}}</td>
+                                            <td>{{esr.customer_name}}</td>
+                                            <td>{{esr.customer_contact}}</td>
+                                            <td>{{esr.product_name}}</td>
+                                            <td>{{esr.product_category}}</td>
+                                            <td>{{esr.quantity_sold}}</td>
+                                            <td>{{esr.payment_method}}</td>
+                                            <td>{{esr.unitprice}}</td>
+                                            <td>{{esr.total}}</td>
+                                            <td>{{esr.status}}</td>
+                                           
+                                            <td>
+                                                <div class="btn-box">
+                                                    {% comment %} <a href="/view_salesreport_fulldetails/{{ esr.id }}" class="btn btn-sm btn-secondary text-white"><i class="bi bi-eye-fill"></a></i> {% endcomment %}
+                                                    <a href="/employee_update_salesreport/{{ esr.id }}" class="btn btn-sm btn-success text-white"><i class="bi bi-pencil-square"></a></i>
+                                                    <a href="/employee_delete_salesreport/{{ esr.id }}" class="btn btn-sm btn-danger text-white"><i class="bi bi-trash"></a></i>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                <div class="table-bottom-control"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- main-content -->
+        
+{% endblock %}

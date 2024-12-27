@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html>
+<style>
+table, th, td {
+  border:1px solid black;
+  border-collapse: collapse;
+}
+
+h2{
+text-align: center;
+border:1px solid black;
+}
+
+</style>
+
+<body>
+
+<h2>PROFORMA INVOICE</h2>
+
+<!-- {% if sales_report %}
+        Order ID:{{sales_report.orderid}} <br/>
+        Date Of Sale:  {{sales_report.dateof_sale}} <br/>
+        Customer Name : {{sales_report.customer_name}} <br/>
+        Customer Contact : {{sales_report.customer_contact}} <br/>
+        Product Name : {{sales_report.product_name}} <br/>
+        product_category : {{sales_report.product_category}} <br/>
+        Quantity Sold : {{sales_report.quantity_sold}} <br/>
+        Payment Method : {{sales_report.payment_method}} <br/>
+        Unit Price : {{sales_report.unitprice}} <br/>
+        Total : {{sales_report.total}} <br/>
+        Status : {{sales_report.status}} <br/>
+        {% endif %} -->
+
+<table style="width:100%">
+    {% if sales_report %}
+  <tr>
+    <th>Order ID</th>
+    <th>Date Of Sale</th>
+    <th>Customer Name</th>
+    <th>Customer Contact </th>
+    <th>Product Name</th>
+
+  </tr>
+  <tr>
+    <td>{{sales_report.orderid}}</td>
+    <td>{{sales_report.dateof_sale}}</td>
+    <td>{{sales_report.customer_name}}</td>
+    <td>{{sales_report.customer_contact}}</td>
+    <td>{{sales_report.product_name}}</td>
+  </tr>
+  
+  <tr>
+    <td>{{sales_report.product_category}}</td>
+    <td>{{sales_report.quantity_sold}}</td>
+    <td>{{sales_report.payment_method}}</td>
+	<td>{{sales_report.unitprice}}</td>
+    <td>{{sales_report.total}} </td>
+  </tr>
+  {% endif %}
+
+</table>
+
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style type="text/css">
+        body {
+            font-weight: 200;
+            font-size: 14px;
+        }
+        .header {
+            font-size: 20px;
+            font-weight: 100;
+            text-align: center;
+            color: #007cae;
+        }
+        .title {
+            font-size: 22px;
+            font-weight: 100;
+           padding: 10px 20px 0px 20px;  
+        }
+        .title span {
+            color: #007cae;
+        }
+        .details {
+            padding: 10px 20px 0px 20px;
+            text-align: left !important;
+        }
+        .hrItem {
+            border: none;
+            height: 1px;
+            color: #333;
+            background-color: #fff; 
+        }
+    </style>
+
+</head>
+<body>
+    <div class='wrapper'>
+        <div class='header'>
+            <p class='title'># Sales Report # </p>
+        </div>
+    <div>
+    <div class='details'>
+        {% if sales_report %}
+        Order ID:{{sales_report.orderid}} <br/>
+        Date Of Sale:  {{sales_report.dateof_sale}} <br/>
+        Customer Name : {{sales_report.customer_name}} <br/>
+        Customer Contact : {{sales_report.customer_contact}} <br/>
+        Product Name : {{sales_report.product_name}} <br/>
+        product_category : {{sales_report.product_category}} <br/>
+        Quantity Sold : {{sales_report.quantity_sold}} <br/>
+        Payment Method : {{sales_report.payment_method}} <br/>
+        Unit Price : {{sales_report.unitprice}} <br/>
+        Total : {{sales_report.total}} <br/>
+        Status : {{sales_report.status}} <br/>
+        {% endif %}
+        <hr class='hrItem' />
+    </div>
+</div> -->
+</body>
+</html>

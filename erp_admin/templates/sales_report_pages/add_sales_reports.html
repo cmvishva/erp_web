@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <!-- main-content -->
+        <div class="main-content">
+            <div class="row">
+               <div class="col-xl-12">
+            
+                    <div class="panel mb-g">
+                        <div class="panel-heading">
+                            <h3>Add Sales Report</h3>
+                        </div>
+   
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="panel-body">
+                                <div class="row g-lg-4 g-2 align-items-center">
+                                    
+                                    <div class="col-sm-2">
+                                        <label for="order_id">Order ID :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="order_id" name="orderid" value="{{ addsr.instance.orderid|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Order ID" required>
+                                    </div>
+                        
+                                    <div class="col-sm-2">
+                                        <label for="password">Date of Sale :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="date" id="dateof_sale" name="dateof_sale" value="{{ addsr.instance.dateof_sale|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Date Of Sales" required>
+                                    </div>
+                                
+                                    <div class="col-sm-2">
+                                        <label for="customer_name">Customer Name :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="customer_name" name="customer_name" value="{{ addsr.instance.customer_name|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Customer Name" required>
+                                    </div>
+
+                                    <div class="col-sm-2 ">
+                                        <label for="customer_contact">Customer Contact :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="customer_contact" name="customer_contact" value="{{ addsr.instance.customer_contact|default_if_none:'' }}" maxlength="10" class="form-control form-control-lg" placeholder="Enter Customer Contact" required>
+                                    </div>
+                        
+                                    <div class="col-sm-2">
+                                        <label for="product_name">Product Name :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="product_name" name="product_name" value="{{ addsr.instance.product_name|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Product Name" required>
+                                    </div>
+                        
+                                    <div class="col-sm-2">
+                                        <label for="product_category">Product Category :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="product_category" name="product_category" value="{{ addsr.instance.product_category|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Product Category" required>
+                                    </div>
+                        
+                                    <div class="col-sm-2">
+                                        <label for="quantity_sold">Quantity Sold :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="number" id="quantity_sold" name="quantity_sold" value="{{ addsr.instance.quantity_sold|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Quantity Sold" required>
+                                    </div>
+                        
+                                    <div class="col-sm-2">
+                                        <label for="birthdate">Unit Price  :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="number" id="unitprice" name="unitprice" value="{{ addsr.instance.unitprice|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Unit Price" required>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <label for="birthdate">Total  :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="number" id="total" name="total" value="{{ addsr.instance.total|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Total" required>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <label for="payment_method">Payment Method :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input class="form-check-input" type="radio" name="payment_method" id="payment_method_cashondelivery" value="cash on delivery" {% if addsr.instance.payment_method == 'cash on delivery' %}checked{% endif %} >
+                                        <label class="form-check-label me-3 " for="payment_method">Cash On Delivary</label>
+                                        <input class="form-check-input" type="radio" name="payment_method" id="payment_method_online" value="online" {% if addsr.instance.payment_method == 'online' %}checked{% endif %} >
+                                        <label class="form-check-label" for="gender_online">Online</label>
+                                    </div>
+                                
+                                    <div class="col-sm-2">
+                                        <label for="status">Status  :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="status" name="status" value="{{ addsr.instance.status|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Status" required>
+                                    </div>
+                                    
+                                    <div class="col-12">
+                                        <div class="btn-box justify-content-end">
+                                            <input type="reset" class="btn btn-secondary" value="Reset">
+                                            <input type="submit" value="Submit" class="btn btn-primary">
+                                        </div>
+                                    </div> 
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+               </div>
+
+            </div>
+        </div>
+
+        
+        <!-- main-content -->
+
+        
+{% endblock %}

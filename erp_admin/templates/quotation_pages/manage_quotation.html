@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <!-- main-content -->
+        <div class="main-content">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="panel mb-g">
+                        <div class="panel-heading">
+                            <h3>Manage Quotation</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="ecommerce-table">
+                                <div class="table-top-control mb-g">
+                                    <div class="row g-lg-4 g-md-3 g-sm-2 g-3">
+                                        <div class="col-sm-6" id="tableRowConut"></div>
+                                        <div class="col-sm-6" id="tableSearch" ></div>
+                                    </div>
+                                    
+                                    <div class="row g-lg-4 g-md-3 g-sm-2 g-3 mt-2">
+                                        <form method="GET" action="{% url 'manage_quotation' %}" class="col-sm-12">
+                                            {% csrf_token %}
+                                            <div class="row g-lg-4 g-md-3 g-sm-2 g-3">
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="orderid" value="{{ orderid_query }}" class="form-control" placeholder="Search by Order ID">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="customer_name" value="{{ customer_name_query }}" class="form-control" placeholder="Search by Customer Name">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="customer_contact" value="{{ customer_contact_query }}" class="form-control" placeholder="Search by Customer Contact">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="product_name" value="{{ product_name_query }}" class="form-control" placeholder="Search by Product Name">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="status" value="{{ status_query }}" class="form-control" placeholder="Search by Status">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="payment_method" value="{{ payment_method_query }}" class="form-control" placeholder="Search by Payment Method">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="payment_method" value="{{ payment_method_query }}" class="form-control" placeholder="Search by Payment Method">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="payment_method" value="{{ payment_method_query }}" class="form-control" placeholder="Search by Payment Method">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="payment_method" value="{{ payment_method_query }}" class="form-control" placeholder="Search by Payment Method">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="payment_method" value="{{ payment_method_query }}" class="form-control" placeholder="Search by Payment Method">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="payment_method" value="{{ payment_method_query }}" class="form-control" placeholder="Search by Payment Method">
+                                            </div>
+                                            
+                                            <div class="col-md-3 mt-2 ">
+                                                <button type="submit" class="btn btn-primary">search</button>
+                                                <button class="btn btn-primary">
+                                                    <a href="{% url 'download_excel_salesreport' %}?orderid={{ orderid_query }}&customer_name={{ customer_name_query }}&customer_contact={{ customer_contact_query }}&product_name={{ product_name_query }}&status={{ status_query }}&payment_method={{ payment_method_query }}" style="color: white;">Download Sales Report Excel</a>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+
+                                            <!-- <div class="col-sm-6 mt-2">
+                                                <button type="submit" class="btn btn-success" name="export_excel" value="1">Export to Excel</button>
+                                                <button class="btn btn-primary"><a href="{% url 'download_excel_salesreport' %}">Download</a></button>
+                                            </div> -->
+                                        </form>
+                                    </div>
+
+                                </div>
+                                <table id="myTable" class="table data-table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Consignee Name</th>
+                                            <th scope="col">PI No</th>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Clearing Port</th>
+                                            <th scope="col">Product Name</th>
+                                            <th scope="col">Exchange Rate</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      {% for vq in view_quotation %}
+                                        <tr>
+                                            <td>{{vq.id}}</td>
+                                            <td>{{vq.consignee_name}}</td>
+                                            <td>{{vq.pi_no}}</td>
+                                            <td>{{vq.date}}</td>
+                                            <td>{{vq.clearing_port}}</td>
+                                            <td>{{vq.product_name}}</td>
+                                            <td>{{vq.exchange_rate}}</td>
+                                            <td>
+                                                <div class="btn-box">
+                                                    <a href="/quotation_fulldetails/{{ vq.id }}" class="btn btn-sm btn-secondary text-white"><i class="bi bi-eye-fill"></a></i> 
+                                                    <a href="/update_quotation/{{ vq.id }}" class="btn btn-sm btn-success text-white"><i class="bi bi-pencil-square"></a></i>
+                                                    <a href="/delete_quotation/{{ vq.id }}" class="btn btn-sm btn-danger text-white"><i class="bi bi-trash"></a></i>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+
+                                <!-- <button class="btn btn-sm btn-success text-white"><a href="{% url 'download_excel_data' %}">download sales report to excel</a></button> -->
+                                
+                                <div class="table-bottom-control"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- main-content -->
+
+{% endblock %}

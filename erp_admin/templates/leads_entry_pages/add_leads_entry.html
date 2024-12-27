@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <!-- main-content -->
+        <div class="main-content">
+            <div class="row">
+               <div class="col-xl-12">
+                
+                    <div class="panel mb-g">
+                        <div class="panel-heading">
+                            <h3>Add Leads Information</h3>
+                        </div>
+
+                        <div id="popup-message" style="display: none; padding: 15px; margin-bottom: 10px; border-radius: 5px;" class="alert"></div>
+    <!-- Main Content -->
+   
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="panel-body">
+                                <div class="row g-lg-4 g-2 align-items-center">
+                                    
+                                        <div class="col-sm-4 text-center">
+                                            <label for="Full Name">Full Name:</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" id="fullname" name="fullname" value="{{ lead.instance.fullname|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Full Name" required>
+                                        </div>
+                                        
+                                        <div class="col-sm-4 text-center">
+                                            <label for="Email">Email :</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="email" id="email" name="email" value="{{ lead.instance.email|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Email" required>
+                                        </div>
+
+                                        <div class="col-sm-4 text-center">
+                                            <label for="Phone">Phone  :</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="number" maxlength="10" id="phone" name="phone" value="{{ lead.instance.phone|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Phone Number" required>
+                                        </div>
+
+                                        <div class="col-sm-4 text-center">
+                                            <label for="Company Name">Company Name :</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" id="companyname" name="companyname" value="{{ lead.instance.companyname|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Company Name" required>
+                                        </div>
+
+
+                                        <div class="col-sm-4 text-center">
+                                            <label for="Website">Website :</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" id="website" name="website" value="{{ lead.instance.website|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Lead Website" required>
+                                        </div>
+
+                                        <div class="col-sm-4 text-center">
+                                            <label for="Source">Source  :</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" id="source" name="source" value="{{ lead.instance.source|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Source" required>
+                                        </div>
+                                        
+                                    <hr>
+                        
+                                    <h3 class="personal-details text-center"><u>Follow-up Information :</u></h3>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="Follow-up Date ">Follow-up Date :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="date" id="followup_date" name="followup_date" value="{{ lead.instance.followup_date|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Follow up Date" required>
+                                    </div>
+                        
+                                    <div class="col-sm-2 text-center">
+                                        <label for="Follow-up Method">Follow-up Method :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="followup_method" name="followup_method" value="{{ lead.instance.followup_method|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Follow up Method" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="budget">Budget :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="number" id="budget" name="budget" value="{{ lead.instance.budget|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Budget" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="Lead Status">Lead Status :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="leadstatus" name="leadstatus" value="{{ lead.instance.leadstatus|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Lead Status" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="Lead Owner">Lead Owner :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="leadowner" name="leadowner" value="{{ lead.instance.leadowner|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Lead Owner Name" required>
+                                    </div>
+                                  
+                                    <div class="col-12">
+                                        <div class="btn-box justify-content-end">
+                                            <input type="reset" class="btn btn-secondary" value="Reset">
+                                            <input type="submit" value="Submit" class="btn btn-primary">
+                                        </div>
+                                    </div> 
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+               </div>
+
+            </div>
+        </div>
+
+        
+        <!-- main-content -->
+
+    
+        
+{% endblock %}

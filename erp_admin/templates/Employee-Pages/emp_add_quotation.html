@@ -1,0 +1,411 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <!-- main-content -->
+        <div class="main-content">
+            <div class="row">
+               <div class="col-xl-12">
+                
+                    <div class="panel mb-g">
+                        <div class="panel-heading">
+                            <h3>Add Quotation</h3>
+                        </div>
+   
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="panel-body">
+                                <div class="row g-lg-4 g-2 align-items-center">
+                                    <h4 class="fw-bold">CONSIGNEE DETAILS</h4>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="order_id">Consignee Name :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="consignee_name" name="consignee_name" value="{{ regm.instance.consignee_name|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                        
+                                    <div class="col-sm-2 text-center">
+                                        <label for="password">Consignee Address :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="consignee_name" name="consignee_address" value="{{ regm.instance.consignee_address|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                
+
+                                    
+                                    <hr>
+                                    <h4 class="fw-bold">PI NO & DATE</h4>
+
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="customer_name">PI NO :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="number" id="pi_no" name="pi_no" value="{{ regm.instance.pi_no|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="customer_contact">Date :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="date" id="date" name="date" value="{{ regm.instance.date|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+
+                                    <hr>
+                                    <h4 class="fw-bold">Containers Details</h4>
+                        
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="fname">45 FEET Container :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="numer" id="45f_container" name="45f_container" value="{{ regm.instance.product_name|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="fname">40 FEET Container :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="number" id="40f_container" name="40f_container" value="{{ regm.instance.product_name|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="fname">20 FEET Container :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="number" id="20f_container" name="20f_container" value="{{ regm.instance.product_name|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+
+                                    <hr>
+                                    <h4 class="fw-bold">Product Details</h4>
+
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="fname">Clearing Port :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="clearing_port" name="clearing_port" value="{{ regm.instance.clearing_port|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="fname">Product Name :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="product_name" name="product_name" value="{{ regm.instance.product_name|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                        
+                                    <div class="col-sm-2 text-center">
+                                        <label for="lname">Exchange Rate Calculated 1 USD :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="exchange_rate" name="exchange_rate" value="{{ regm.instance.exchange_rate|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+                        
+
+                                    <hr>
+                                    <h4 class="fw-bold"> Shipping Line Charges </h4>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">QTY CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="qty_cont" name="qty_cont" value="{{ regm.instance.qty_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">INR PER CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="inr_per_cont" name="sl_charge" value="{{ regm.instance.inr_per_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">GST 18% :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="gst_18" name="gst_18" value="{{ regm.instance.gst_18|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">TOTAL INR :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="total_inr" name="total_inr" value="{{ regm.instance.total_inr|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+
+                                    <hr>
+                                    <h4 class="fw-bold"> CFS Charges Approx(40 FEET) </h4>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">QTY CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="qty_cont" name="qty_cont" value="{{ regm.instance.qty_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">INR PER CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="inr_per_cont" name="sl_charge" value="{{ regm.instance.inr_per_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">GST 18% :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="gst_18" name="gst_18" value="{{ regm.instance.gst_18|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">TOTAL INR :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="total_inr" name="total_inr" value="{{ regm.instance.total_inr|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+
+                                    <hr>
+                                    <h4 class="fw-bold"> Transportaion Charges Approx(40 FEET) </h4>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">QTY CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="qty_cont" name="qty_cont" value="{{ regm.instance.qty_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">INR PER CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="inr_per_cont" name="sl_charge" value="{{ regm.instance.inr_per_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">GST 18% :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="gst_18" name="gst_18" value="{{ regm.instance.gst_18|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">TOTAL INR :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="total_inr" name="total_inr" value="{{ regm.instance.total_inr|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+
+
+                                    <hr>
+                                    <h4 class="fw-bold"> Stamp Duty </h4>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">QTY CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="qty_cont" name="qty_cont" value="{{ regm.instance.qty_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">INR PER CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="inr_per_cont" name="sl_charge" value="{{ regm.instance.inr_per_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">GST 18% :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="gst_18" name="gst_18" value="{{ regm.instance.gst_18|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">TOTAL INR :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="total_inr" name="total_inr" value="{{ regm.instance.total_inr|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+
+
+   
+                                    <hr>
+                                    <h4 class="fw-bold"> Agency Charge </h4>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">QTY CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="qty_cont" name="qty_cont" value="{{ regm.instance.qty_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">INR PER CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="inr_per_cont" name="sl_charge" value="{{ regm.instance.inr_per_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">GST 18% :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="gst_18" name="gst_18" value="{{ regm.instance.gst_18|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">TOTAL INR :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="total_inr" name="total_inr" value="{{ regm.instance.total_inr|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+
+
+                                    <hr>
+                                    <h4 class="fw-bold">Custom Duty/IGST Approx </h4>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">QTY CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="qty_cont" name="qty_cont" value="{{ regm.instance.qty_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">INR PER CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="inr_per_cont" name="sl_charge" value="{{ regm.instance.inr_per_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">GST 18% :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="gst_18" name="gst_18" value="{{ regm.instance.gst_18|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">TOTAL INR :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="total_inr" name="total_inr" value="{{ regm.instance.total_inr|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+
+
+
+                                    <hr>
+                                    <h4 class="fw-bold">Ocean Freight 40 FEET(USD 1450*85) </h4>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">QTY CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="qty_cont" name="qty_cont" value="{{ regm.instance.qty_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">INR PER CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="inr_per_cont" name="sl_charge" value="{{ regm.instance.inr_per_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">GST 18% :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="gst_18" name="gst_18" value="{{ regm.instance.gst_18|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">TOTAL INR :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="total_inr" name="total_inr" value="{{ regm.instance.total_inr|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+
+
+
+                                    <hr>
+                                    <h4 class="fw-bold"> BANK ACCOUNT DETAIL FOR RTGS/NEFT </h4>
+
+
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">A/C NAME :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="ac_name" name="ac_name" value="{{ regm.instance.ac_name|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">BANK NAME :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="bank_name" name="bank_name" value="{{ regm.instance.bank_name|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">A/C NO :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="ac_no" name="ac_no" value="{{ regm.instance.ac_no|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">IFSC CODE :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="ifsc_code" name="ifsc_code" value="{{ regm.instance.ifsc_code|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">PAN NO :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="" name="pan_no" value="{{ regm.instance.pan_no|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">GST NO :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="" name="gst_no" value="{{ regm.instance.gst_no|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+
+
+                                    <!-- <div class="col-sm-2 text-center">
+                                        <label for="payment_status">Payment Method :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input class="form-check-input" type="radio" name="gender" id="gender_female" value="female" {% if regm.instance.gender == 'female' %}checked{% endif %} required>
+                                        <label class="form-check-label me-3 " for="gender_female">Cash On Delivary</label>
+                                        <input class="form-check-input" type="radio" name="gender" id="gender_male" value="male" {% if regm.instance.gender == 'male' %}checked{% endif %} required>
+                                        <label class="form-check-label" for="gender_male">Online</label>
+                                    </div>
+                        
+                                    <div class="col-sm-2 text-center">
+                                        <label for="mobile">Mobile No :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="tel" id="mobile" name="mobile" value="{{ regm.instance.mobile|default_if_none:'' }}" maxlength="20" class="form-control form-control-lg" required>
+                                    </div>
+                        
+                                    <div class="col-sm-2 text-center">
+                                        <label for="address">Address :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <textarea rows="2" id="address" name="address" class="form-control form-control-lg" required>{{ regm.instance.address|default_if_none:'' }}</textarea>
+                                    </div> -->
+                                  
+                                    <div class="col-12">
+                                        <div class="btn-box justify-content-end">
+                                            <input type="reset" class="btn btn-secondary" value="Reset">
+                                            <input type="submit" value="Add" class="btn btn-primary">
+                                        </div>
+                                    </div> 
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+               </div>
+
+            </div>
+        </div>
+
+        
+        <!-- main-content -->
+
+        
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+{% endblock %}

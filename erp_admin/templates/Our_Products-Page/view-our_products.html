@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- main-content -->
+<div class="main-content">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12">
+            <div class="panel mb-g">
+                <div class="panel-heading">
+                    <h3>View Our Art Image</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="ecommerce-table">
+                        <div class="table-top-control mb-g">
+                            <div class="row g-lg-4 g-md-3 g-sm-2 g-3">
+                                <center>
+                                    <div class="col-sm-6" id="tableRowConut"></div>
+                                </center>
+
+                                <div class="col-sm-4" id="tableSearch" hidden></div>
+                            </div>
+                        </div>
+                        <table id="myTable" class="table data-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for op in ourproducts %}
+                                <tr>
+                                    <td>{{ op.id}}</td>
+                                    <td>
+                                        <a href="#" class="product-thumbnail" title="Product-1" data-bs-toggle="tooltip"
+                                            data-bs-placement="right" tabindex="0">
+                                            <img src="{{ op.image.url }}" alt="image">
+                                        </a>
+                                    </td>
+                                    <td>{{ op.title}}</td>
+                                    <td>
+                                        <div class="btn-box">
+                                            <a href="/update_our_products/{{ op.id }}" class="btn btn-sm btn-success text-white"><i class="bi bi-pencil-square"></a></i>
+                                            <a href="/delete_our_products/{{ op.id }}" class="btn btn-sm btn-danger text-white"><i class="bi bi-trash"></a></i>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                               {% endfor %}
+                                
+                            </tbody>
+                        </table>
+                        <div class="table-bottom-control"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- main-content -->
+{% endblock %}

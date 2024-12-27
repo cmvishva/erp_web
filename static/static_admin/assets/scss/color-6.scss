@@ -1,0 +1,35 @@
+/*============================================================
+[Master Stylesheet]
+Theme Name:     Comm-Board
+Version:        1.0
+Author:         athemeart
+URL:            https://themeforest.net/user/athemeart
+=========================================================*/
+/*=========================================================
+CSS Table Of Content
+=========================================================
+
+01. Global Stylesheet
+
+02. Theme customization sidebar / off canvas Stylesheet
+03. Header Section Stylesheet
+04. Main sidebar / Side nav Stylesheet
+05. Main content Stylesheet
+
+06. Responsive Stylesheet
+*/
+@import "main/variable-6";
+/*================= Global Stylesheet ================= */
+@import "main/global";
+
+/*================= Theme customization sidebar / off canvas Stylesheet ================= */
+@import "sections/offcanvas";
+/*================= Header Section Stylesheet ================= */
+@import "sections/header";
+/*================= Main sidebar / Side nav Stylesheet ================= */
+@import "sections/sidebar";
+/*================= Main content Stylesheet ================= */
+@import "sections/main-content";
+
+/*================= Responsive Stylesheet ================= */
+@import "main/responsive";

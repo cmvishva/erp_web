@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <!-- main-content -->
+        <div class="main-content">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="panel mb-g">
+                        <div class="panel-heading">
+                            <h3>Manage Leaves</h3>
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="ecommerce-table">
+                                <div class="table-top-control mb-g">
+                                    <div class="row g-lg-4 g-md-3 g-sm-2 g-3">
+                                        <div class="col-sm-6" id="tableRowConut"></div>
+                                        <div class="col-sm-6" id="tableSearch" ></div>
+                                    </div>
+                                </div>
+                                <table id="myTable" class="table data-table">
+                                    <thead>
+                                        <tr>
+                                            <!-- <th scope="col">ID</th> -->
+                                            <th scope="col">Image</th>
+                                            <th scope="col">Branch Name</th>
+                                            <th scope="col">Employee FullName</th>
+                                            <th scope="col">Gender</th>
+                                            <th scope="col">Leave Start Date</th>
+                                            <th scope="col">Leave End Date</th>
+                                            <th scope="col">Number of Days </th>
+                                            <th scope="col">Reason Type </th>
+                                            <th scope="col">Reason </th>
+                                            <th scope="col">Documents</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Mobile No.</th>
+                                            <th scope="col">Leave Status</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      {% for ld in view_leavesdata %}
+                                        <tr>
+                                            <!-- <td>{{ld.id}}</td> -->
+                                            <td><img src="{{ ld.image.url }}" alt="{{ ld.image }}" width="100px" height="100px"></td>
+                                            <td>{{ld.branch_details.name}}({{ld.branch_details.name}})</td>
+                                            <td>{{ld.employee.fname}} {{ld.employee.lname}} {{ld.employee.surname}}</td>
+                                            <td>{{ld.gender}}</td>
+                                            <td>{{ld.leavesdate}}</td>
+                                            <td>{{ld.leaveedate}}</td>
+                                            <td>{{ld.nofdays}}</td>
+                                            <td>{{ld.reasontype}}</td>
+                                            <td>{{ld.reason}}</td>
+                                            <td>{{ld.document}}</td>
+                                            <td>{{ld.email}}</td>
+                                            <td>{{ld.mobile}}</td>
+                                            <td>{{ld.leavestatus}}</td>
+                                            <!-- <td><img src="{{ regm.image.url }}" alt="{{ regm.image }}" width="100px" height="100px"></td> -->
+                                            <td>
+                                                <div class="btn-box">
+                                                    {% comment %} <a href="/view_leave_fulldetails/{{ ld.id }}" class="btn btn-sm btn-secondary text-white"><i class="bi bi-eye-fill"></a></i> {% endcomment %}
+                                                    <a href="/employee_update_leave/{{ ld.id }}" class="btn btn-sm btn-success text-white"><i class="bi bi-pencil-square"></a></i>
+                                                    <a href="/employee_delete_leave/{{ ld.id }}" class="btn btn-sm btn-danger text-white"><i class="bi bi-trash"></a></i>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                <div class="table-bottom-control"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- main-content -->
+
+
+{% endblock %}

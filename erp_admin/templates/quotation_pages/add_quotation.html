@@ -1,0 +1,438 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <!-- main-content -->
+        <div class="main-content">
+            <div class="row">
+               <div class="col-xl-12">
+                
+                    <div class="panel mb-g">
+                        <div class="panel-heading">
+                            <h3>Add Quotation</h3>
+                        </div>
+   
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="panel-body">
+                                <div class="row g-lg-4 g-2 align-items-center">
+
+
+                                    <div class="col-sm-4 text-center">
+                                        <label for="order_id">Quotation Header :</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="quotation_header" name="quotation_header" value="{{ quotation.instance.quotation_header|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+                                    <hr>
+
+                                    <h4 class="fw-bold text-center">CONSIGNEE DETAILS</h4>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="order_id">Consignee Name :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="consignee_name" name="consignee_name" value="{{ quotation.instance.consignee_name|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                        
+                                    <div class="col-sm-2 text-center">
+                                        <label for="password">Consignee Address :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="consignee_name" name="consignee_address" value="{{ quotation.instance.consignee_address|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                
+
+                                    
+                                    <hr>
+                                    <h4 class="fw-bold text-center">PI NO & DATE</h4>
+
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="customer_name">PI NO :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="number" id="pi_no" name="pi_no" value="{{ quotation.instance.pi_no|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="customer_contact">Date :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="date" id="date" name="date" value="{{ quotation.instance.date|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+
+                                    <hr>
+                                    <h4 class="fw-bold text-center">Containers Details</h4>
+                        
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="fname">45 FEET Container :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="fortyfive_container" name="fortyfive_container" value="{{ quotation.instance.fortyfive_container|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="fname">40 FEET Container :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="forty_container" name="forty_container" value="{{ quotation.instance.forty_container|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="fname">20 FEET Container :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="twenty_container" name="twenty_container" value="{{ quotation.instance.twenty_container|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+
+                                    <hr>
+                                    <h4 class="fw-bold text-center">Product Details</h4>
+
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="fname">Clearing Port :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="clearing_port" name="clearing_port" value="{{ quotation.instance.clearing_port|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="fname">Product Name :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="product_name" name="product_name" value="{{ quotation.instance.product_name|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                        
+                                    <div class="col-sm-2 text-center">
+                                        <label for="lname">Exchange Rate Calculated 1 USD :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="exchange_rate" name="exchange_rate" value="{{ quotation.instance.exchange_rate|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+                        
+
+                                    <hr>
+                                    <h4 class="fw-bold text-center"> Shipping Line Charges </h4>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">QTY CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="sl_qty_cont" name="sl_qty_cont" value="{{ quotation.instance.sl_qty_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">INR PER CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="sl_inr_per_cont" name="sl_inr_per_cont" value="{{ quotation.instance.sl_inr_per_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">GST 18% :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="sl_gst_18" name="sl_gst_18" value="{{ quotation.instance.sl_gst_18|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">TOTAL INR :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="sl_total_inr" name="sl_total_inr" value="{{ quotation.instance.sl_total_inr|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+
+                                    <hr>
+                                    <h4 class="fw-bold text-center"> CFS Charges Approx(40 FEET) </h4>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">QTY CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="cfs_qty_cont" name="cfs_qty_cont" value="{{ quotation.instance.cfs_qty_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">INR PER CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="cfs_inr_per_cont" name="cfs_inr_per_cont" value="{{ quotation.instance.cfs_inr_per_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">GST 18% :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="cfs_gst_18" name="cfs_gst_18" value="{{ quotation.instance.cfs_gst_18|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">TOTAL INR :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="cfs_total_inr" name="cfs_total_inr" value="{{ quotation.instance.cfs_total_inr|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+
+
+                                    <hr>
+                                    <h4 class="fw-bold text-center"> Transportaion Charges Approx(40 FEET) </h4>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">QTY CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="transportation_qty_cont" name="transportation_qty_cont" value="{{ quotation.instance.transportation_qty_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">INR PER CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="transportation_inr_per_cont" name="transportation_inr_per_cont" value="{{ quotation.instance.transportation_inr_per_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">GST 18% :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="transportation_gst_18" name="transportation_gst_18" value="{{ quotation.instance.transportation_gst_18|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">TOTAL INR :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="transportation_total_inr" name="transportation_total_inr" value="{{ quotation.instance.transportation_total_inr|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+
+
+                                    <hr>
+                                    <h4 class="fw-bold text-center"> Stamp Duty </h4>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">QTY CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="stamp_qty_cont" name="stamp_qty_cont" value="{{ quotation.instance.stamp_qty_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">INR PER CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="stamp_inr_per_cont" name="stamp_inr_per_cont" value="{{ quotation.instance.stamp_inr_per_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">GST 18% :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="stamp_gst_18" name="stamp_gst_18" value="{{ quotation.instance.stamp_gst_18|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">TOTAL INR :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="stamp_total_inr" name="stamp_total_inr" value="{{ quotation.instance.stamp_total_inr|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+
+
+   
+                                    <hr>
+                                    <h4 class="fw-bold text-center"> Agency Charge </h4>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">QTY CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="agency_qty_cont" name="agency_qty_cont" value="{{ quotation.instance.agency_qty_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">INR PER CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="agency_inr_per_cont" name="agency_inr_per_cont" value="{{ quotation.instance.agency_inr_per_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">GST 18% :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="agency_gst_18" name="agency_gst_18" value="{{ quotation.instance.agency_gst_18|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">TOTAL INR :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="agency_total_inr" name="agency_total_inr" value="{{ quotation.instance.agency_total_inr|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+
+
+                                    <hr>
+                                    <h4 class="fw-bold text-center">Custom Duty/IGST Approx </h4>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">QTY CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="customduty_qty_cont" name="customduty_qty_cont" value="{{ quotation.instance.customduty_qty_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">INR PER CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="customduty_inr_per_cont" name="customduty_inr_per_cont" value="{{ quotation.instance.customduty_inr_per_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">GST 18% :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="customduty_gst_18" name="customduty_gst_18" value="{{ quotation.instance.customduty_gst_18|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">TOTAL INR :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="customduty_total_inr" name="customduty_total_inr" value="{{ quotation.instance.customduty_total_inr|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+
+
+
+                                    <hr>
+                                    <h4 class="fw-bold text-center">Ocean Freight 40 FEET(USD 1450*85) </h4>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">QTY CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="oceanfreight_qty_cont" name="oceanfreight_qty_cont" value="{{ quotation.instance.oceanfreight_qty_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">INR PER CONT. :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="oceanfreight_inr_per_cont" name="oceanfreight_inr_per_cont" value="{{ quotation.instance.oceanfreight_inr_per_cont|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">GST 18% :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="oceanfreight_gst_18" name="oceanfreight_gst_18" value="{{ quotation.instance.oceanfreight_gst_18|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">TOTAL INR :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="oceanfreight_total_inr" name="oceanfreight_total_inr" value="{{ quotation.instance.oceanfreight_total_inr|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+                                    <hr>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="round_off">Round Off :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="round_off" name="round_off" value="{{ quotation.instance.round_off|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="round_off">Total :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="total" name="total" value="{{ quotation.instance.total|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+
+
+                                    <hr>
+                                    <h4 class="fw-bold text-center"> BANK ACCOUNT DETAIL FOR RTGS/NEFT </h4>
+
+
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">A/C NAME :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="ac_name" name="ac_name" value="{{ quotation.instance.ac_name|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">BANK NAME :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="bank_name" name="bank_name" value="{{ quotation.instance.bank_name|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">A/C NO :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="ac_no" name="ac_no" value="{{ quotation.instance.ac_no|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">IFSC CODE :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="ifsc_code" name="ifsc_code" value="{{ quotation.instance.ifsc_code|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">PAN NO :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="" name="pan_no" value="{{ quotation.instance.pan_no|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="quantity_sold">GST NO :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="" name="gst_no" value="{{ quotation.instance.gst_no|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                    </div>
+
+
+
+                                    <!-- <div class="col-sm-2 text-center">
+                                        <label for="payment_status">Payment Method :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input class="form-check-input" type="radio" name="gender" id="gender_female" value="female" {% if quotation.instance.gender == 'female' %}checked{% endif %} required>
+                                        <label class="form-check-label me-3 " for="gender_female">Cash On Delivary</label>
+                                        <input class="form-check-input" type="radio" name="gender" id="gender_male" value="male" {% if quotation.instance.gender == 'male' %}checked{% endif %} required>
+                                        <label class="form-check-label" for="gender_male">Online</label>
+                                    </div>
+                        
+                                    <div class="col-sm-2 text-center">
+                                        <label for="mobile">Mobile No :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="tel" id="mobile" name="mobile" value="{{ regm.instance.mobile|default_if_none:'' }}" maxlength="20" class="form-control form-control-lg" required>
+                                    </div>
+                        
+                                    <div class="col-sm-2 text-center">
+                                        <label for="address">Address :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <textarea rows="2" id="address" name="address" class="form-control form-control-lg" required>{{ regm.instance.address|default_if_none:'' }}</textarea>
+                                    </div> -->
+                                  
+                                    <div class="col-12">
+                                        <div class="btn-box justify-content-end">
+                                            <input type="reset" class="btn btn-secondary" value="Reset">
+                                            <input type="submit" value="Add" class="btn btn-primary">
+                                        </div>
+                                    </div> 
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+               </div>
+
+            </div>
+        </div>
+
+        
+        <!-- main-content -->
+
+        
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+{% endblock %}

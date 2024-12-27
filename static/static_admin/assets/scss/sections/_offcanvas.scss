@@ -1,0 +1,21 @@
+.offcanvas {
+    background: var(--white-2);
+    &.offcanvas-end {
+        width: 350px;
+    }
+    .offcanvas-header {
+        background: var(--white);
+        padding: 25px 15px;
+        h4 {
+            font-family: var(--heading-font);
+            font-size: 25px;
+            line-height: 100%;
+            font-weight: 700;
+            color: var(--color-4);
+            margin: 0;
+        }
+    }
+    .offcanvas-body {
+        padding: 25px 15px;
+    }
+}

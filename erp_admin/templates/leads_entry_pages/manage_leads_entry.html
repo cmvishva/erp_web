@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <!-- main-content -->
+        <div class="main-content">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="panel mb-g">
+                        <div class="panel-heading">
+                            <h3>Manage Leads Information</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="ecommerce-table">
+                                <div class="table-top-control mb-g">
+                                    <div class="row g-lg-4 g-md-3 g-sm-2 g-3">
+                                        <div class="col-sm-6" id="tableRowConut"></div>
+                                        <div class="col-sm-6" id="tableSearch" ></div>
+                                    </div>
+                                </div>
+                                <table id="myTable" class="table data-table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Fullname</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Phone</th>
+                                            <th scope="col">Companyname</th>
+                                            <th scope="col">Website</th>
+                                            <th scope="col">Source</th>
+                                            <th scope="col">Followup Date</th>
+                                            <th scope="col">Followup Method</th>
+                                            <th scope="col">Budget</th>
+                                            <th scope="col">Action</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      {% for alllead in leads_entry %}
+                                        <tr>
+                                            <td>{{alllead.id}}</td>
+                                            <td>{{alllead.fullname}}</td>
+                                            <td>{{alllead.email}}</td>
+                                            <td>{{alllead.phone}}</td>
+                                            <td>{{alllead.companyname}}</td>
+                                            <td>{{alllead.website}}</td>
+                                            <td>{{alllead.source}}</td>
+                                            <td>{{alllead.followup_date}}</td>
+                                            <td>{{alllead.followup_method}}</td>
+                                            <td>{{alllead.budget}}</td>
+                                            <td>
+                                                <div class="btn-box">
+                                                    {% comment %} <a href="/view_leadsentry_fulldetails/{{ alllead.id }}" class="btn btn-sm btn-secondary text-white"><i class="bi bi-eye-fill"></a></i> {% endcomment %}
+                                                    <a href="/update_leadsentry/{{ alllead.id }}" class="btn btn-sm btn-success text-white"><i class="bi bi-pencil-square"></a></i>
+                                                    <a href="/delete_leadsentry/{{ alllead.id }}" class="btn btn-sm btn-danger text-white"><i class="bi bi-trash"></a></i>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                <div class="table-bottom-control"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- main-content -->
+
+        <script>
+            $(document).ready(function() {
+                var messages = $('.messages li');
+                if (messages.length > 0) {
+                    messages.each(function() {
+                        alert($(this).text());
+                    });
+                }
+            });
+        </script>
+        
+{% endblock %}

@@ -1,0 +1,158 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<!-- main-content -->
+<div class="main-content">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12">
+      <div class="panel mb-g">
+        <div class="panel-heading">
+          <h3> Apply For Leave</h3>
+        </div>
+
+        <ul class="messages" style="display: none;">
+            {% if messages %}
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+
+        <form action="" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="panel-body">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="panel-body">
+                    <form class="add-product">
+                        <div class="row g-lg-4 g-2 align-items-center">
+
+                            <!-- <div class="col-lg-6"> -->
+                                <h3 class="text-center"><u>Branch Details :</u></h3>
+                                <div class="form-group row">
+                                    <div class="col-sm-2 text-center">
+                                        <label for="branch_details">Branch:</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <select name="branch_details" id="branch_details" required class="form-select form-control form-control-lg" required>
+                                            {% for branches in view_branchdata %}
+                                            <option value="">Select Branch</option>
+                                                <option value="{{ branches.id }}" {% if branches.id == emp.instance.branch_details.id %}selected{% endif %}>
+                                                    {{ branches.name }} ({{ branches.code }}
+                                                </option>)
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                    
+                                <div class="col-sm-2 text-center">
+                                    <label for="branch_details">Manager Name:</label>
+                                </div>
+                                <div class="col-sm-4">
+                                    <select name="manager_details" id="manager_details" required class="form-select form-control form-control-lg" required>
+                                        {% for mg in viewmanagers_details %}
+                                            <option value="">Select Manager</option>
+                                            <option value="{{ mg.id }}" {% if mg.id == emp.instance.manager_details.id %}selected{% endif %}>
+                                                {{ mg.fname }} {{ mg.lname }} {{ mg.surname }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2 text-center">
+                                <label for="branch_details"> Assign To:</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <select name="manager_details" id="manager_details" required class="form-select form-control form-control-lg" required>
+                                    {% for mg in viewmanagers_details %}
+                                        <option value="">Select Name</option>
+                                        <option value="{{ mg.id }}" {% if mg.id == emp.instance.manager_details.id %}selected{% endif %}>
+                                            {{ mg.fname }} {{ mg.lname }} {{ mg.surname }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <hr>
+
+                            <h3 class="text-center"><u>Work Details :</u></h3>
+                            
+                            <div class="col-sm-4">
+                                <label for="ProductDscr">Work :</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" id="ProductDscr" name="{{ alemp.work.name }}" value="{{ alemp.username.value|default_if_none:'' }}" required class="form-control form-control-lg" >
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label for="AddProduct">Work Start Date  :</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" id="ProductDscr" name="{{ alemp.ewsd.name }}" value="{{ alemp.username.value|default_if_none:'' }}" required class="form-control form-control-lg" >
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label for="AddProduct">Work End Date  :</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" id="ProductDscr" name="{{ alemp.ewed.name }}" value="{{ alemp.username.value|default_if_none:'' }}" required class="form-control form-control-lg" >
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label for="ProductDscr">Work Description :</label>
+                            </div>
+                            <div class="col-sm-8">
+                                
+                                <!-- <input type="text" id="ProductDscr" name="{{ alemp.work.name }}" value="{{ alemp.username.value|default_if_none:'' }}" required class="form-control form-control-lg" > -->
+                            </div>
+
+                        
+
+                            <div class="col-12">
+                                <div class="btn-box justify-content-end">
+                                    <input type="reset" class="btn btn-secondary" value="Reset">
+                                    <input type="submit" value="Add" class="btn btn-primary">
+                                </div>
+                            </div> 
+
+                        </div>
+                    </form>
+                </div>
+            </form>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- main-content -->
+
+<script>
+    $(document).ready(function() {
+        var messages = $('.messages li');
+        if (messages.length > 0) {
+            messages.each(function() {
+                alert($(this).text());
+            });
+        }
+    });
+</script>
+
+{% comment %} <script>
+    $(document).ready(function() {
+       
+        // Debugging: Check if messages are present in the console
+        console.log('Messages length: ' + $('.messages li').length);
+
+        var messages = $('.messages li');
+        if (messages.length > 0) {
+            messages.each(function() {
+                var messageText = $(this).text();
+                console.log('Alerting message: ' + messageText);
+                alert(messageText);
+            });
+        } else {
+            console.log('No messages found.');
+        }
+    });
+</script> {% endcomment %}
+
+{% endblock %}

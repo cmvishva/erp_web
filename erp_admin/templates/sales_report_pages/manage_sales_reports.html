@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <!-- main-content -->
+        <div class="main-content">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="panel mb-g">
+                        <div class="panel-heading">
+                            <h3>Manage Sales Report</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="ecommerce-table">
+                                <div class="table-top-control mb-g">
+                                    <div class="row g-lg-4 g-md-3 g-sm-2 g-3">
+                                        <div class="col-sm-6 text-center" id="tableRowConut" ></div>
+
+                                        <div class="col-sm-6">
+                                            <div class="col-sm-6 g-0">
+                                                <form action="{% url 'manage_salesreport' %}" method="GET" >
+                                                    <input type="text" name="search_query" id="tableSearch" class="form-control" value="{{ search_query }}" placeholder="Search Sales...">
+                                                    <button type="submit" class="btn btn-primary">Search</button>
+                                                </form>
+                                            </div>
+                                           <div class="col-sm-6 g-0">
+                                               <a href="{% url 'export_sales_to_excel' %}?search_query={{ search_query }}&export=1" class="btn btn-primary">Export to Excel</a>
+                                           </div>
+                                        </div>
+                                    </div>
+
+                                    
+                                    <!-- <div class="row g-lg-4 g-md-3 g-sm-2 g-3 mt-2">
+                                        <form method="GET" action="{% url 'manage_salesreport' %}" class="col-sm-12">
+                                            {% csrf_token %}
+                                            <div class="row g-lg-4 g-md-3 g-sm-2 g-3">
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="orderid" value="{{ orderid_query }}" class="form-control" placeholder="Search by Order ID">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="customer_name" value="{{ customer_name_query }}" class="form-control" placeholder="Search by Customer Name">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="customer_contact" value="{{ customer_contact_query }}" class="form-control" placeholder="Search by Customer Contact">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="product_name" value="{{ product_name_query }}" class="form-control" placeholder="Search by Product Name">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="status" value="{{ status_query }}" class="form-control" placeholder="Search by Status">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="payment_method" value="{{ payment_method_query }}" class="form-control" placeholder="Search by Payment Method">
+                                            </div>
+
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="payment_method" value="{{ payment_method_query }}" class="form-control" placeholder="Search by Payment Method">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="payment_method" value="{{ payment_method_query }}" class="form-control" placeholder="Search by Payment Method">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="payment_method" value="{{ payment_method_query }}" class="form-control" placeholder="Search by Payment Method">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="payment_method" value="{{ payment_method_query }}" class="form-control" placeholder="Search by Payment Method">
+                                            </div>
+                                            <div class="col-md-3 mt-2">
+                                                <input type="text" name="payment_method" value="{{ payment_method_query }}" class="form-control" placeholder="Search by Payment Method">
+                                            </div>
+                                            
+                                            <div class="col-md-3 mt-2 ">
+                                                <button type="submit" class="btn btn-primary">search</button>
+                                                <button class="btn btn-primary">
+                                                    <a href="{% url 'download_excel_salesreport' %}?orderid={{ orderid_query }}&customer_name={{ customer_name_query }}&customer_contact={{ customer_contact_query }}&product_name={{ product_name_query }}&status={{ status_query }}&payment_method={{ payment_method_query }}" style="color: white;">Download Sales Report Excel</a>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+
+                                            <div class="col-sm-6 mt-2">
+                                                <button type="submit" class="btn btn-success" name="export_excel" value="1">Export to Excel</button>
+                                                <button class="btn btn-primary"><a href="{% url 'download_excel_salesreport' %}">Download</a></button>
+                                            </div>
+                                        </form>
+                                    </div> -->
+                                  
+                                </div>
+                                <table id="myTable" class="table data-table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Order ID</th>
+                                            <th scope="col">Date Of Sale</th>
+                                            <th scope="col">Customer Name</th>
+                                            <th scope="col">Customer Contact</th>
+                                            <th scope="col">Product Name</th>
+                                            <th scope="col">Product Category</th>
+                                            <th scope="col">Quantity Sold</th>
+                                            <th scope="col">Payment Method</th>
+                                            <th scope="col">Unit Price</th>
+                                            <th scope="col">Total</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      {% for vsr in search_data %}
+                                        <tr>
+                                            <td>{{vsr.orderid}}</td>
+                                            <td>{{vsr.dateof_sale}}</td>
+                                            <td>{{vsr.customer_name}}</td>
+                                            <td>{{vsr.customer_contact}}</td>
+                                            <td>{{vsr.product_name}}</td>
+                                            <td>{{vsr.product_category}}</td>
+                                            <td>{{vsr.quantity_sold}}</td>
+                                            <td>{{vsr.payment_method}}</td>
+                                            <td>{{vsr.unitprice}}</td>
+                                            <td>{{vsr.total}}</td>
+                                            <td>{{vsr.status}}</td>
+                                           
+                                            <td>
+                                                <div class="btn-box">
+                                                    <!-- <a href="/view_salesreport_fulldetails/{{ vsr.id }}" class="btn btn-sm btn-secondary text-white"><i class="bi bi-eye-fill"></a></i> -->
+                                                    <a href="/update_salesreport/{{ vsr.id }}" class="btn btn-sm btn-success text-white"><i class="bi bi-pencil-square"></a></i>
+                                                    <a href="/delete_salesreport/{{ vsr.id }}" class="btn btn-sm btn-danger text-white"><i class="bi bi-trash"></a></i>
+                                                    <a href="/download_salesreport_pdf/{{ vsr.id }}" class="btn btn-sm btn-primary text-white"></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                    
+                                </table>
+                                <!-- <button class="btn btn-sm btn-success text-white"><a href="{% url 'download_excel_salesreport' %}">download sales report to excel</a></button> -->
+                                <div class="table-bottom-control"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- main-content -->
+        
+{% endblock %}

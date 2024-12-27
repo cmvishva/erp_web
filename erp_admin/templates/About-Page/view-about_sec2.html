@@ -1,0 +1,66 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+        <!-- main-content -->
+        <div class="main-content">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="panel mb-g">
+                        <div class="panel-heading">
+                            <h3>View About Page Section 2</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="ecommerce-table">
+                                <div class="table-top-control mb-g">
+                                    <center><div class="col-sm-6" id="tableRowConut" ></div></center>
+                                    <div class="col-sm-6" id="tableSearch" hidden></div>
+                                </div>
+                                <table id="myTable" class="table data-table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Image </th>
+                                            <th scope="col">Main Title</th>
+                                            <th scope="col">Description</th>
+                                            <th scope="col">Sub Title 1</th>
+                                            <th scope="col">Sub Description 1</th>
+                                            <th scope="col">Sub Title 2</th>
+                                            <th scope="col">Sub Description 2</th>
+                                            <th scope="col">Sub Title 3</th>
+                                            <th scope="col">Sub Description 3</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       {% for as2 in about_sec2 %} 
+                                        <tr>
+                                            <td>{{as2.id}}</td>
+                                            <td><img src="{{MEDIA_ROOT}}/{{as2.as2image}}" alt="image"> </td>
+                                            <td>{{as2.as2main_title}}</td>
+                                            <td>{{as2.as2desc}}</td>
+                                            <td>{{as2.as2subtitle1}}</td>
+                                            <td>{{as2.as2subdesc1}}</td>
+                                            <td>{{as2.as2subtitle2}}</td>
+                                            <td>{{as2.as2subdesc2}}</td>
+                                            <td>{{as2.as2subtitle3}}</td>
+                                            <td>{{as2.as2subdesc3}}</td>
+                                            <td>
+                                                <div class="btn-box">
+                                                    <a href="/update_about_section2/{{ as2.id }}" class="btn btn-sm btn-success text-white"><i class="bi bi-pencil-square"></a></i>
+                                                    <a href="/delete_about_section2/{{ as2.id }}" class="btn btn-sm btn-danger text-white"><i class="bi bi-trash"></a></i>     
+                                                </div>
+                                            </td>
+                                        </tr>
+                                       {% endfor %}
+                                        
+                                        
+                                    </tbody>
+                                </table>
+                                <div class="table-bottom-control"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- main-content -->
+        {% endblock %}

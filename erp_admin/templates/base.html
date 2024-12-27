@@ -1,0 +1,562 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASK Import Export</title>
+
+    <link rel="shortcut icon" href="{% static '/static_admin/assets/images/logo.jpeg' %}">
+    <link rel="stylesheet" href="{% static '/static_admin/assets/vendor/bootstrap-icon/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static '/static_admin/assets/vendor/css/jquery.dataTables.min.css' %}">
+    <link rel="stylesheet" href="{% static '/static_admin/assets/vendor/css/responsive.bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/static_admin/assets/vendor/css/simplebar.css' %}">
+    <link rel="stylesheet" href="{% static '/static_admin/assets/vendor/css/bootstrap.min.css' %}">
+    <link id="styles" rel="stylesheet" href="{% static '/static_admin/assets/css/style.css' %}">
+    <link id="styles" rel="stylesheet" href="{% static '/static_admin/assets/css/style.css' %}">
+    <link id="styles" rel="stylesheet" href="{% static '/static_admin/assets/css/style.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+
+    <style>
+
+
+        input::placeholder{
+            opacity: 0.6!important;
+            color: #939396!important;
+          }
+
+        /* width */
+        ::-webkit-scrollbar {
+          width: 20px;
+        }
+        
+        /* Track */
+        ::-webkit-scrollbar-track {
+          box-shadow: inset 0 0 5px grey; 
+          border-radius: 10px;
+        }
+         
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+          background: rgb(29, 28, 28); 
+          border-radius: 10px;
+        }
+        
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+          background: #383636; 
+        }
+        </style>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <!-- header -->
+        <div class="header">
+            <div class="top-header">
+                <div class="row justify-content-between">
+                    <div class="col-xl-3 col-lg-4 col-sm-4 col-6">
+                        <div class="d-flex align-items-center">
+                            <div class="logo">
+                                <div class="logo-big">
+                                    <a href="#">
+                                        <h6><I>ASK Import Export</I></h6>
+                                    </a>
+                                </div>
+                                <div class="logo-small">
+                                    <a href="#">
+                                        <img src="{% static '/static_admin/assets/images/logo.jpeg' %}" id="logoSmall" alt="ASK">
+                                    </a>
+                                </div>
+                            </div>
+                            <button class="sidebar-collapse">
+                                <i class="bi bi-list"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-8 col-sm-8 col-6">
+                        <div class="top-right">
+                            <nav class="navbar navbar-expand">
+                                <div class="navbar-collapse" id="navbarSupportedContent">
+                                    <form class="nav-form d-flex">
+                                        <input type="search" placeholder="Search" aria-label="Search" disabled>
+                                        <button type="submit" disabled><i class="bi bi-search"></i></button>
+                                    </form>
+                                    
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="horizontal-menu bg-primary">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                        <nav class="navbar navbar-expand-lg navbar-dark">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent2">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="dashboardDropdown"
+                                            role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                                            aria-expanded="false">
+                                            Dashboard
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dashboardDropdown">
+                                            <li><a href="{% url 'admin_dashboard' %}" class="dropdown-item">Admin Dashboard</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="dashboardDropdown"
+                                            role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside"aria-expanded="false">
+                                            Branch
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dashboardDropdown">
+                                            <li><a href="{% url 'add_branch' %}" class="dropdown-item">Add Branch</a></li>
+                                            <li><a href="{% url 'view_branch' %}" class="dropdown-item">Manage Branch</a></li>
+                                        </ul>
+                                    </li>
+
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="dashboardDropdown"
+                                            role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside"aria-expanded="false">
+                                            Employee
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dashboardDropdown">
+                                            <li><a href="{% url 'register_employee' %}" class="dropdown-item">Add Employee</a></li>
+                                            <li><a href="{% url 'manage_employee' %}" class="dropdown-item">Manage Employee</a></li>
+                                            {% comment %} <li><a href="{% url 'apply_for_leave' %}" class="dropdown-item">Apply For Leave</a></li> {% endcomment %}
+                                            {% comment %} <li><a href="{% url 'view_leaves' %}" class="dropdown-item">View Leave</a></li> {% endcomment %}
+                                        </ul>
+                                    </li>
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="dashboardDropdown"
+                                            role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside"aria-expanded="false">
+                                            Payroll
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dashboardDropdown">
+                                            <li><a href="{% url 'add_payroll_details' %}" class="dropdown-item">Add Payroll Data</a></li>
+                                            <li><a href="{% url 'manage_payroll_details' %}" class="dropdown-item">Manage Payroll</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="dashboardDropdown"
+                                            role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside"aria-expanded="false">
+                                            Leave Policy
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dashboardDropdown">
+                                            <li><a href="{% url 'manage_leaves' %}" class="dropdown-item">Manage Leaves</a></li>
+                                            
+                                        </ul>
+                                    </li>
+            
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="dashboardDropdown"
+                                            role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside"aria-expanded="false">
+                                            Report
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dashboardDropdown">
+                                            <li><a href="{% url 'add_report_details' %}" class="dropdown-item">Add Report </a></li>
+                                            <li><a href="{% url 'manage_report_details' %}" class="dropdown-item">Manage Report</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="dashboardDropdown"
+                                            role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside"aria-expanded="false">
+                                            Rights & Roles
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dashboardDropdown">
+                                            <li><a href="{% url 'add_rights_roles_details' %}" class="dropdown-item">Add Rights & Roles </a></li>
+                                            <li><a href="{% url 'manage_rights_roles_details' %}" class="dropdown-item">Manage Rights & Roles</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="dashboardDropdown"
+                                            role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside"aria-expanded="false">
+                                            Employee Work
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dashboardDropdown">
+                                            <li><a href="{% url 'add_employee_work_details' %}" class="dropdown-item">Add Employee Work </a></li>
+                                            <li><a href="{% url 'manage_employee_work_details' %}" class="dropdown-item">Manage Employee Work</a></li>
+                                        </ul>
+                                    </li>
+                            
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="dashboardDropdown"
+                                            role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside"aria-expanded="false"> Data Entry</a>
+                                        <ul class="dropdown-menu" aria-labelledby="dashboardDropdown">
+                                            <li><a href="{% url 'add_data_details' %}" class="dropdown-item">Add Data </a></li>
+                                            <li><a href="{% url 'manage_data_details' %}" class="dropdown-item">Manage Data</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header -->
+
+
+        {% get_available_languages as LANGUAGES %}
+{% for lang in LANGUAGES %}
+{% if LANGUAGE_CODE == lang.0 %}
+{{lang.1}} ({{lang.0}})
+{% else %}
+<a href="{% url 'set_language' %}?l={{lang.0}}">{{lang.1}} ({{lang.0}})</a>
+{% endif %} |
+{% endfor %}
+        <!-- main sidebar -->
+        {% if user.is_authenticated %}
+
+            {% if user.role == 'Admin' %}
+            <div class="fixed-sidebar sidebar-mini" data-simplebar>
+                <div class="profile">
+                    <div class="sidebar-profile">
+                        <button id="profileClose"><i class="bi bi-x-circle-fill"></i></button>
+                        <div class="part-img">
+                            <img src="{% static '/static_admin/assets/images/logo.jpeg' %}" alt="user">
+                        </div>
+                        <div class="part-txt">
+                            <a href="#" class="name">ASK Import Export</a>
+                            <span>Admin</span>
+                            <ul>
+                                <li><a href="{% url 'admin_logout' %}" data-bs-toggle="tooltip" data-bs-placement="top" tabindex="0"
+                                        title="Log out"><i class="bi bi-power"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- sidebar menu -->
+                <div class="menu">
+                    <div class="sidebar-menu">
+                        <ul>
+                            <li class="sidebar-title"><span>Menu</span></li>
+
+                            <li class="sidebar-item has-sub">
+                                <a role="button" class="sidebar-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Dashboard" tabindex="0"><i class="bi bi-grid-fill"></i>
+                                    <span>Dashboard</span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'admin_dashboard' %}" class="sub-menu-item">Dashboard</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="sidebar-item has-sub">
+                                <a role="button" class="sidebar-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Branch" tabindex="0"><i class="bi bi-building"></i>
+                                    <span>Branch</span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'add_branch' %}" class="sub-menu-item">Add Branch</a></li>
+                                    <li><a href="{% url 'view_branch' %}" class="sub-menu-item">View Branch</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="sidebar-item has-sub">
+                                <a role="button" class="sidebar-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Employee" tabindex="0"><i class="bi bi-people-fill"></i>
+                                    <span>Employee</span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'register_employee' %}" class="sub-menu-item">Register Employee</a></li>
+                                    <li><a href="{% url 'manage_employee' %}" class="sub-menu-item">Manage Employee</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="sidebar-item has-sub">
+                                <a role="button" class="sidebar-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Sale Report" tabindex="0"><i class="bi bi-graph-up-arrow"></i>
+                                    <span>Sales Report</span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'add_salesreport' %}" class="sub-menu-item">Add Sales Report</a></li>
+                                    <li><a href="{% url 'manage_salesreport' %}" class="sub-menu-item">View Sales Report</a></li>
+                                </ul> 
+                            </li>
+
+                            <li class="sidebar-item has-sub">
+                                <a role="button" class="sidebar-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Purchase Report" tabindex="0"><i class="bi bi-diagram-3-fill"></i>
+                                    <span>Purchase Report</span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'add_purchasereport' %}" class="sub-menu-item">Add Purchase Report</a></li>
+                                    <li><a href="{% url 'manage_purchasereport' %}" class="sub-menu-item">View Purchase Report</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="sidebar-item has-sub">
+                                <a role="button" class="sidebar-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Quotation" tabindex="0"><i class="bi bi-file-diff"></i>
+                                    <span>Quotation</span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'add_quotation' %}" class="sub-menu-item">Add Quotation </a></li>
+                                    <li><a href="{% url 'manage_quotation' %}" class="sub-menu-item">View Quotation </a></li>
+                                </ul>
+                            </li>
+
+                            <li class="sidebar-item has-sub">
+                                <a role="button" class="sidebar-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Invoice + Reiumbursement Bills" tabindex="0"><i class="bi bi-receipt"></i>
+                                    <span>Invoice + Reiumbursement </span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#" class="sub-menu-item">Add Invoice + Reiumbursement Bills </a></li>
+                                    <li><a href="#" class="sub-menu-item">View Invoice + Reiumbursement Bills </a></li>
+                                </ul>
+                            </li>
+
+                            <li class="sidebar-item has-sub">
+                                <a role="button" class="sidebar-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Leads Entry" tabindex="0"><i class="bi bi-circle-fill"></i>
+                                    <span>Leads Entry</span></a>
+                                <ul class="sub-menu">
+                                    <li><a href=" {% url 'add_leadsentry' %}" class="sub-menu-item">Add Leads Entry</a></li>
+                                    <li><a href=" {% url 'view_leadsentry' %}" class="sub-menu-item">View Leads Entry</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="sidebar-item has-sub">
+                                <a role="button" class="sidebar-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Employee" tabindex="0"><i class="bi bi-people-fill"></i>
+                                    <span>Leaves</span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'manage_leaves' %}" class="sub-menu-item">Manage Leaves</a></li>
+                                   
+                                </ul>
+                            </li>
+
+                            <!-- <li class="sidebar-item has-sub">
+                                <a role="button" class="sidebar-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Employee" tabindex="0"><i class="bi bi-people-fill"></i>
+                                    <span>Report</span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#" class="sub-menu-item">Add Report </a></li>
+                                    <li><a href="#" class="sub-menu-item">Manage Report</a></li>
+                                </ul>
+                            </li> -->
+
+                            <!-- <li class="sidebar-item has-sub">
+                                <a role="button" class="sidebar-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Employee" tabindex="0"><i class="bi bi-people-fill"></i>
+                                    <span>Rights & Roles</span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#" class="sub-menu-item">Add Rights & Roles</a></li>
+                                    <li><a href="#" class="sub-menu-item">Manage Rights & Roles</a></li>
+                                </ul>
+                            </li> -->
+
+                            <li class="sidebar-item has-sub">
+                                <a role="button" class="sidebar-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Employee" tabindex="0"><i class="bi bi-people-fill"></i>
+                                    <span>Employee Work</span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'manage_todowork' %}" class="sub-menu-item">Manage Employee Work</a></li>
+                                </ul>
+                            </li>
+
+                            {% comment %} <li class="sidebar-item has-sub">
+                                <a role="button" class="sidebar-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Employee" tabindex="0"><i class="bi bi-people-fill"></i>
+                                    <span>Attendance</span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'add_attendance_details' %}" class="sub-menu-item">Add Attendence</a></li>
+                                    <li><a href="{% url 'manage_attendance_details' %}" class="sub-menu-item">Manage Attendence</a></li>
+                                </ul>
+                            </li> {% endcomment %}
+
+                        </ul>
+                    </div>       
+                </div>
+            </div>
+
+           {% else %}
+            <div class="fixed-sidebar sidebar-mini" data-simplebar>
+                <div class="profile">
+                    <div class="sidebar-profile">
+                        <button id="profileClose"><i class="bi bi-x-circle-fill"></i></button>
+                        <div class="part-img">
+                            <img src="{% static '/static_admin/assets/images/logo.jpeg' %}" alt="user">
+                        </div>
+                        <div class="part-txt">
+                            <a href="#" class="name">ASK Import Export</a>
+                            <span>Employee</span>
+                            <ul>
+                                <li><a href="{% url 'admin_logout' %}" data-bs-toggle="tooltip" data-bs-placement="top" tabindex="0"
+                                        title="Log out"><i class="bi bi-power"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- sidebar menu -->
+                <div class="menu">
+                    <div class="sidebar-menu">
+                        <ul>
+                            <li class="sidebar-title"><span>Menu</span></li>
+
+                            <li class="sidebar-item has-sub">
+                                <a role="button" class="sidebar-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Dashboard" tabindex="0"><i class="bi bi-grid-fill"></i>
+                                    <span>Dashboard</span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'employee_dashboard' %}" class="sub-menu-item">Dashboard</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="sidebar-item has-sub">
+                                <a role="button" class="sidebar-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Sale Report" tabindex="0"><i class="bi bi-graph-up-arrow"></i>
+                                    <span>Sales Report</span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'employee_add_salesreport' %}" class="sub-menu-item">Add Sales Report</a></li>
+                                    <li><a href="{% url 'employee_view_salesreport' %}" class="sub-menu-item">View Sales Report</a></li>
+                                </ul> 
+                            </li>
+
+                            <li class="sidebar-item has-sub">
+                                <a role="button" class="sidebar-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Purchase Report" tabindex="0"><i class="bi bi-diagram-3-fill"></i>
+                                    <span>Purchase Report</span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'employee_add_purchasereport' %}" class="sub-menu-item">Add Purchase Report</a></li>
+                                    <li><a href="{% url 'employee_view_purchasereport' %} " class="sub-menu-item">View Purchase Report</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="sidebar-item has-sub">
+                                <a role="button" class="sidebar-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Employee_Leaves" tabindex="0"><i class="bi bi-people-fill"></i>
+                                    <span>Quotation</span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'employee_add_quotation' %}" class="sub-menu-item">Add Quotation </a></li>
+                                    <li><a href="{% url 'employee_view_quotation' %}" class="sub-menu-item">View Quotation </a></li>
+                                </ul>
+                            </li>
+
+                            <li class="sidebar-item has-sub">
+                                <a role="button" class="sidebar-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Employee_Work" tabindex="0"><i class="bi bi-list-task"></i>
+                                    <span>To Do Work</span></a>
+
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'employee_add_todowork' %}" class="sub-menu-item">Add To Do Work</a></li>
+                                    <li><a href="{% url 'employee_view_todowork' %}" class="sub-menu-item">Manage To Do Work</a></li>
+                                </ul>
+                            </li>
+    
+                            <li class="sidebar-item has-sub">
+                                <a role="button" class="sidebar-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Leads Entry" tabindex="0"><i class="bi bi-circle-fill"></i>
+                                    <span>Leads Entry</span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'employee_add_leadsentry' %}" class="sub-menu-item">Add Leads Entry</a></li>
+                                    <li><a href="{% url 'employee_view_leadsentry' %}" class="sub-menu-item">View Leads Entry</a></li>
+                                </ul>
+                            </li>
+                            
+                            <li class="sidebar-item has-sub">
+                                <a role="button" class="sidebar-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Employee_Leaves" tabindex="0"><i class="bi bi-people-fill"></i>
+                                    <span>Leaves</span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'employee_applyfor_leave' %}" class="sub-menu-item">Apply For Leaves </a></li>
+                                    <li><a href="{% url 'employee_view_leave' %}" class="sub-menu-item">View Leaves</a></li>
+                                </ul>
+                            </li>
+
+                           
+    
+                            {% comment %} <li class="sidebar-item has-sub">
+                                <a role="button" class="sidebar-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Employee_Report" tabindex="0"><i class="bi bi-people-fill"></i>
+                                    <span>Report</span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#" class="sub-menu-item">Add Report </a></li>
+                                    <li><a href="#" class="sub-menu-item">Manage Report</a></li>
+                                </ul>
+                            </li> {% endcomment %}
+    
+                            {% comment %} <li class="sidebar-item has-sub">
+                                <a role="button" class="sidebar-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Employee_Attendance" tabindex="0"><i class="bi bi-people-fill"></i>
+                                    <span>Attendance</span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url 'add_attendance_details' %}" class="sub-menu-item">Add Attendence</a></li>
+                                    <li><a href="{% url 'employee_view_attendance' %}" class="sub-menu-item">Manage Attendence</a></li>
+                                </ul>
+                            </li> {% endcomment %}
+
+                            {% comment %} <li class="sidebar-item has-sub">
+                                <a role="button" class="sidebar-link" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Employee" tabindex="0"><i class="bi bi-people-fill"></i>
+                                    <span>Employee Work</span></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#" class="sub-menu-item">Add Employee Work</a></li>
+                                    <li><a href="#" class="sub-menu-item">View Employee Work</a></li>
+                                </ul>
+                            </li> {% endcomment %}
+                        </ul>
+                    </div>
+                </div>  
+            </div>
+            
+            {% endif %}
+
+        {% endif %}
+        <!-- main sidebar -->
+
+        {% block content %}
+
+        <!-- MAIN CONTENT GOES HEARE -->
+
+        {% endblock %}
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        {% if messages %}
+            <!-- Include SweetAlert JS -->
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    {% for message in messages %}
+                        Swal.fire({
+                            icon: '{{ message.tags }}',  // 'success' or 'error'
+                            title: '{{ message.tags|title }}',
+                            text: '{{ message }}'
+                        });
+                    {% endfor %}
+                });
+            </script>
+        {% endif %}
+    
+
+    <script src="{% static '/static_admin/assets/vendor/js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static '/static_admin/assets/vendor/js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static '/static_admin/assets/vendor/js/dataTables.responsive.min.js' %}"></script>
+    <script src="{% static '/static_admin/assets/vendor/js/simplebar.min.js' %}"></script>
+    <script src="{% static '/static_admin/assets/vendor/js/dragula.min.js' %}"></script>
+    <script src="{% static '/static_admin/assets/vendor/js/bs-dropzone.min.js' %}"></script>
+    <script src="{% static '/static_admin/assets/vendor/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static '/static_admin/assets/js/main.js' %}"></script>
+    <script src="{% static '/static_admin/assets/js/datatables-init.js' %}"></script>
+
+
+</body>
+
+</html>

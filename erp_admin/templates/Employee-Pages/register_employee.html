@@ -1,0 +1,221 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<!-- main-content -->
+<div class="main-content">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12">
+      <div class="panel mb-g">
+        <div class="panel-heading">
+          <h3>Register Employee</h3>
+        </div>
+
+        
+          <div class="panel-body">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="panel-body">
+                   
+                        <div class="row g-lg-4 g-2 align-items-center">
+
+                            <!-- <div class="col-lg-6"> -->
+                                <h3 class="personal-details text-center"><u>Employee Details :</u></h3>
+                                <div class="form-group row">
+                                    <div class="col-sm-4 text-center">
+                                        <label for="branch_details">Branch:</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <select name="branch_details" id="branch_details" required class="form-select form-control form-control-lg">
+                                            <option value="" disabled {% if not emp or not emp.instance.branch_details %}selected{% endif %}>Select Branch</option>
+                                            {% for branches in view_branchdata %}
+                                                <option value="{{ branches.id }}" {% if emp and branches.id == emp.instance.branch_details.id %}selected{% endif %}>
+                                                    {{ branches.name }} ({{ branches.code }})
+                                                </option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                    
+                                <!-- <div class="col-sm-2 text-center">
+                                    <label for="branch_details">Manager Name:</label>
+                                </div>
+                                <div class="col-sm-4">
+                                    
+                                    <select name="manager_details" id="manager_details" required class="form-select form-control form-control-lg">
+                                        {% for mg in viewmanagers_details %}
+                                            <option value="">Select Manager</option>
+                                            <option value="{{ mg.id }}" {% if mg.id == emp.instance.manager_details.id %}selected{% endif %}>
+                                                {{ mg.fname }} {{ mg.lname }} {{ mg.surname }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div> -->
+                                <!-- <div class="col-sm-4">
+                                    <select name="manager_details" id="manager_details" required class="form-select form-control form-control-lg">
+                                        {% for mg in viewmanagers_details %}
+                                        <option value="">Select Manager Name</option>
+                                            <option value="{{ mg.id }}|{{ mg.code }}" {% if mg.id == mg.instance.manager_details.id %}selected{% endif %}>
+                                                {{ mg.name }} ({{ mg.code }})
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div> -->
+                            </div>
+                            
+                            <hr>
+
+                            <h3 class="personal-details text-center"><u>Credential :</u></h3>
+
+                            <div class="col-sm-2 text-center">
+                                <label for="ProductDscr">User Name :</label>
+                            </div>
+                            <div class="col-sm-4 ">
+                                <input type="text" id="ProductDscr" name="{{ emp.username.name }}" value="{{ emp.username.value|default_if_none:'' }}" class="form-control form-control-lg" >
+                            </div>
+
+                            <div class="col-sm-2 text-center">
+                                <label for="ProductDscr">Password :</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" id="ProductDscr" name="{{ emp.password.name }}" value="{{ emp.password.value|default_if_none:'' }}" class="form-control form-control-lg" required>
+                            </div>
+                            <hr>
+                            
+                            <h3 class="personal-details text-center"><u>Personal Details :</u></h3>
+
+                            <div class="col-sm-2 text-center">
+                                <label for="AddProduct">Image :</label>
+                              </div>
+
+                              <div class="col-sm-4">
+                                <input type="file" id="ProductDscr" name="{{ emp.image.name }}" value="{{ emp.image.value|default_if_none:'' }}" class="form-control form-control-lg" accept=".jpg,.jpeg,.png" multiple  {% if not emp.instance.image %} required {% endif %}/>
+                                {% if emp.instance.image %}
+                                    <div class="mb-3">
+                                        <!-- Display the existing image -->
+                                        <p>Current Image: <a href="{{ emp.instance.image.url }}" target="_blank">{{ emp.instance.image.url }}</a></p>
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <div class="col-sm-2 text-center">
+                                <label for="AddProduct">Verification Document :</label>
+                              </div>
+
+                              <div class="col-sm-4">
+                                <input type="file" id="ProductDscr" name="{{ emp.verificationdoc.name }}" value="{{ emp.verificationdoc.value|default_if_none:'' }}" class="form-control form-control-lg" accept=".jpg,.jpeg,.png" multiple  {% if not emp.instance.image %} required {% endif %}/>
+                                {% if emp.instance.image %}
+                                    <div class="mb-3">
+                                        <!-- Display the existing verification document -->
+                                        <p>Current Image: <a href="{{ emp.instance.verificationdoc.url }}" target="_blank">{{ emp.instance.image.url }}</a></p>
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <div class="col-sm-2 text-center">
+                                <label for="AddProduct">Adharcard No :</label>
+                              </div>
+
+                              <div class="col-sm-4">
+                                <input type="text" id="ProductDscr" name="{{ emp.adharcardno.name }}" value="{{ emp.verificationdoc.value|default_if_none:'' }}" class="form-control form-control-lg" accept=".jpg,.jpeg,.png" multiple  {% if not emp.instance.image %} required {% endif %}/>
+                            </div>
+
+                            <div class="col-sm-2 text-center">
+                                <label for="ProductDscr">Joinning Date :</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="date" id="ProductDscr" name="{{ emp.joinningdate.name }}" value="{{ emp.joinningdate.value|date:'Y-m-d'|default_if_none:'' }}" class="form-control form-control-lg" required>
+                            </div>
+
+                            <div class="col-sm-2 text-center">
+                                <label for="ProductDscr">First Name :</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" id="ProductDscr" name="{{ emp.fname.name }}" value="{{ emp.fname.value|default_if_none:'' }}" class="form-control form-control-lg" required>
+                            </div>
+
+                            <div class="col-sm-2 text-center">
+                                <label for="ProductDscr">Middle Name :</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" id="ProductDscr" name="{{ emp.lname.name }}" value="{{ emp.lname.value|default_if_none:'' }}" class="form-control form-control-lg" required>
+                            </div>
+
+                            <div class="col-sm-2 text-center">
+                                <label for="ProductDscr">Surname :</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" id="ProductDscr" name="{{ emp.surname.name }}" value="{{ emp.surname.value|default_if_none:'' }}" class="form-control form-control-lg" required>
+                            </div>
+
+                            <div class="col-sm-2 text-center">
+                                <label for="ProductDscr">Job Role :</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" id="ProductDscr" name="{{ emp.jobrole.name }}" value="{{ emp.jobrole.value|default_if_none:'' }}" class="form-control form-control-lg" required>
+                            </div>
+
+                            
+                            <div class="col-sm-2 text-center">
+                                <label for="ProductDscr">Gender :</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input class="form-check-input" type="radio" name="gender" id="gender_female" value="female" {% if emp.instance.gender == 'female' %}checked{% endif %} required>
+                                    <label class="form-check-label me-3 " for="gender_female">Female</label>
+                                <input class="form-check-input" type="radio" name="gender" id="gender_female" value="male" {% if emp.instance.gender == 'male' %}checked{% endif %} required>
+                                    <label class="form-check-label" for="gender_female">Male</label>
+                            </div>
+
+                            <div class="col-sm-2 text-center">
+                                <label for="ProductDscr">Date Of Birth :</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="date" id="ProductDscr" name="{{ emp.birthdate.name }}" value="{{ emp.birthdate.value|date:'Y-m-d'|default_if_none:'' }}" class="form-control form-control-lg" required>
+                            </div>
+                            
+                            <div class="col-sm-2 text-center">
+                                <label for="ProductDscr">Email :</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="email" id="ProductDscr" name="{{ emp.email.name }}" value="{{ emp.email.value|default_if_none:'' }}" class="form-control form-control-lg" required>
+                            </div>
+                            
+                            <div class="col-sm-2 text-center">
+                                <label for="ProductDscr">Mobile No:</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" id="ProductDscr" name="{{ emp.mobile.name }}" value="{{ emp.mobile.value|default_if_none:'' }}" class="form-control form-control-lg" maxlength="10" required>
+                            </div>
+
+                            <div class="col-sm-2 text-center">
+                                <label for="ProductDscr">Address :</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <textarea type="text" rows="2" id="ProductDscr" name="{{ emp.address.name }}" value="{{ emp.address.value|default_if_none:'' }}" class="form-control form-control-lg" required>{{ emp.address.value|default_if_none:'' }}</textarea>
+                            </div>
+
+                            <div class="col-sm-2 text-center">
+                                <label for="ProductDscr">Job Role Agreement :</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="file" id="ProductDscr" name="{{ emp.jobrole_agreement.name }}" value="{{ emp.jobrole_agreement.value|default_if_none:'' }}" class="form-control form-control-lg" required>
+                            </div>
+                          
+                            <div class="col-12">
+                                <div class="btn-box justify-content-end">
+                                    <input type="reset" class="btn btn-secondary" value="Reset">
+                                    <input type="submit" value="Submit" class="btn btn-primary">
+                                </div>
+                            </div> 
+
+                        </div>
+                    
+                </div>
+            </form>
+
+          </div>
+      
+      </div>
+    </div>
+  </div>
+</div>
+<!-- main-content -->
+
+
+{% endblock %}

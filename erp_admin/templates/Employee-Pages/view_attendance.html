@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <!-- main-content -->
+        <div class="main-content">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="panel mb-g">
+                        <div class="panel-heading">
+                            <h3>Manage Attendance</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="ecommerce-table">
+                                <div class="table-top-control mb-g">
+                                    <div class="row g-lg-4 g-md-3 g-sm-2 g-3">
+                                        <div class="col-sm-6" id="tableRowConut"></div>
+                                        <div class="col-sm-6" id="tableSearch" ></div>
+                                    </div>
+                                </div>
+                                <table id="myTable" class="table data-table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Image</th>
+                                            <th scope="col">Branch Name</th>
+                                            <th scope="col">Employee FullName</th>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">Total Hours</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      {% for eva in view_attendace %}
+                                        <tr>
+                                            <td>{{eva.id}}</td>
+                                            <td>{% if eva.aemp.image %}
+                                                <img src="{{ eva.aemp.image.url }}" alt="{{ eva.aemp.image }}">
+                                            {% else %}
+                                                <img src="{{ eva.am.image.url }}" alt="{{ eva.am.image }}">
+                                            {% endif %}</td>
+                                            <td>{{eva.branch_details.name}} ({{eva.branch_details.code}})</td>
+                                            <td>{% if eva.aemp %}
+                                                {{ eva.aemp.fname }} {{ eva.aemp.lname }} {{ eva.aemp.surname }}
+                                            {% else %}
+                                            {{ eva.am.fname }} {{ eva.am.lname }} {{ eva.am.surname }}
+                                            {% endif %}</td>
+                                            <td>{{eva.date}}</td>
+                                            <td>
+                                                <span 
+                                                    {% if eva.status == "Full Day" %} style="background-color: #75e0bc; padding:5px 10px; border-radius:3px;"
+                                                    {% elif eva.status == "Half Day" %} style="color: rgb(230, 230, 125);"
+                                                    {% elif eva.status == "Absent" %} style="color: rgb(243, 100, 100);"
+                                                    {% endif %} >{{eva.status}}
+                                                </span>
+                                            </td>
+                                            <td>{{eva.total_hours}}</td>
+                                            <td>
+                                                <div class="btn-box">
+                                                    <!-- <a href="/view_leave_fulldetails/{{ regm.id }}" class="btn btn-sm btn-secondary text-white"><i class="bi bi-eye-fill"></a></i> -->
+                                                    <a href="/employee_update_attendance/{{ eva.id }}" class="btn btn-sm btn-success text-white"><i class="bi bi-pencil-square"></a></i>
+                                                    <a href="/employee_delete_attendance/{{ eva.id }}" class="btn btn-sm btn-danger text-white"><i class="bi bi-trash"></a></i>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                <div class="table-bottom-control"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- main-content -->
+
+
+        
+{% endblock %}

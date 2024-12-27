@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <!-- main-content -->
+        <div class="main-content">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="panel mb-g">
+                        <div class="panel-heading">
+                            <h3>Manage To Do Work</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="ecommerce-table">
+                                <div class="table-top-control mb-g">
+                                    <div class="row g-lg-4 g-md-3 g-sm-2 g-3">
+                                        <div class="col-sm-6" id="tableRowConut"></div>
+                                        <div class="col-sm-6" id="tableSearch" ></div>
+                                    </div>
+                                </div>
+                                <table id="myTable" class="table data-table">
+                                    <thead>
+                                        <tr>
+                                            <!-- <th scope="col">ID</th> -->
+                                            <th scope="col">Full Name</th>
+                                            <th scope="col">Work</th>
+                                            <th scope="col">Start Date</th>
+                                            <th scope="col">End Date</th>
+                                            <th scope="col">Work Description</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">Delay Reason</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      {% for etdw in emp_todowork %}
+                                        <tr>
+                                            <!-- <td>{{etdw.id}}</td> -->
+                                            <td>{{etdw.fullname.fname}} {{etdw.fullname.lname}} {{etdw.fullname.surname}}</td>
+                                            <td>{{etdw.work}}</td>
+                                            <td>{{etdw.start_date}}</td>
+                                            <td>{{etdw.end_date}}</td>
+                                            <td>{{etdw.work_desc}}</td>
+                                            <td>{{etdw.status}}</td>
+                                            <td>{{etdw.delay_reason}}</td>
+                                            <td>
+                                                <div class="btn-box">
+                                                    {% comment %} <a href="/view_todowork_fulldetails/{{ etdw.id }}" class="btn btn-sm btn-secondary text-white"><i class="bi bi-eye-fill"></a></i> {% endcomment %}
+                                                    <a href="/employee_update_todowork/{{ etdw.id }}" class="btn btn-sm btn-success text-white"><i class="bi bi-pencil-square"></a></i>
+                                                    <a href="/employee_delete_todowork/{{ etdw.id }}" class="btn btn-sm btn-danger text-white"><i class="bi bi-trash"></a></i>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                <div class="table-bottom-control"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- main-content -->
+
+        <script>
+            $(document).ready(function() {
+                var messages = $('.messages li');
+                if (messages.length > 0) {
+                    messages.each(function() {
+                        alert($(this).text());
+                    });
+                }
+            });
+        </script>
+        
+{% endblock %}

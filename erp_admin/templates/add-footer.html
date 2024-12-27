@@ -1,0 +1,97 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<!-- main-content -->
+<div class="main-content">
+  <div class="row">
+      <div class="col-xl-12 col-lg-12">
+          <div class="panel mb-g">
+              <div class="panel-heading">
+                  <h3>Add Attendence</h3>
+              </div>
+              <div class="panel-body">
+                <form action="" method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <div class="panel-body">
+                      <div class="add-product">
+                          <div class="row g-lg-4 g-2 align-items-center">
+
+                          <div class="col-sm-2 text-center">
+                            <label for="branch_details">Branch:</label>
+                          </div>
+                          <div class="col-sm-4">
+                              <select name="branch_details" id="branch_details" required class="form-select form-control form-control-lg" required>
+                                  {% for branches in view_branchdata %}
+                                  <option value="">Select Branch</option>
+                                      <option value="{{ branches.id }}" {% if branches.id == emp.instance.branch_details.id %}selected{% endif %}>
+                                          {{ branches.name }} ({{ branches.code }}
+                                      </option>)
+                                  {% endfor %}
+                              </select>
+                          </div>
+
+                          <div class="col-sm-4">
+                            <label for="ProductDscr">Date :</label>
+                          </div>
+                          <div class="col-sm-8">
+                              <input type="date" id="ProductDscr" name="{{ mat.date.name }}" value="{{ mat.initial.date }}" class="form-control form-control-lg">
+                          </div>
+
+                          <div class="col-sm-4">
+                            <label for="ProductDscr">In time :</label>
+                          </div>
+                          <div class="col-sm-8">
+                              <input type="time" id="ProductDscr" name="{{ mat.in_time.name }}" value="{{ mat.initial.in_time }}" class="form-control form-control-lg">
+                          </div>
+                          
+                          <div class="col-sm-4">
+                            <label for="ProductDscr">Out time :</label>
+                          </div>
+                          <div class="col-sm-8">
+                              <input type="time" id="ProductDscr" name="{{ mat.out_time.name }}" value="{{ mat.initial.out_time }}" class="form-control form-control-lg">
+                          </div>
+
+                          <div class="col-sm-4">
+                              <label for="ProductDscr">Mobile No:</label>
+                          </div>
+                          <div class="col-sm-8">
+                              <input type="text" id="ProductDscr" name="{{ ca.mobile.name }}" value="{{ ca.initial.mobile }}" class="form-control form-control-lg">
+                          </div>
+                              
+                              <div class="col-12">
+                                  <div class="btn-box justify-content-end">
+                                      <input type="reset" class="btn btn-secondary" value="Reset">
+                                      <input type="submit" value="Add" class="btn btn-primary">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </form>
+          </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- main-content -->
+
+<script>
+  $(document).ready(function() {
+     
+      // Debugging: Check if messages are present in the console
+      console.log('Messages length: ' + $('.messages li').length);
+
+      var messages = $('.messages li');
+      if (messages.length > 0) {
+          messages.each(function() {
+              var messageText = $(this).text();
+              console.log('Alerting message: ' + messageText);
+              alert(messageText);
+          });
+      } else {
+          console.log('No messages found.');
+      }
+  });
+</script>
+
+{% endblock %}

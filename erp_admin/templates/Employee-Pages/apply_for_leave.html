@@ -1,0 +1,181 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<!-- main-content -->
+<div class="main-content">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12">
+      <div class="panel mb-g">
+        <div class="panel-heading">
+          <h3> Apply For Leave</h3>
+        </div>
+
+        <ul class="messages" style="display: none;">
+            {% if messages %}
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+
+
+          <div class="panel-body">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="panel-body">
+                    
+                        <div class="row g-lg-4 g-2 align-items-center">
+                                    <div class="col-sm-4">
+                                        <label for="branch_details">Branch:</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <select name="branch_details" id="branch_details" required class="form-select form-control form-control-lg" required>
+                                            <option value="" disabled selected>Select Branch</option>
+                                            {% for branches in view_branchdata %}
+                                                <option value="{{ branches.id }}" {% if branches.id == alemp.instance.branch_details.id %}selected{% endif %}>
+                                                    {{ branches.name }} ({{ branches.code }})
+                                                </option>
+                                            {% endfor %}
+                                        </select> 
+                                    </div>
+                           
+                            <div class="col-sm-4">
+                                <label for="ProductDscr">Employee Full Name :</label>
+                            </div>
+                            <div class="col-sm-6">
+                                <select name="employee" id="employee" class="form-select form-control form-control-lg">
+                                    <option value="" disabled {% if not employee %}selected{% endif %}>Please Select Name</option>
+                                    {% for emp in view_emp %}
+                                    <option value="{{ emp.id }}" {% if employee.id == employee.id %}selected{% endif %} >{{emp.fname}} {{emp.lname}} {{emp.surname}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label for="AddProduct">Image :</label>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <input type="file" id="ProductDscr" name="{{ alemp.image.name }}" value="{{ alemp.image.value|default_if_none:'' }}" required class="form-control form-control-lg" accept=".jpg,.jpeg,.png" multiple  {% if not alemp.instance.image %} required {% endif %}/>
+                                {% if alemp.instance.image %}
+                                    <div class="mb-3">
+                                        <p>Current Image: <a href="{{ alemp.instance.image.url }}" target="_blank">{{ alemp.instance.image.url }}</a></p>
+                                    </div>
+                                {% else %}
+                                    <p>No Image Available</p>
+                                {% endif %}
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label for="ProductDscr">Gender :</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input class="form-check-input" type="radio" name="gender" id="gender_female" required value="female" {% if alemp.instance.gender == 'female' %}checked{% endif %} required>
+                                    <label class="form-check-label me-3" for="gender_female">Female</label>
+                                <input class="form-check-input" type="radio" name="gender" id="gender_female" value="male" {% if alemp.instance.gender == 'male' %}checked{% endif %} required>
+                                    <label class="form-check-label" for="gender_female">Male</label>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label for="ProductDscr">From Date:</label>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="date" id="ProductDscr" name="{{ alemp.leavesdate.name }}" value="{{ alemp.leavesdate|date:'Y-m-d'|default:'' }}" class="form-control form-control-lg" required>{{ alemp.leavesdate|date:'Y-m-d'|default:'' }}
+    
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label for="ProductDscr">To Date:</label>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="date" id="ProductDscr" name="{{ alemp.leaveedate.name }}" value="{{ alemp.leaveedate|date:'Y-m-d'|default_if_none:'' }}" class="form-control form-control-lg" required>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label for="ProductDscr">Number Of Days:</label>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="number" id="ProductDscr" name="{{ alemp.nofdays.name }}" value="{{ alemp.nofdays.value|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Number Of Days" required>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label for="ProductDscr">Reason Type:</label>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" id="ProductDscr" name="{{ alemp.reasontype.name }}" value="{{ alemp.reasontype.value|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Reason Type" required>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label for="ProductDscr">Reason :</label>
+                            </div>
+                            <div class="col-sm-6">
+                                <textarea name="{{ alemp.reason.name }}" id="reason" class="form-control form-control-lg" placeholder="Enter Reason" required>{{ alemp.reason.value|default_if_none:'' }}</textarea>
+                                <!-- <input type="text" id="Reason" name="{{ alemp.reason.name }}" value="{{ alemp.reason.value|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Reason" required> -->
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label for="ProductDscr">Document :</label>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="file" id="ProductDscr" name="{{ alemp.document.name }}" value="{{ alemp.document.value|default_if_none:'' }}" class="form-control form-control-lg" required>
+                                {% if alemp.instance.document %}
+                                    <div class="mb-3">
+                                        <p>Current Document: <a href="{{ alemp.instance.document.url }}" target="_blank">{{ alemp.instance.document.url }}</a></p>
+                                    </div>
+                                {% else %}
+                                    <p>No Image Available</p>
+                                {% endif %}
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label for="ProductDscr">Email :</label>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="email" id="ProductDscr" name="{{ alemp.email.name }}" value="{{ alemp.email.value|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Email" required>
+                            </div>
+                            
+                            <div class="col-sm-4">
+                                <label for="ProductDscr">Mobile No:</label>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" maxlength="10" id="ProductDscr" name="{{ alemp.mobile.name }}" value="{{ alemp.mobile.value|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Mobile No" maxlength="10" required>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="btn-box justify-content-end">
+                                    <input type="reset" class="btn btn-secondary" value="Reset">
+                                    <input type="submit" value="Submit" class="btn btn-primary">
+                                </div>
+                            </div> 
+
+                        </div>
+                    
+                </div>
+            </form>
+          </div>
+       
+      </div>
+    </div>
+  </div>
+</div>
+<!-- main-content -->
+
+
+{% comment %} <script>
+    $(document).ready(function() {
+       
+        // Debugging: Check if messages are present in the console
+        console.log('Messages length: ' + $('.messages li').length);
+
+        var messages = $('.messages li');
+        if (messages.length > 0) {
+            messages.each(function() {
+                var messageText = $(this).text();
+                console.log('Alerting message: ' + messageText);
+                alert(messageText);
+            });
+        } else {
+            console.log('No messages found.');
+        }
+    });
+</script> {% endcomment %}
+
+{% endblock %}

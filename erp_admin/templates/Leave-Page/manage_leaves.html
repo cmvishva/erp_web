@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <!-- main-content -->
+        <div class="main-content">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="panel mb-g">
+                        <div class="panel-heading">
+                            <h3>Manage Leaves</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="ecommerce-table">
+                                <div class="table-top-control mb-g">
+                                    <div class="row g-lg-4 g-md-3 g-sm-2 g-3">
+                                        <div class="col-sm-6" id="tableRowConut"></div>
+                                        <div class="col-sm-6" id="tableSearch" ></div>
+                                    </div>
+                                </div>
+                                <table id="myTable" class="table data-table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Image</th>
+                                            <th scope="col">Branch Name</th>
+                                            <th scope="col">Employee FullName</th>
+                                            <th scope="col">Leave Start Date</th>
+                                            <th scope="col">Leave End Date</th>
+                                            <th scope="col">Number of Days </th>
+                                            <th scope="col">Reason Type </th>
+                                            <th scope="col">Reason </th>
+                                            <th scope="col">Documents</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Mobile No.</th>
+                                            <th scope="col">Leave Status</th>
+                                            <th scope="col">Leave Action</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      {% for vle in admin_viewleaves %}
+                                        <tr>
+                                            <td>{{vle.id}}</td>
+                                            <td><img src="{{ vle.image.url }}" alt="{{ vle.image }}" width="100px" height="100px"></td>
+                                            <td>{{vle.employee.fname}} {{vle.employee.lname}} {{vle.employee.surname}}</td>
+                                            <td>{{vle.leavesdate}}</td>
+                                            <td>{{vle.leaveedate}}</td>
+                                            <td>{{vle.nofdays}}</td>
+                                            <td>{{vle.reasontype}}</td>
+                                            <td>{{vle.reason}}</td>
+                                            <td>{{vle.document}}</td>
+                                            <td>{{vle.email}}</td>
+                                            <td>{{vle.mobile}}</td>
+                                            <td>{{vle.leavestatus}}</td>
+                                            <td>
+                                                <a href="admin_approve_leave/{{ vle.id }}">Approve</a>
+                                                <a href="admin_disapprove_leave/{{ vle.id }}">Disapprove</a>
+                                            </td>
+                                            <td>
+                                                <div class="btn-box">
+                                                    <!-- <a href="/view_leave_fulldetails/{{ vle.id }}" class="btn btn-sm btn-secondary text-white"><i class="bi bi-eye-fill"></a></i> -->
+                                                    <a href="/employee_delete_leave/{{ vle.id }}" class="btn btn-sm btn-danger text-white"><i class="bi bi-trash"></a></i>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                <div class="table-bottom-control"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- main-content -->
+
+        
+{% endblock %}

@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- main-content -->
+<div class="main-content">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12">
+            <div class="panel mb-g">
+                <div class="panel-heading">
+                    <h3>Manager Full Details :</h3>
+                </div>
+
+                <ul class="messages" style="display: none;">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+
+                <div class="panel-body">
+                    <div class="ecommerce-table">
+                        <div class="table-top-control mb-g" hidden>
+                            <div class="row g-lg-4 g-md-3 g-sm-2 g-3" >
+                                <div class="col-sm-6" id="tableRowConut"></div>
+                                
+                                <div class="col-sm-4" id="tableSearch" hidden></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                    
+                            <div class="col-lg-12">
+                                <table id="myTable" class="table data-table col-lg-6">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Fields</th>
+                                            <th scope="col">Data</th>
+                                        </tr>
+                                    </thead>
+                                    
+                                            <tbody>
+                                        
+                                                {% if viewmanager_fulldetails %}
+                                                
+                                                <tr>
+                                                    <td>Branch :</td>
+                                                    <td>{{viewmanager_fulldetails.branch_details.name}}( {{viewmanager_fulldetails.branch_details.code}})</td>
+                                                </tr>
+                                                
+                                                <tr>
+                                                    <td>Username :</td>
+                                                    <td>{{viewmanager_fulldetails.username}}</td>
+                                                </tr>
+        
+                                                <tr>
+                                                    <td>Joinning Date :</td>
+                                                    <td>{{viewmanager_fulldetails.joinningdate}}</td>
+                                                </tr>
+        
+                                                <tr>
+                                                    <td>Password :</td>
+                                                    <td>{{viewmanager_fulldetails.password}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Full Name :</td>
+                                                    <td>{{viewmanager_fulldetails.fname}} {{viewmanager_fulldetails.lname}} {{viewmanager_fulldetails.surname}}</td>
+                                                </tr>
+                                               
+                                                <tr>
+                                                    <td>Gender :</td>
+                                                    <td>{{viewmanager_fulldetails.gender}}</td>
+                                                </tr>
+                                               
+                                                <tr>
+                                                    <td>Date Of Birth :</td>
+                                                    <td>{{viewmanager_fulldetails.birthdate}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Email :</td>
+                                                    <td>{{viewmanager_fulldetails.email}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mobile No:</td>
+                                                    <td>{{viewmanager_fulldetails.mobile}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Address :</td>
+                                                    <td>{{viewmanager_fulldetails.address}}</td>
+                                                </tr>
+                                                
+                                                {% else %}
+                                                <p>No details available for this branch.</p>
+                                                
+                                            {% endif %}
+                                            
+                                            </tbody>
+                                       
+                                </table>
+                            </div>
+                           </center>
+                        </div>
+
+                        <div class="table-bottom-control"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- main-content -->
+
+<script>
+    $(document).ready(function() {
+        var messages = $('.messages li');
+        if (messages.length > 0) {
+            messages.each(function() {
+                alert($(this).text());
+            });
+        }
+    });
+</script>
+
+{% endblock %}

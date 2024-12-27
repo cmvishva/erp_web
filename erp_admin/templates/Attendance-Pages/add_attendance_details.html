@@ -1,0 +1,259 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<!-- main-content -->
+<div class="main-content">
+  <div class="row">
+      <div class="col-xl-12 col-lg-12">
+          <div class="panel mb-g">
+              <div class="panel-heading">
+                  <h3>Add Attendance</h3>
+              </div>
+              <div class="panel-body">
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="panel-body">
+                        <div class="add-product">
+                            <div class="row g-lg-4 g-2 align-items-center">
+                
+                                <!-- Branch Details -->
+                                <div class="col-sm-4 text-center">
+                                    <label for="branch_details">Branch:</label>
+                                </div>
+                                <div class="col-sm-6">
+                                    <select name="branch_details" id="branch_details" class="form-select form-control form-control-lg" required>
+                                        <option value="" disabled selected>Select Branch</option>
+                                        {% for branch in view_branchdata %}
+                                        <option value="{{ branch.id }}" {% if branch.id == ea.instance.branch_details.id %}selected{% endif %}>
+                                            {{ branch.name }} ({{ branch.code }})
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                
+                                <!-- User and Employee Selection -->
+                                <div class="col-sm-4 text-center">
+                                    <label for="employee">Name:</label>
+                                </div>
+                                <div class="col-sm-6">
+
+                                    <select name="em" id="em" class="form-select form-control form-control-lg">
+                                        <option value="" disabled selected>Select Manager or Employee</option>
+                                    
+                                        <!-- Managers -->
+                                        <optgroup label="Managers">
+                                            {% for vm in viewmanagers_details %}
+                                                <option value="{{ vm.id }}"
+                                                    {% if uatd and uatd.am and vm.id == uatd.am.id %}selected{% elif not uatd and logged_in_manager and vm.id == logged_in_manager.id %}selected{% endif %}>
+                                                    {{ vm.fname }} {{ vm.lname }} {{ vm.surname }}
+                                                </option>
+                                            {% endfor %}
+                                        </optgroup>
+                                    
+                                        <!-- Employees -->
+                                        <optgroup label="Employees">
+                                            {% for emp in view_employees %}
+                                                <option value="{{ emp.id }}"
+                                                    {% if uatd and uatd.aemp and emp.id == uatd.aemp.id %}selected{% elif not uatd and logged_in_employee and emp.id == logged_in_employee.id %}selected{% endif %}>
+                                                    {{ emp.fname }} {{ emp.lname }} {{ emp.surname }}
+                                                </option>
+                                            {% endfor %}
+                                        </optgroup>
+                                    </select>
+
+                                    <!-- <select name="em" id="em" class="form-select form-control form-control-lg" {% if logged_in_employee or logged_in_manager %}disabled{% endif %}>
+                                        <option value="" disabled selected>Select Manager or Employee</option>
+                                    
+                                        Managers
+                                        <optgroup label="Managers">
+                                            {% for vm in viewmanagers_details %}
+                                                <option value="{{ vm.id }}"
+                                                    {% if logged_in_manager and vm.id == logged_in_manager.id %}selected{% endif %}>
+                                                    {{ vm.fname }} {{ vm.lname }} {{ vm.surname }}
+                                                </option>
+                                            {% endfor %}
+                                        </optgroup>
+                                    
+                                        Employees
+                                        <optgroup label="Employees">
+                                            {% for emp in view_employees %}
+                                                <option value="{{ emp.id }}"
+                                                    {% if logged_in_employee and emp.id == logged_in_employee.id %}selected{% endif %}>
+                                                    {{ emp.fname }} {{ emp.lname }} {{ emp.surname }}
+                                                </option>
+                                            {% endfor %}
+                                        </optgroup>
+                                    </select> -->
+                                    
+                                    <!-- <select name="em" id="em" class="form-select form-control form-control-lg" required>
+                                        <option value="" disabled selected>Select Manager or Employee</option>
+                                    
+                                        <optgroup label="Managers">
+                                            {% for vm in viewmanagers_details %}
+                                                <option value="{{ vm.id }}"
+                                                    {% if uatd.am and vm.id == uatd.am.id %}selected{% endif %}>
+                                                    {{ vm.fname }} {{ vm.lname }} {{ vm.surname }}
+                                                </option>
+                                            {% endfor %}
+                                        </optgroup>
+                                    
+                                        <optgroup label="Employees">
+                                            {% for emp in view_employees %}
+                                                <option value="{{ emp.id }}"
+                                                    {% if uatd.aemp and emp.id == uatd.aemp.id %}selected{% endif %}>
+                                                    {{ emp.fname }} {{ emp.lname }} {{ emp.surname }}
+                                                </option>
+                                            {% endfor %}
+                                        </optgroup>
+                                    </select> -->
+
+                                </div>
+                
+                                <!-- Date -->
+                                <div class="col-sm-4 text-center">
+                                    <label for="date">Date:</label>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="date" id="date" name="date" value="{{ ea.instance.date|date:'Y-m-d' }}" class="form-control form-control-lg">
+                                </div>
+                
+                                <!-- Total Hours -->
+                                <div class="col-sm-4 text-center">
+                                    <label for="total_hours">Total Hours:</label>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" id="total_hours" name="total_hours" value="{{ ea.instance.total_hours }}" class="form-control form-control-lg">
+                                </div>
+                
+                                <!-- Status -->
+                                <div class="col-sm-4 text-center">
+                                    <label for="status">Status:</label>
+                                </div>
+                                <div class="col-sm-6">
+                                    <select name="status" id="status" class="form-control form-control-lg" required>
+                                        <option value="" disabled>Select Status</option>
+                                        <option value="Full Day" {% if ea.instance.status == "Full Day" %}selected{% endif %}>Full Day</option>
+                                        <option value="Half Day" {% if ea.instance.status == "Half Day" %}selected{% endif %}>Half Day</option>
+                                        <option value="Absent" {% if ea.instance.status == "Absent" %}selected{% endif %}>Absent</option>
+                                    </select>
+                                </div>
+                
+                                <!-- Submit Button -->
+                                <div class="col-12">
+                                    <div class="btn-box justify-content-end">
+                                        <input type="reset" class="btn btn-secondary" value="Reset">
+                                        <input type="submit" value="Add" class="btn btn-primary">
+                                    </div>
+                                </div>
+                
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                
+                <!-- <form action="" method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <div class="panel-body">
+                      <div class="add-product">
+                          <div class="row g-lg-4 g-2 align-items-center">
+
+                          <div class="col-sm-4 text-center">
+                            <label for="branch_details">Branch:</label>
+                          </div>
+                          <div class="col-sm-6">
+                              <select name="branch_details" id="branch_details" required class="form-select form-control form-control-lg" required>
+                                  {% for branches in view_branchdata %}
+                                  <option value="" disabled selected>Select Branch</option>
+                                      <option value="{{ branches.id }}" {% if branches.id == emp.instance.branch_details.id %}selected{% endif %}>
+                                          {{ branches.name }} ({{ branches.code }}
+                                      </option>)
+                                  {% endfor %}
+                              </select>
+                          </div>
+
+                          <div class="col-sm-4 text-center">
+                            <label for="name">Name:</label>
+                          </div>
+                          <div class="col-sm-6">
+                              <select name="branch_details" id="branch_details" required class="form-select form-control form-control-lg" required>
+                                  
+                                <option value="" disabled selected>Select Name</option>
+                                  {% for vm in viewmanagers_details %}
+                                  <option value="" disabled>Managers</option>
+                                  <option value="">
+                                    {{ vm.fname }} {{ vm.lname }} {{ vm.surname }}
+                                 </option>
+                                {% endfor %}
+                                {% for emps in view_employees %}
+                                  <option value="" disabled>Employee</option>
+                                      <option value="">
+                                          {{ emps.fname }} {{ emps.lname }} {{ emps.surname }}
+                                      </option>
+                                  {% endfor %}
+                              </select>
+                          </div>
+
+                          <div class="col-sm-4 text-center">
+                            <label for="ProductDscr">Date :</label>
+                          </div>
+                          <div class="col-sm-6">
+                              <input type="date" id="ProductDscr" name="{{ ea.date.name }}" value="{{ ea.initial.date }}" class="form-control form-control-lg">
+                          </div>
+
+                          <div class="col-sm-4 text-center">
+                            <label for="ProductDscr">Total Hours :</label>
+                          </div>
+                          <div class="col-sm-6">
+                              <input type="number" id="ProductDscr" name="{{ ea.total_hours.name }}" value="{{ ea.initial.total_hours }}" class="form-control form-control-lg">
+                          </div>
+
+                          <div class="col-sm-4 text-center">
+                              <label for="ProductDscr">Status :</label>
+                          </div>
+                          <div class="col-sm-6">
+                            <select name="" id="" class="form-control form-control-lg" required>
+                                <option value="{{ ea.id }}" {% if ea.id == ea.instance.id %}selected{% endif %} disabled selected>Select Status</option>
+                                <option value="Full Day">Full Day</option>
+                                <option value="Half Day">Half Day</option>
+                                <option value="Absent">Absent</option>
+                            </select>
+                          </div>
+                              
+                              <div class="col-12">
+                                  <div class="btn-box justify-content-end">
+                                      <input type="reset" class="btn btn-secondary" value="Reset">
+                                      <input type="submit" value="Add" class="btn btn-primary">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </form> -->
+          </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- main-content -->
+
+<script>
+  $(document).ready(function() {
+     
+      // Debugging: Check if messages are present in the console
+      console.log('Messages length: ' + $('.messages li').length);
+
+      var messages = $('.messages li');
+      if (messages.length > 0) {
+          messages.each(function() {
+              var messageText = $(this).text();
+              console.log('Alerting message: ' + messageText);
+              alert(messageText);
+          });
+      } else {
+          console.log('No messages found.');
+      }
+  });
+</script>
+
+{% endblock %}

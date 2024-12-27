@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Oswald:wght@200;300;400;500;600;700&display=swap');
+:root {
+    --heading-font: 'Oswald', sans-serif;
+    --body-font: 'Open Sans', sans-serif;
+
+    --p-color: #707275;
+    --black: #313131;
+    --black-2: #414141;
+    --white: #fff;
+    --white-2: #ebf3ff;
+
+    --color-1: #59daaf;
+    --color-2: #75e0bc;
+    --color-3: #2cc391;
+    --color-4: #91e6ca;
+    --color-5: #d6f6eb;
+    --color-6: #e4f9f2;
+
+    --rgba-1: rgba(44, 195, 145, 0.1);
+    --rgba-2: rgba(44, 195, 145, 0.05);
+    --rgba-3: rgba(0, 0, 0, 0.1);
+    --rgba-4: rgba(44, 195, 145, 0.3);
+    --rgba-5: rgba(0, 0, 0, 0.2);
+    --rgba-info: rgba(88, 205, 228, 0.5);
+    --rgba-success: rgba(36, 175, 110, 0.5);
+    --rgba-danger: rgba(211, 18, 18, 0.4);
+    --rgba-warning: rgba(230, 172, 0, 0.5);
+
+    --primary: #2cc391;
+    --success: #24af6e;
+    --danger: #d31212;
+    --info: #58cde4;
+    --warning: #e6ac00;
+
+    --gradient-1: linear-gradient(45deg, #59daaf, #2cc391);
+    --gradient-light: linear-gradient(45deg, rgba(226, 216, 255, 0.3), rgba(222, 210, 255, 0.3));
+    --gradient-success: linear-gradient(45deg, #42d993, #24af6e);
+    --gradient-danger: linear-gradient(45deg, #ff5454, #d31212);
+    --gradient-warning: linear-gradient(45deg, #ffd045, #e6ac00);
+    --gradient-info: linear-gradient(45deg, #58cde4, #00add0);
+}

@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+
+
+<!-- main-content -->
+<div class="main-content">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12">
+            <div class="panel mb-g">
+                <div class="panel-heading">
+                    <h3>Dashboard</h3>
+                </div>
+                
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="panel-body">
+                       
+                            <!-- <div class="row g-lg-4 g-2 align-items-center">
+                                <div class="logo logo-dashboard mb-4 text-center">
+                                    <img src="{% static '/static_admin/assets/images/logo.jpeg' %}">
+                                    <p class="text-center mt-20"><span class="d-block fw-bold mb-10 fs-6">Hello!
+                                            Admin</span> </p>
+                                    <p class="text-center mt-20"><span
+                                            class="d-block fw-bold mb-10 fs-6">ASK Import Export Services</span>Welcome To
+                                        Dashboard </p>
+                                </div>
+                            </div> -->
+
+                            <div class="row g-2 d-flex justify-content-center align-items-center">
+                                <div class="col-sm-4 p-3 m-3 justify-content-center text-center text-white" style="background-color: black; border-radius:20px;">
+                                    <!-- <div class="p-4" style="background-color: black; border-radius:20px;"> -->
+                                        <p class="fs-4"><i class="bi bi-graph-up-arrow"></i>  TOTAL <br> SALES  <i class="bi bi-graph-up-arrow"></i> </p>
+                                        <p class="fs-4">{{ totalsales }}</p>
+                                    <!-- </div> -->
+                                </div>
+                                <div class="col-sm-4 p-3 m-3 justify-content-center fs-4 text-center text-white" style="background-color: black; border-radius:20px;">
+                                    <!-- <div class="p-4" style="background-color: black; border-radius:20px;"> -->
+                                        <p><i class="bi bi-diagram-3-fill"></i> TOTAL <br> PURCHASES <i class="bi bi-diagram-3-fill"></i>
+                                        <p>{{ totalpurchase }}</p>
+                                    <!-- </div> -->
+                                </div>
+                                <div class="col-sm-4 p-3 m-3 justify-content-center fs-4 text-center text-white" style="background-color: black; border-radius:20px;">
+                                    <!-- <div class="p-4" style="background-color: black; border-radius:20px;"> -->
+                                        <p> <i class="bi bi-file-earmark-fill"></i>  TOTAL <br> QUOTATIONS  <i class="bi bi-file-earmark-fill"></i> </p>
+                                        <p>{{ totalquotation }}</p>
+                                    <!-- </div> -->
+                                </div>
+                                
+
+                                <div class="col-sm-4 p-3 m-3 justify-content-center fs-4 text-center text-white" style="background-color: black; border-radius:20px;">
+                                    <!-- <div class="p-4" style="background-color: black; border-radius:20px;"> -->
+                                        <p> <i class="bi bi-circle-fill"></i>  TOTAL LEADS <br> ENTRY  <i class="bi bi-circle-fill"></i> </p>
+                                        <p>{{ totalleadsentry }}</p>
+                                    <!-- </div> -->
+                                </div>
+
+                                <div class="col-sm-4 p-3 m-3 justify-content-center fs-4 text-center text-white" style="background-color: black; border-radius:20px;">
+                                    <!-- <div class="col-sm-5" style="background-color: black; border-radius:20px;"> -->
+                                        <p> <i class="bi bi-list-task"></i>  TOTAL <br> TODOWORKS  <i class="bi bi-list-task"></i> </p>
+                                        <p>{{ totaltodowork }}</p>
+                                    <!-- </div> -->
+                                </div>
+                                <div class="col-sm-4 p-3 m-3 justify-content-center fs-4 text-center text-white" style="background-color: black; border-radius:20px;">
+                                    <!-- <div class="col-sm-5" style="background-color: black; border-radius:20px;"> -->
+                                        <p> <i class="bi bi-people-fill"></i>  TOTAL <br> LEAVES  <i class="bi bi-people-fill"></i> </p>
+                                        <p>{{ totalleaves }}</p>
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- main-content -->
+
+
+{% endblock %}

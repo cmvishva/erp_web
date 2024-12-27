@@ -1,0 +1,220 @@
+
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- main-content -->
+<div class="main-content">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12">
+            <div class="panel mb-g">
+                <div class="panel-heading">
+                    <h3>Employee Full Details :</h3>
+                </div>
+
+                <ul class="messages" style="display: none;">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+                
+                <div class="panel-body">
+                    <div class="ecommerce-table">
+                        <div class="table-top-control mb-g" >
+                            <div class="row g-lg-4 g-md-3 g-sm-2 g-3" >
+                                <center><div class="col-sm-6" id="tableRowConut"></div>
+                                <div class="col-sm-4" id="tableSearch" hidden></div>
+                            </div>
+                        </div>
+
+                                <table id="myTable" class="table data-table col-lg-6">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Fields</th>
+                                            <th scope="col">Data</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        {% if view_fulldetails_quotation %}
+
+                                        <tr>
+                                            <td>ID </td> <td>{{view_fulldetails_quotation.ID}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Consignee Name</td> <td>{{view_fulldetails_quotation.joinningdate}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Consignee Address</td>  <td>{{view_fulldetails_quotation.fname}} {{emp_fulldetails.lname}} {{emp_fulldetails.surname}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PI No</td> <td>{{view_fulldetails_quotation.gender}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Date</td> <td>{{view_fulldetails_quotation.birthdate}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Clearing Port</td> <td>{{view_fulldetails_quotation.email}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Product Name</td> <td>{{view_fulldetails_quotation.mobile}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Exchange Rate</td> <td>{{view_fulldetails_quotation.address}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>45f_container</td> <td>{{view_fulldetails_quotation.fortyfive_container}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>40f_container</td> <td>{{view_fulldetails_quotation.forty_container}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>20f_container</td> <td>{{view_fulldetails_quotation.twenty_container}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>sl_qty_cont</td> <td>{{view_fulldetails_quotation.twenty_container.sl_qty_cont}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>sl_inr_per_cont</td> <td>{{view_fulldetails_quotation.sl_inr_per_cont}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>sl_gst_18</td> <td>{{view_fulldetails_quotation.forty_container}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>sl_total_inr</td> <td>{{view_fulldetails_quotation.twenty_container}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>cfs_qty_cont</td> <td>{{view_fulldetails_quotation.twenty_container.cfs_qty_cont}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>cfs_inr_per_cont</td> <td>{{view_fulldetails_quotation.twenty_container.cfs_qty_cont}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>cfs_gst_18</td> <td>{{view_fulldetails_quotation.twenty_container.cfs_qty_cont}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>cfs_total_inr</td> <td>{{view_fulldetails_quotation.twenty_container.cfs_qty_cont}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>transportation_qty_cont</td> <td>{{view_fulldetails_quotation.twenty_container.cfs_qty_cont}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>transportation_inr_per_cont</td> <td>{{view_fulldetails_quotation.twenty_container.cfs_qty_cont}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>transportation_gst_18</td> <td>{{view_fulldetails_quotation.twenty_container.cfs_qty_cont}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>transportation_total_inr</td> <td>{{view_fulldetails_quotation.twenty_container.cfs_qty_cont}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>stamp_qty_cont</td> <td>{{view_fulldetails_quotation.twenty_container.cfs_qty_cont}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>stamp_inr_per_cont</td> <td>{{view_fulldetails_quotation.twenty_container.cfs_qty_cont}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>stamp_gst_18</td> <td>{{view_fulldetails_quotation.twenty_container.cfs_qty_cont}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>stamp_total_inr</td> <td>{{view_fulldetails_quotation.twenty_container.cfs_qty_cont}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>agency_qty_cont</td> <td>{{view_fulldetails_quotation.twenty_container.cfs_qty_cont}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>agency_inr_per_cont</td> <td>{{view_fulldetails_quotation.twenty_container.cfs_qty_cont}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>agency_gst_18</td> <td>{{view_fulldetails_quotation.twenty_container.cfs_qty_cont}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>agency_total_inr</td> <td>{{view_fulldetails_quotation.twenty_container.cfs_qty_cont}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>customduty_qty_cont</td> <td>{{view_fulldetails_quotation.twenty_container.cfs_qty_cont}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>customduty_inr_per_cont</td> <td>{{view_fulldetails_quotation.twenty_container.cfs_qty_cont}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>customduty_gst_18</td> <td>{{view_fulldetails_quotation.twenty_container.cfs_qty_cont}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>customduty_total_inr</td> <td>{{view_fulldetails_quotation.twenty_container.cfs_qty_cont}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>oceanfreight_qty_cont</td> <td>{{view_fulldetails_quotation.twenty_container.cfs_qty_cont}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>oceanfreight_inr_per_cont</td> <td>{{view_fulldetails_quotation.twenty_container.cfs_qty_cont}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>oceanfreight_gst_18</td> <td>{{view_fulldetails_quotation.twenty_container.cfs_qty_cont}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>oceanfreight_total_inr</td> <td>{{view_fulldetails_quotation.twenty_container.cfs_qty_cont}}</td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td>round_off</td> <td>{{view_fulldetails_quotation.round_off}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>total</td> <td>{{view_fulldetails_quotation.total}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ac_name</td> <td>{{view_fulldetails_quotation.ac_name}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>bank_name</td> <td>{{view_fulldetails_quotation.bank_name}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>ac_no</td> <td>{{view_fulldetails_quotation.ac_no}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ifsc_code</td> <td>{{view_fulldetails_quotation.ifsc_code}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>pan_no</td> <td>{{view_fulldetails_quotation.pan_no}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>gst_no</td> <td>{{view_fulldetails_quotation.gst_no}}</td>
+                                        </tr>
+
+                                        
+                                        {% else %}
+                                        <p>No details available</p>
+                                        
+                                    {% endif %}
+                                    
+                                    </tbody>
+                                </table>
+                           
+                        <div class="table-bottom-control"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- main-content -->
+
+
+{% endblock %}
+
+
+

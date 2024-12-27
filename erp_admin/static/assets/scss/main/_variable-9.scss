@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Oswald:wght@200;300;400;500;600;700&display=swap');
+:root {
+    --heading-font: 'Oswald', sans-serif;
+    --body-font: 'Open Sans', sans-serif;
+
+    --p-color: #c7c7c7;
+    --black: #313131;
+    --black-2: #414141;
+    --white: #fff;
+    --white-2: #ebf3ff;
+    --white-3: #6d6d6d;
+    --white-4: #a5a5a5;
+
+    --dark-bg-1: #000920;
+    --dark-bg-2: #001342;
+    --dark-bg-3: #001853;
+    --dark-bg-4: ;
+
+    --color-1: #8156F8;
+    --color-2: #9977f9;
+    --color-3: #6935f7;
+    --color-4: #a484fc;
+    --color-5: #dbcffc;
+    --color-6: #ece6ff;
+
+    --rgba-1: rgba(129, 86, 248, 0.2);
+    --rgba-2: rgba(129, 86, 248, 0.05);
+    --rgba-3: rgba(250, 250, 250, 0.2);
+    --rgba-4: rgba(129, 86, 248, 0.3);
+    --rgba-5: rgba(0, 0, 0, 0.2);
+    --rgba-6: rgba(250, 250, 250, 0.1);
+    --rgba-info: rgba(88, 205, 228, 0.5);
+    --rgba-success: rgba(36, 175, 110, 0.5);
+    --rgba-danger: rgba(211, 18, 18, 0.4);
+    --rgba-warning: rgba(230, 172, 0, 0.5);
+
+    --primary: #6935f7;
+    --success: #24af6e;
+    --danger: #d31212;
+    --info: #58cde4;
+    --warning: #e6ac00;
+
+    --gradient-1: linear-gradient(45deg, #8156F8, #6935f7);
+    --gradient-light: linear-gradient(45deg, rgba(226, 216, 255, 0.3), rgba(222, 210, 255, 0.3));
+    --gradient-success: linear-gradient(45deg, #42d993, #24af6e);
+    --gradient-danger: linear-gradient(45deg, #ff5454, #d31212);
+    --gradient-warning: linear-gradient(45deg, #ffd045, #e6ac00);
+    --gradient-info: linear-gradient(45deg, #58cde4, #00add0);
+}

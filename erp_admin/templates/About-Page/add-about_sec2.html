@@ -1,0 +1,94 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+        <!-- main-content -->
+        <div class="main-content">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="panel mb-g">
+                        <div class="panel-heading">
+                            <h3>Add About Page Section 2</h3>
+                        </div>
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="panel-body">
+                                <form class="add-product">
+                                    <div class="row g-lg-4 g-2 align-items-center">
+                                        <div class="col-sm-4">
+                                            <label for="AddProduct"> Image :</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="file" id="AddProduct" name="{{ as2.as2image.name }}" value="{{ as2.initial.as2image }}" class="form-control form-control-lg" accept=".jpg,.jpeg,.png,.mp3,.mov,.mp4" multiple>Image Path : {{ as2.initial.as2image }}
+                                        </div>
+                                        
+                                        <div class="col-sm-4">
+                                            <label for="AddProduct">Main Title :</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="ProductName" name="{{ as2.as2main_title.name }}" value="{{ as2.initial.as2main_title }}" class="form-control form-control-lg">
+                                        </div>
+                                  
+
+                                        <div class="col-sm-4">
+                                            <label for="ProductName"> Description :</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <textarea name="{{ as2.as2desc.name }}" value="{{ as2.initial.as2desc }}" id="ProductDscr" rows="5" class="form-control form-control-lg">{{ as2.initial.as2desc }}</textarea>
+                                        </div>
+                                        <hr>
+                                        <div class="col-sm-4">
+                                            <label for="AddProduct">Sub Title 1 :</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="ProductName" name="{{ as2.as2subtitle1.name }}" value="{{ as2.initial.as2subtitle1 }}" class="form-control form-control-lg">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label for="ProductDscr">Sub Description 1 :</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <textarea name="{{ as2.as2subdesc1.name }}" value="{{ as2.initial.as2subdesc1 }}" id="ProductDscr" rows="5" class="form-control form-control-lg">{{ as2.initial.as2subdesc1 }}</textarea>
+                                        </div>
+
+                                        <hr>
+                                        <div class="col-sm-4">
+                                            <label for="AddProduct">Sub Title 2 :</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="ProductName" name="{{ as2.as2subtitle2.name }}" value="{{ as2.initial.as2subtitle2 }}" class="form-control form-control-lg">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label for="ProductDscr">Sub Description 2 :</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <textarea name="{{ as2.as2subdesc2.name }}" value="{{ as2.initial.as2subdesc2 }}" id="ProductDscr" rows="5" class="form-control form-control-lg">{{ as2.initial.as2subdesc2 }}</textarea>
+                                        </div>
+
+                                        <hr>
+                                        <div class="col-sm-4">
+                                            <label for="AddProduct">Sub Title 3 :</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="ProductName" name="{{ as2.as2subtitle3.name }}" value="{{ as2.initial.as2subtitle3 }}" class="form-control form-control-lg">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label for="ProductDscr">Sub Description 3 :</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <textarea name="{{ as2.as2subdesc3.name }}" value="{{ as2.initial.as2subdesc3 }}" id="ProductDscr" rows="5" class="form-control form-control-lg">{{ as2.initial.as2subdesc3 }}</textarea>
+                                        </div>
+                                       
+                                        <div class="col-12">
+                                            <div class="btn-box justify-content-end">
+                                                <input type="reset" class="btn btn-secondary" value="Reset">
+                                                <input type="submit" value="Add" class="btn btn-primary">
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </form>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- main-content -->
+        {% endblock %}

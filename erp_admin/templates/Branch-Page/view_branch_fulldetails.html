@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- main-content -->
+<div class="main-content">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12">
+            <div class="panel mb-g">
+                <div class="panel-heading">
+                    <h3>Branch Full Details :</h3>
+                </div>
+                <ul class="messages" style="display: none;">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+                <div class="panel-body">
+                    <div class="ecommerce-table">
+                        <div class="table-top-control mb-g" hidden>
+                            <div class="row g-lg-4 g-md-3 g-sm-2 g-3" >
+                                <center><div class="col-sm-6" id="tableRowConut"></div>
+                                <h2>Branch </h2></center>
+                                
+                                <div class="col-sm-4" id="tableSearch" hidden></div>
+                            </div>
+                        </div>
+
+                                <table id="myTable" class="table data-table col-lg-6">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Fields</th>
+                                            <th scope="col">Data</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        {% if viewbranch_fulldetails %}
+
+                                        <tr>
+                                            <td> Id</td>
+                                            <td>{{ viewbranch_fulldetails.id }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Branch Name</td>
+                                            <td>{{viewbranch_fulldetails.name}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Branch Email</td>
+                                            <td>{{viewbranch_fulldetails.email}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Branch Code</td>
+                                            <td>{{viewbranch_fulldetails.code}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Branch Address</td>
+                                            <td>{{viewbranch_fulldetails.address}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Branch Contact No</td>
+                                            <td>{{viewbranch_fulldetails.contactno}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Branch Manager Name</td>
+                                            <td>{{viewbranch_fulldetails.manager_name}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Branch Oppening Date</td>
+                                            <td>{{viewbranch_fulldetails.oppening_date}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Branch Type</td>
+                                            <td>{{viewbranch_fulldetails.branch_type}}</td>
+                                        </tr>
+                                        
+                                        {% else %}
+                                        <p>No details available for this branch.</p>
+                                        
+                                    {% endif %}
+                                    
+                                    </tbody>
+                                </table>
+                           
+
+                        <div class="table-bottom-control"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- main-content -->
+
+<script>
+    $(document).ready(function() {
+        var messages = $('.messages li');
+        if (messages.length > 0) {
+            messages.each(function() {
+                alert($(this).text());
+            });
+        }
+    });
+</script>
+
+{% endblock %}

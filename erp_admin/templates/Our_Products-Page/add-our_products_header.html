@@ -1,0 +1,80 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<!-- main-content -->
+<div class="main-content">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12">
+      <div class="panel mb-g">
+        <div class="panel-heading">
+          <h3>Add Our Art Image</h3>
+        </div>
+        <form action="" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="panel-body">
+            <form class="add-product">
+              <div class="row g-lg-4 g-2 align-items-center">
+                <div class="col-sm-4">
+                  <label for="AddProduct">Image :</label>
+                </div>
+                <div class="col-sm-8">
+                  <input
+                    type="file"
+                    id="AddProduct"
+                    name="{{ oph.image.name }}"
+                    value="{{ oph.initial.image }}"
+                    class="form-control form-control-lg"
+                    accept=".jpg,.jpeg,.png"
+                    multiple
+                  />Image Path : {{ oph.initial.image }}
+                </div>
+
+                <div class="col-sm-4">
+                  <label for="ProductName"> Title :</label>
+                </div>
+                <div class="col-sm-8">
+                  <input
+                    type="text"
+                    id="ProductName"
+                    name="{{ oph.title.name }}"
+                    value="{{ oph.initial.title }}"
+                    class="form-control form-control-lg"
+                  />
+                </div>
+
+                <div class="col-sm-4">
+                  <label for="ProductName"> Text :</label>
+                </div>
+                <div class="col-sm-8">
+                  <input
+                    type="text"
+                    id="ProductName"
+                    name="{{ op.text.name }}"
+                    value="{{ op.initial.text }}"
+                    class="form-control form-control-lg"
+                  />
+                </div>
+
+                <div class="col-12">
+                  <div class="btn-box justify-content-end">
+                    <input
+                      type="reset"
+                      class="btn btn-secondary"
+                      value="Reset"
+                    />
+                    <input
+                      type="submit"
+                      value="Add"
+                      class="btn btn-primary"
+                    />
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- main-content -->
+
+{% endblock %}

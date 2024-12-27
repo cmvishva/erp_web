@@ -1,0 +1,26 @@
+.pln{color:#3a3a3a}
+@media screen{
+	.str{color:#29bd29}
+	.kwd{color:#2323e4}
+	.com{color:#d20505}
+	.typ{color:#c407c4}
+	.lit{color:#066}
+	.pun,.opn,.clo{color:#660}
+	.tag{color:#2323e4}
+	.atn{color:#c407c4}.atv{color:#29bd29}
+	.dec,.var{color:#c407c4}
+	.fun{color:red}
+}
+@media print,projection{
+	.str{color:#060}
+	.kwd{color:#2323e4;font-weight:bold}
+	.com{color:#d20505;font-style:italic}
+	.typ{color:#d20505;font-weight:bold}
+	.lit{color:#044}
+	.pun,.opn,.clo{color:#440}
+	.tag{color:#2323e4;font-weight:bold}
+	.atn{color:#c407c4}
+	.atv{color:#060}
+}
+pre.prettyprint{padding:2px;border:1px solid #888}
+ol.linenums{margin-top:0;margin-bottom:0}

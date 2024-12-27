@@ -1,0 +1,294 @@
+.fixed-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 300px;
+    background: var(--white);
+    box-shadow: 0px 0px 20px 5px var(--rgba-1);
+    padding-top: 80px;
+    transition: 0.3s ease-in;
+    z-index: 11;
+    transform: translateX(0);
+    &.hide {
+        transform: translateX(-105%);
+    }
+    &.collapsed {
+        width: 60px;
+        .profile {
+            padding: 0 10px;
+            .sidebar-profile {
+                width: max-content;
+                padding: 0;
+                background: transparent;
+                border-color: transparent;
+                #profileClose {
+                    display: none;
+                }
+                .part-img {
+                    width: 40px;
+                    height: 40px;
+                    margin-bottom: 0;
+                }
+                .part-txt {
+                    display: none;
+                }
+            }
+        }
+        .menu {
+            padding: 0 10px 20px;
+            .sidebar-menu {
+                ul {
+                    .sidebar-title {
+                        font-size: 0;
+                        height: 2px;
+                        background: var(--p-color);
+                        border-radius: 1px;
+                        opacity: 0.5;
+                    }
+                    .sidebar-item {
+                        &.has-sub {
+                            .sidebar-link {
+                                &:after {
+                                    opacity: 0;
+                                }
+                            }
+                        }
+                        .sidebar-link {
+                            padding: 0;
+                            width: 40px;
+                            height: 40px;
+                            line-height: 40px;
+                            align-items: center;
+                            justify-content: center;
+                            i {
+                                margin-right: 0;
+                            }
+                            span {
+                                display: none;
+                            }
+                        }
+                        .sub-menu {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .profile {
+        padding: 0 30px;
+        transition: all 0.3s ease-in;
+        .sidebar-profile {
+            width: 240px;
+            background: var(--white);
+            border-radius: 5px;
+            border: 1px solid var(--rgba-1);
+            box-shadow: 0px 5px 15px 5px var(--rgba-1);
+            margin-top: 10px;
+            margin-bottom: 14px;
+            padding: 20px;
+            position: relative;
+            #profileClose {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                padding: 0;
+                line-height: 100%;
+                color: var(--color-2);
+                opacity: 0.5;
+                &:hover, &:focus {
+                    opacity: 1;
+                }
+            }
+            .part-img {
+                width: 80px;
+                height: 80px;
+                border: 2px solid var(--color-2);
+                border-radius: 5px;
+                overflow: hidden;
+                margin: 0 auto 15px;
+                transition: all 0.3s ease-in;
+            }
+            .part-txt {
+                text-align: center;
+                .name {
+                    font-size: 14px;
+                    line-height: 100%;
+                    font-weight: 500;
+                    color: var(--color-3);
+                }
+                span {
+                    display: block;
+                    font-size: 12px;
+                    line-height: 100%;
+                    margin-bottom: 15px;
+                }
+                ul {
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    justify-content: center;
+                    column-gap: 10px;
+                    list-style: none;
+                    li {
+                        a {
+                            text-align: center;
+                            width: 35px;
+                            height: 35px;
+                            line-height: 33px;
+                            background: var(--white);
+                            border: 1px solid var(--rgba-1);
+                            border-radius: 3px;
+                            &:hover, &:focus {
+                                box-shadow: 0px 5px 10px 5px var(--rgba-1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .menu {
+        padding: 0 30px 20px;
+        transition: all 0.3s ease-in;
+        .sidebar-menu {
+            ul {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                row-gap: 5px;
+                .sidebar-title {
+                    height: 40px;
+                    line-height: 40px;
+                    font-weight: 600;
+                    color: var(--black);
+                    padding: 0 20px;
+                    transition: 0.3s ease-in;
+                }
+                .sidebar-item {
+                    &.has-sub {
+                        position: relative;
+                        .sidebar-link {
+                            position: relative;
+                            &.active {
+                                &:after {
+                                    background: url(../images/chevron-down-2.svg) center center no-repeat;
+                                    z-index: 1;
+                                }
+                            }
+                            &:after {
+                                content: "";
+                                position: absolute;
+                                top: 0;
+                                right: 5px;
+                                bottom: 0;
+                                width: 25px;
+                                background: url(../images/chevron-down.svg) center center no-repeat;
+                                transition: all 0.3s ease-in;
+                                z-index: -1;
+                            }
+                        }
+                    }
+                    &.active {
+                        .sidebar-link {
+                            background: var(--gradient-1);
+                            color: var(--white);
+                            i {
+                                color: var(--white);
+                            }
+                        }
+                    }
+                    &.open {
+                        .sidebar-link {
+                            color: var(--color-1);
+                            &:after {
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                    .sidebar-link {
+                        width: 100%;
+                        height: 45px;
+                        line-height: 45px;
+                        padding: 0 15px;
+                        border-radius: 5px;
+                        color: var(--p-color);
+                        display: flex;
+                        i {
+                            color: var(--color-1);
+                            margin-right: 10px;
+                        }
+                        &.active {
+                            background: var(--gradient-1);
+                            color: var(--white);
+                            i {
+                                color: var(--white);
+                            }
+                        }
+                    }
+                    .sub-menu {
+                        margin-left: 20px;
+                        border-left: 2px solid var(--color-2);
+                        padding: 5px 15px;
+                        li {
+                            &.has-sub {
+                                position: relative;
+                                &.open {
+                                    &:after {
+                                        transform: rotate(180deg);
+                                    }
+                                }
+                                &:after {
+                                    content: "";
+                                    position: absolute;
+                                    top: 0;
+                                    right: 5px;
+                                    height: 35px;
+                                    width: 25px;
+                                    background: url(../images/chevron-down.svg) center center no-repeat;
+                                    transition: all 0.3s ease-in;
+                                    z-index: -1;
+                                }
+                            }
+                            .sub-menu-item {
+                                width: 100%;
+                                line-height: 2.5;
+                                color: var(--p-color);
+                                position: relative;
+                                &:after {
+                                    content: "";
+                                    position: absolute;
+                                    top: 50%;
+                                    left: -15px;
+                                    width: 0;
+                                    height: 2px;
+                                    transform: translateY(-50%);
+                                    background: var(--color-2);
+                                    transition: 0.3s;
+                                }
+                                &.active {
+                                    color: var(--color-3);
+                                    padding-left: 5px;
+                                    &:after {
+                                        width: 17px;
+                                    }
+                                    &:hover, &:focus {
+                                        color: var(--color-3);
+                                    }
+                                }
+                                &:hover, &:focus {
+                                    color: var(--color-2);
+                                    padding-left: 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

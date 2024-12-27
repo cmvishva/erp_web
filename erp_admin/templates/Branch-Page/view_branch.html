@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- main-content -->
+<div class="main-content">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12">
+            <div class="panel mb-g">
+                <div class="panel-heading">
+                    <h3>Products</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="ecommerce-table">
+                        <div class="table-top-control mb-g">
+                            <div class="row g-lg-4 g-md-3 g-sm-2 g-3">
+                                <div class="col-sm-6" id="tableRowConut"></div>
+                                <div class="col-sm-6" id="tableSearch" ></div>
+                            </div>
+                        </div>
+                        <table id="myTable" class="table data-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Branch Name</th>
+                                    <th scope="col">Branch Email</th>
+                                    <th scope="col">Branch Code</th>
+                                    <th scope="col">Branch address</th>
+                                    <th scope="col">Branch Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for bd in view_branchdata %}
+                                <tr>
+                                    <td>{{bd.id}}</td>
+                                    <td>{{bd.name}}</td>
+                                    <td>{{bd.email}}</td>
+                                    <td>{{bd.code}}</td>
+                                    <td>{{bd.address}}</td>
+                                    <td>
+                                        <div class="btn-box">
+                                            <a href="/view_branch_fulldetails/{{ bd.id }}" class="text-white btn btn-sm btn-secondary"><i class="bi bi-eye-fill"></a></i>
+                                            <a href="/update_branch/{{ bd.id }}" class="text-white btn btn-sm btn-success"><i class="bi bi-pencil-square"></a></i></button>
+                                            <button class="btn btn-sm btn-danger"><a href="/delete_branch/{{ bd.id }}" class="text-white"><i class="bi bi-trash"></a></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                        
+                            </tbody>
+                        </table>
+                        <div class="table-bottom-control"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- main-content -->
+
+<script>
+    $(document).ready(function() {
+        var messages = $('.messages li');
+        if (messages.length > 0) {
+            messages.each(function() {
+                alert($(this).text());
+            });
+        }
+    });
+</script>
+
+{% endblock %}

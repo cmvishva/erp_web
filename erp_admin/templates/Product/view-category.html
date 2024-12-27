@@ -1,0 +1,444 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- main-content -->
+<div class="main-content">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12">
+            <div class="panel mb-g">
+                <div class="panel-heading">
+                    <h3>All Categories</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="ecommerce-table">
+                        <div class="table-top-control mb-g">
+                            <div class="row g-lg-4 g-md-3 g-sm-2 g-3">
+                                <center>
+                                    <div class="col-sm-6" id="tableRowConut"></div>
+                                </center>
+
+                                <div class="col-sm-4" id="tableSearch" hidden></div>
+                            </div>
+                        </div>
+                        <table id="myTable" class="table data-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Category Name</th>
+
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for ct in viewcategory %}
+                                <tr>
+                                    <td>{{ct.id}}</td>
+
+                                    <td>{{ct.categoryname}}</td>
+
+
+                                    <td>
+                                        <div class="btn-box">
+                                            <button class="btn btn-sm btn-success"><a
+                                                    href="/update_category/{{ ct.id }}" class="text-white"><i
+                                                        class="bi bi-pencil-square"></a></i></button>
+                                            <!-- <button class="btn btn-sm btn-danger"><i class="bi bi-trash"><a href= "/deleteproduct/ {{pt.id}} "></a></i></button> -->
+                                            <button class="btn btn-sm btn-danger"><a href="/delete_category/{{ ct.id }}"
+                                                    class="text-white"><i class="bi bi-trash"></a></i></button>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                <!-- <tr>
+                                            <td>CB002</td>
+                                            <td>
+                                                <a href="#" class="product-thumbnail" title="Product-2" data-bs-toggle="tooltip" data-bs-placement="right" tabindex="0">
+                                                    <img src="assets/images/product-2.jpg" alt="image">
+                                                </a>
+                                            </td>
+                                            <td>Shoe</td>
+                                            <td>$12</td>
+                                            <td>50</td>
+                                            <td><span class="badge bg-success">Available</span></td>
+                                            <td>70%</td>
+                                            <td>
+                                                <a href="#" class="btn btn-sm btn-light"><i class="bi bi-eye"></i></a>
+                                            </td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" role="switch">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="btn-box">
+                                                    <button class="btn btn-sm btn-success"><i class="bi bi-pencil-square"></i></button>
+                                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>CB003</td>
+                                            <td>
+                                                <a href="#" class="product-thumbnail" title="Product-3" data-bs-toggle="tooltip" data-bs-placement="right" tabindex="0">
+                                                    <img src="assets/images/product-3.jpg" alt="image">
+                                                </a>
+                                            </td>
+                                            <td>Cloth</td>
+                                            <td>$7</td>
+                                            <td>90</td>
+                                            <td><span class="badge bg-success">Available</span></td>
+                                            <td>20%</td>
+                                            <td>
+                                                <a href="#" class="btn btn-sm btn-light"><i class="bi bi-eye"></i></a>
+                                            </td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" role="switch" checked>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="btn-box">
+                                                    <button class="btn btn-sm btn-success"><i class="bi bi-pencil-square"></i></button>
+                                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>CB004</td>
+                                            <td>
+                                                <a href="#" class="product-thumbnail" title="Product-4" data-bs-toggle="tooltip" data-bs-placement="right" tabindex="0">
+                                                    <img src="assets/images/product-4.jpg" alt="image">
+                                                </a>
+                                            </td>
+                                            <td>Cosmetics</td>
+                                            <td>$8</td>
+                                            <td>0</td>
+                                            <td><span class="badge bg-danger">Sold Out</span></td>
+                                            <td>10%</td>
+                                            <td>
+                                                <a href="#" class="btn btn-sm btn-light"><i class="bi bi-eye"></i></a>
+                                            </td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" role="switch">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="btn-box">
+                                                    <button class="btn btn-sm btn-success"><i class="bi bi-pencil-square"></i></button>
+                                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>CB005</td>
+                                            <td>
+                                                <a href="#" class="product-thumbnail" title="Product-5" data-bs-toggle="tooltip" data-bs-placement="right" tabindex="0">
+                                                    <img src="assets/images/product-5.jpg" alt="image">
+                                                </a>
+                                            </td>
+                                            <td>Gadget</td>
+                                            <td>$5</td>
+                                            <td>80</td>
+                                            <td><span class="badge bg-success">Available</span></td>
+                                            <td>25%</td>
+                                            <td>
+                                                <a href="#" class="btn btn-sm btn-light"><i class="bi bi-eye"></i></a>
+                                            </td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" role="switch" checked>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="btn-box">
+                                                    <button class="btn btn-sm btn-success"><i class="bi bi-pencil-square"></i></button>
+                                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>CB006</td>
+                                            <td>
+                                                <a href="#" class="product-thumbnail" title="Product-6" data-bs-toggle="tooltip" data-bs-placement="right" tabindex="0">
+                                                    <img src="assets/images/product-6.jpg" alt="image">
+                                                </a>
+                                            </td>
+                                            <td>Fashion</td>
+                                            <td>$13</td>
+                                            <td>0</td>
+                                            <td><span class="badge bg-danger">Sold Out</span></td>
+                                            <td>30%</td>
+                                            <td>
+                                                <a href="#" class="btn btn-sm btn-light"><i class="bi bi-eye"></i></a>
+                                            </td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" role="switch">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="btn-box">
+                                                    <button class="btn btn-sm btn-success"><i class="bi bi-pencil-square"></i></button>
+                                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>CB007</td>
+                                            <td>
+                                                <a href="#" class="product-thumbnail" title="Product-7" data-bs-toggle="tooltip" data-bs-placement="right" tabindex="0">
+                                                    <img src="assets/images/product-7.jpg" alt="image">
+                                                </a>
+                                            </td>
+                                            <td>Shoe</td>
+                                            <td>$5</td>
+                                            <td>100</td>
+                                            <td><span class="badge bg-success">Available</span></td>
+                                            <td>15%</td>
+                                            <td>
+                                                <a href="#" class="btn btn-sm btn-light"><i class="bi bi-eye"></i></a>
+                                            </td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" role="switch" checked>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="btn-box">
+                                                    <button class="btn btn-sm btn-success"><i class="bi bi-pencil-square"></i></button>
+                                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>CB008</td>
+                                            <td>
+                                                <a href="#" class="product-thumbnail" title="Product-8" data-bs-toggle="tooltip" data-bs-placement="right" tabindex="0">
+                                                    <img src="assets/images/product-8.jpg" alt="image">
+                                                </a>
+                                            </td>
+                                            <td>Cloth</td>
+                                            <td>$10</td>
+                                            <td>0</td>
+                                            <td><span class="badge bg-danger">Sold Out</span></td>
+                                            <td>10%</td>
+                                            <td>
+                                                <a href="#" class="btn btn-sm btn-light"><i class="bi bi-eye"></i></a>
+                                            </td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" role="switch">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="btn-box">
+                                                    <button class="btn btn-sm btn-success"><i class="bi bi-pencil-square"></i></button>
+                                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>CB009</td>
+                                            <td>
+                                                <a href="#" class="product-thumbnail" title="Product-9" data-bs-toggle="tooltip" data-bs-placement="right" tabindex="0">
+                                                    <img src="assets/images/product-9.jpg" alt="image">
+                                                </a>
+                                            </td>
+                                            <td>Cosmetics</td>
+                                            <td>$9</td>
+                                            <td>0</td>
+                                            <td><span class="badge bg-danger">Sold Out</span></td>
+                                            <td>5%</td>
+                                            <td>
+                                                <a href="#" class="btn btn-sm btn-light"><i class="bi bi-eye"></i></a>
+                                            </td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" role="switch" checked>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="btn-box">
+                                                    <button class="btn btn-sm btn-success"><i class="bi bi-pencil-square"></i></button>
+                                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>CB010</td>
+                                            <td>
+                                                <a href="#" class="product-thumbnail" title="Product-10" data-bs-toggle="tooltip" data-bs-placement="right" tabindex="0">
+                                                    <img src="assets/images/product-10.jpg" alt="image">
+                                                </a>
+                                            </td>
+                                            <td>Gadget</td>
+                                            <td>$12</td>
+                                            <td>80</td>
+                                            <td><span class="badge bg-success">Available</span></td>
+                                            <td>25%</td>
+                                            <td>
+                                                <a href="#" class="btn btn-sm btn-light"><i class="bi bi-eye"></i></a>
+                                            </td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" role="switch">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="btn-box">
+                                                    <button class="btn btn-sm btn-success"><i class="bi bi-pencil-square"></i></button>
+                                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>CB011</td>
+                                            <td>
+                                                <a href="#" class="product-thumbnail" title="Product-11" data-bs-toggle="tooltip" data-bs-placement="right" tabindex="0">
+                                                    <img src="assets/images/product-11.jpg" alt="image">
+                                                </a>
+                                            </td>
+                                            <td>Fashion</td>
+                                            <td>$12</td>
+                                            <td>100</td>
+                                            <td><span class="badge bg-success">Available</span></td>
+                                            <td>10%</td>
+                                            <td>
+                                                <a href="#" class="btn btn-sm btn-light"><i class="bi bi-eye"></i></a>
+                                            </td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" role="switch" checked>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="btn-box">
+                                                    <button class="btn btn-sm btn-success"><i class="bi bi-pencil-square"></i></button>
+                                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>CB012</td>
+                                            <td>
+                                                <a href="#" class="product-thumbnail" title="Product-12" data-bs-toggle="tooltip" data-bs-placement="right" tabindex="0">
+                                                    <img src="assets/images/product-12.jpg" alt="image">
+                                                </a>
+                                            </td>
+                                            <td>Shoe</td>
+                                            <td>$12</td>
+                                            <td>0</td>
+                                            <td><span class="badge bg-danger">Sold Out</span></td>
+                                            <td>10%</td>
+                                            <td>
+                                                <a href="#" class="btn btn-sm btn-light"><i class="bi bi-eye"></i></a>
+                                            </td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" role="switch">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="btn-box">
+                                                    <button class="btn btn-sm btn-success"><i class="bi bi-pencil-square"></i></button>
+                                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>CB013</td>
+                                            <td>
+                                                <a href="#" class="product-thumbnail" title="Product-13" data-bs-toggle="tooltip" data-bs-placement="right" tabindex="0">
+                                                    <img src="assets/images/product-13.jpg" alt="image">
+                                                </a>
+                                            </td>
+                                            <td>Cloth</td>
+                                            <td>$9</td>
+                                            <td>100</td>
+                                            <td><span class="badge bg-success">Available</span></td>
+                                            <td>5%</td>
+                                            <td>
+                                                <a href="#" class="btn btn-sm btn-light"><i class="bi bi-eye"></i></a>
+                                            </td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" role="switch" checked>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="btn-box">
+                                                    <button class="btn btn-sm btn-success"><i class="bi bi-pencil-square"></i></button>
+                                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>CB014</td>
+                                            <td>
+                                                <a href="#" class="product-thumbnail" title="Product-14" data-bs-toggle="tooltip" data-bs-placement="right" tabindex="0">
+                                                    <img src="assets/images/product-14.jpg" alt="image">
+                                                </a>
+                                            </td>
+                                            <td>Cosmetics</td>
+                                            <td>$13</td>
+                                            <td>90</td>
+                                            <td><span class="badge bg-success">Available</span></td>
+                                            <td>15%</td>
+                                            <td>
+                                                <a href="#" class="btn btn-sm btn-light"><i class="bi bi-eye"></i></a>
+                                            </td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" role="switch">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="btn-box">
+                                                    <button class="btn btn-sm btn-success"><i class="bi bi-pencil-square"></i></button>
+                                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>CB015</td>
+                                            <td>
+                                                <a href="#" class="product-thumbnail" title="Product-15" data-bs-toggle="tooltip" data-bs-placement="right" tabindex="0">
+                                                    <img src="assets/images/product-15.jpg" alt="image">
+                                                </a>
+                                            </td>
+                                            <td>Gadget</td>
+                                            <td>$5</td>
+                                            <td>100</td>
+                                            <td><span class="badge bg-success">Available</span></td>
+                                            <td>50%</td>
+                                            <td>
+                                                <a href="#" class="btn btn-sm btn-light"><i class="bi bi-eye"></i></a>
+                                            </td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" role="switch" checked>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="btn-box">
+                                                    <button class="btn btn-sm btn-success"><i class="bi bi-pencil-square"></i></button>
+                                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr> -->
+
+                            </tbody>
+                        </table>
+                        <div class="table-bottom-control"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- main-content -->
+
+{% endblock %}
