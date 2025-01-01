@@ -17,6 +17,20 @@
                                 <div class="row g-lg-4 g-2 align-items-center">
                                     
                                     <div class="col-sm-2">
+                                        <label for="branch_details">Branch:</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <select name="branch_details" id="branch_details" required class="form-select form-control form-control-lg">
+                                            <option value="" disabled {% if not addsr or not addsr.instance.branch_details %}selected{% endif %}>Select Branch</option>
+                                            {% for branches in view_branchdata %}
+                                                <option value="{{ branches.id }}" {% if addsr and branches.id == addsr.instance.branch_details.id %}selected{% endif %}>
+                                                    {{ branches.name }} ({{ branches.code }})
+                                                </option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                    <div class="col-sm-2">
                                         <label for="order_id">Order ID :</label>
                                     </div>
                                     <div class="col-sm-4">
@@ -93,7 +107,24 @@
                                         <label for="status">Status  :</label>
                                     </div>
                                     <div class="col-sm-4">
-                                        <input type="text" id="status" name="status" value="{{ addsr.instance.status|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Status" required>
+                                        <select name="status" id="status" class="form-control form-control-lg" required>
+                                            <option value="" disabled {% if not status %}selected{% endif %}>Select Status</option>
+                                            <option value="Pending" {% if status == 'Pending' %}selected{% endif %}>Pending</option>
+                                            <option value="Processing" {% if status == 'Processing' %}selected{% endif %}>Processing</option>
+                                            <option value="Packing" {% if status == 'Packing' %}selected{% endif %}>Packing</option>
+                                            <option value="On Way" {% if status == 'On Way' %}selected{% endif %}>On Way</option>
+                                            <option value="Packing" {% if status == 'Packing' %}selected{% endif %}>Packing</option>
+                                            <option value="Delivered" {% if status == 'Delivered' %}selected{% endif %}>Delivered</option>
+                                        </select>
+
+                                        <!-- <select name="status" id="status" required class="form-select form-control form-control-lg">
+                                            <option value="" disabled {% if not emp or not emp.instance.branch_details %}selected{% endif %}>Select Branch</option>
+                                            {% for branches in view_branchdata %}
+                                                <option value="{{ branches.id }}" {% if emp and branches.id == emp.instance.branch_details.id %}selected{% endif %}>
+                                                    {{ branches.name }} ({{ branches.code }})
+                                                </option>
+                                            {% endfor %}
+                                        </select> -->
                                     </div>
                                     
                                     <div class="col-12">

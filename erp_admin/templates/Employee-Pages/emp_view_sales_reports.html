@@ -20,6 +20,8 @@
                                 <table id="myTable" class="table data-table">
                                     <thead>
                                         <tr>
+
+                                            <th scope="col">Branch</th>
                                             <th scope="col">Order ID</th>
                                             <th scope="col">Date Of Sale</th>
                                             <th scope="col">Customer Name</th>
@@ -38,6 +40,7 @@
                                     <tbody>
                                       {% for esr in emp_sales_report %}
                                         <tr>
+                                            <td>{{lead.branch_details.name}} ({{lead.branch_details.code}}) </td>
                                             <td>{{esr.orderid}}</td>
                                             <td>{{esr.dateof_sale}}</td>
                                             <td>{{esr.customer_name}}</td>

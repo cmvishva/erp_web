@@ -21,6 +21,7 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">ID</th>
+                                            <th scope="col">Branch</th>
                                             <th scope="col">Fullname</th>
                                             <th scope="col">Email</th>
                                             <th scope="col">Phone</th>
@@ -38,6 +39,7 @@
                                       {% for alllead in leads_entry %}
                                         <tr>
                                             <td>{{alllead.id}}</td>
+                                            <td>{{lead.branch_details.name}} ({{lead.branch_details.code}}) </td>
                                             <td>{{alllead.fullname}}</td>
                                             <td>{{alllead.email}}</td>
                                             <td>{{alllead.phone}}</td>

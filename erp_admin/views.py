@@ -65,18 +65,22 @@ def adminlogin(request):
         username = request.POST['username'].strip()
         password = request.POST['password'].strip()
         role = request.POST['role'].strip()
+        branch_name = request.POST['branch_name']
+        branch_code = request.POST['branch_code']
 
         print(f"Username: {username}, Password: {password}, Role: {role}")
         user = authenticate(request, username=username, password=password)
+
 
         if user is not None:
             # Check the user's role
             if user.role == role:
                 # Log the user in and create a session
-                login(request, user)    
-
+                login(request, user)   
                 print(f"User authenticated: {user.username}, Role: {user.role}")
 
+                request.session['branch_name'] = branch_name
+                request.session['branch_code'] = branch_code
                 # Redirect based on the role
                 if role == 'Admin':
                     print("Redirecting to admin dashboard")
@@ -278,7 +282,16 @@ def registeremployee(request):
     return render(request,"Employee-Pages/register_employee.html",{"emp":emp,"viewmanagers_details":viewmanagers_details,"view_branchdata":view_branchdata})
 
 def manageemployee(request):
-    viewemp = allemployee.objects.all()
+    branch_name = request.session.get('branch_name')
+    branch_code = request.session.get('branch_code')
+    
+    if branch_name and branch_code:
+        try :
+            branch = branches.objects.get(name=branch_name, code=branch_code)
+            viewemp = allemployee.objects.filter(branch_details=branch)
+        except branch.DoesNotExist:
+            messages.success(request, "Branch Details Is Not Provided.")
+        
     viewmanager = allmanagers.objects.all()
     return render(request,"Employee-Pages/manage_employee.html",{"viewemp":viewemp,"viewmanager":viewmanager})
 
@@ -362,7 +375,9 @@ def add_salesreport(request):
             return render(request,"sales_report_pages/add_sales_reports.html",{"addsr":addsr})
     else:
         addsr = salesreport_data()
-    return render(request,"sales_report_pages/add_sales_reports.html",{"addsr":addsr})
+        
+    view_branchdata = branches.objects.all()
+    return render(request,"sales_report_pages/add_sales_reports.html",{"addsr":addsr,"view_branchdata":view_branchdata})
 
 @login_required(login_url='adminlogin')
 def manage_salesreport(request):
@@ -410,13 +425,6 @@ def manage_salesreport(request):
         messages.error(request,"No Matching Reocrd")
         search_data = salesreport.objects.all()
     context = {
-        # "view_sales_report": view_sales_report,
-        # "orderid_query": orderid_query,
-        # "customer_name_query": customer_name_query,
-        # "customer_contact_query": customer_contact_query,
-        # "product_name_query": product_name_query,
-        # "status_query": status_query,
-        # "payment_method_query": payment_method_query,
         "search_data":search_data,
         'search_query': search_query
     }
@@ -447,7 +455,9 @@ def update_salesreport(request,id):
             return render(request,"sales_report_pages/add_sales_reports.html",{"addsr":addsr})
     else:
         addsr = salesreport_data(instance=usales_report)
-    return render(request,"sales_report_pages/add_sales_reports.html",{"addsr":addsr})
+        
+    view_branchdata = branches.objects.all()
+    return render(request,"sales_report_pages/add_sales_reports.html",{"addsr":addsr,"view_branchdata":view_branchdata})
 
 
 
@@ -473,7 +483,9 @@ def add_purchasereport(request):
             return render(request,"purchase_report_pages/add_purchase_reports.html",{"apr":apr})
     else:
         apr = purchasereport_data()
-    return render(request,"purchase_report_pages/add_purchase_reports.html",{"apr":apr})
+        
+    view_branchdata = branches.objects.all()
+    return render(request,"purchase_report_pages/add_purchase_reports.html",{"apr":apr,"view_branchdata":view_branchdata})
 
 @login_required(login_url='adminlogin')
 def manage_purchasereport(request):
@@ -541,7 +553,9 @@ def update_purchasereport(request,id):
             return render(request,"purchase_report_pages/add_purchase_reports.html")
     else:
         apr = purchasereport_data(instance=upurchase_report)
-    return render(request,"purchase_report_pages/add_purchase_reports.html",{"apr":apr})
+        
+    view_branchdata = branches.objects.all()
+    return render(request,"purchase_report_pages/add_purchase_reports.html",{"apr":apr,"view_branchdata":view_branchdata})
 
 
 #  ++++++++++++++++++++++++++++++++++++++++++++++ Purchase Report Page End ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -564,7 +578,9 @@ def add_leadsentry(request):
             messages.error(request, "The Leads Entry Can Not Add Because The Data Didn't Validate.")
     else:
         lead = leadsentry_data()    
-    return render(request,"leads_entry_pages/add_leads_entry.html",{"lead":lead})
+        
+    view_branchdata = branches.objects.all()
+    return render(request,"leads_entry_pages/add_leads_entry.html",{"lead":lead,"view_branchdata":view_branchdata})
 
 
 @login_required(login_url='adminlogin')
@@ -589,7 +605,9 @@ def update_leadsentry(request,id):
             return redirect(request,"leads_entry_pages/add_leads_entry.html")
     else:
         lead = leadsentry_data(instance=uleads_entry)
-    return render(request,"leads_entry_pages/add_leads_entry.html",{"lead":lead})
+        
+    view_branchdata = branches.objects.all()
+    return render(request,"leads_entry_pages/add_leads_entry.html",{"lead":lead, "view_branchdata":view_branchdata})
 
 @login_required(login_url='adminlogin')
 def delete_leadsentry(request,id):
@@ -620,7 +638,9 @@ def add_quotation(request):
             messages.error(request,"Quotation Could Not Be Added ")
     else:
         quotation = quotation_data()
-    return render(request,"quotation_pages/add_quotation.html",{"quotation":quotation})
+        
+    view_branchdata = branches.objects.all()
+    return render(request,"quotation_pages/add_quotation.html",{"quotation":quotation,"view_branchdata":view_branchdata})
 
 def manage_quotation(request):
     view_quotation = quotation_details.objects.all()
@@ -681,7 +701,8 @@ def add_todowork(request):
         todo_work = todowork_data()
         
     allemp = allemployee.objects.all()
-    return render(request,"todo_list_pages/add_todolist.html",{"todo_work":todo_work,"allemp":allemp})
+    view_branchdata = branches.objects.all()
+    return render(request,"todo_list_pages/add_todolist.html",{"todo_work":todo_work,"allemp":allemp,"view_branchdata":view_branchdata})
 
 @login_required(login_url='adminlogin')
 def manage_todowork(request):
@@ -711,7 +732,9 @@ def update_todowork(request,id):
     else:
         todo_work = todowork_data(instance=utodowork)
     allemp = allemployee.objects.all()
-    return render(request,"todo_list_pages/add_todolist.html",{"todo_work":todo_work,'fullname': utodowork.fullname,"allemp":allemp,"status":utodowork.status,"start_date":utodowork.start_date})
+    view_branchdata = branches.objects.all()
+    return render(request,"todo_list_pages/add_todolist.html",{"todo_work":todo_work,'fullname': utodowork.fullname,"view_branchdata":view_branchdata,
+                                                               "allemp":allemp,"status":utodowork.status,"start_date":utodowork.start_date})
 #  ++++++++++++++++++++++++++++++++++++++++++++++ to do work page End ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
@@ -722,6 +745,7 @@ def update_todowork(request,id):
 def manage_leaves(request):
     admin_viewleaves = leaves.objects.all()
     emp = allemployee.objects.all()
+    view_branchdata = branches.objects.all()
     return render(request,"Leave-Page/manage_leaves.html",{"admin_viewleaves":admin_viewleaves,"emp":emp})
 
 def admin_approve_leave(request,id):
@@ -1122,7 +1146,9 @@ def emp_add_salesreport(request):
             return render(request,"sales_report_pages/add_sales_reports.html",{"addsr":addsr})
     else:
         addsr = salesreport_data()
-    return render(request,"sales_report_pages/add_sales_reports.html",{"addsr":addsr})
+        
+    view_branchdata = branches.objects.all()
+    return render(request,"sales_report_pages/add_sales_reports.html",{"addsr":addsr,"view_branchdata":view_branchdata})
 
 @login_required(login_url='adminlogin')
 def emp_view_salesreport(request):
@@ -1147,7 +1173,9 @@ def emp_update_salesreport(request,id):
             return render(request,"sales_report_pages/add_sales_reports.html",{"addsr":addsr})
     else:
         addsr = salesreport_data(instance=usales_report) 
-    return render(request,"sales_report_pages/add_sales_reports.html",{"addsr":addsr})
+        
+    view_branchdata = branches.objects.all()
+    return render(request,"sales_report_pages/add_sales_reports.html",{"addsr":addsr,"view_branchdata":view_branchdata})
 
 @login_required(login_url='adminlogin')
 def emp_delete_salesreport(request,id):
@@ -1178,7 +1206,9 @@ def emp_add_purchasereport(request):
             return render(request,"purchase_report_pages/add_purchase_reports.html",{"apr":apr})
     else:
         apr = purchasereport_data()
-    return render(request,"purchase_report_pages/add_purchase_reports.html",{"apr":apr})
+        
+    view_branchdata = branches.objects.all()
+    return render(request,"purchase_report_pages/add_purchase_reports.html",{"apr":apr,"view_branchdata":view_branchdata})
 
 @login_required(login_url='adminlogin')
 def emp_view_purchasereport(request):
@@ -1210,7 +1240,9 @@ def emp_update_purchasereport(request,id):
             return render(request,"purchase_report_pages/add_purchase_reports.html")
     else:
         apr = purchasereport_data(instance=upurchase_report)
-    return render(request,"purchase_report_pages/add_purchase_reports.html",{"apr":apr})
+    
+    view_branchdata = branches.objects.all()
+    return render(request,"purchase_report_pages/add_purchase_reports.html",{"apr":apr,"view_branchdata":view_branchdata})
 
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++ Purchase Report Page End ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1238,8 +1270,9 @@ def emp_add_todowork(request):
     else:
         todo_work = todowork_data()
         
-    allemp = allemployee.objects.all()
-    return render(request,"todo_list_pages/add_todolist.html",{"todo_work":todo_work,"allemp":allemp})
+    allemp = allemployee.objects.filter(user=request.user)
+    view_branchdata = branches.objects.all()
+    return render(request,"todo_list_pages/add_todolist.html",{"todo_work":todo_work,"allemp":allemp,"view_branchdata":view_branchdata})
 
 @login_required(login_url='adminlogin')
 def emp_delete_todowork(request,id):
@@ -1289,7 +1322,9 @@ def emp_add_leadsentry(request):
             messages.error(request, "The Leads Entry Can Not Add Because The Data Did Not Validate.")
     else:
         lead = leadsentry_data()    
-    return render(request,"leads_entry_pages/add_leads_entry.html",{"lead":lead})
+        
+    view_branchdata = branches.objects.all()
+    return render(request,"leads_entry_pages/add_leads_entry.html",{"lead":lead,"view_branchdata":view_branchdata})
 
 @login_required(login_url='adminlogin')
 def emp_update_leadsentry(request,id):
@@ -1308,7 +1343,9 @@ def emp_update_leadsentry(request,id):
             return redirect(request,"leads_entry_pages/add_leads_entry.html")
     else:
         lead = leadsentry_data(instance=uleads_entry)
-    return render(request,"leads_entry_pages/add_leads_entry.html",{"lead":lead})
+        
+    view_branchdata = branches.objects.all()
+    return render(request,"leads_entry_pages/add_leads_entry.html",{"lead":lead,"view_branchdata":view_branchdata})
 
 @login_required(login_url='adminlogin')
 def emp_delete_leadsentry(request,id):
@@ -1338,7 +1375,7 @@ def employee_applyfor_leave(request):
         alemp = leavedata()
     
     view_branchdata = branches.objects.all()
-    view_emp = allemployee.objects.all()
+    view_emp = allemployee.objects.filter(user=request.user)
     return render(request,"Employee-Pages/apply_for_leave.html",{"view_branchdata":view_branchdata,"view_emp":view_emp,"alemp":alemp})
 
 def employee_viewleave(request):
@@ -1396,7 +1433,9 @@ def emp_addquotation(request):
             messages.error(request,"Quotation Could Not Be Added ")
     else:
         quotation = quotation_data()
-    return render(request,"quotation_pages/add_quotation.html",{"quotation":quotation})
+        
+    view_branchdata = branches.objects.all()
+    return render(request,"quotation_pages/add_quotation.html",{"quotation":quotation,"view_branchdata":view_branchdata})
 
 def emp_viewquotation(request):
     view_quotation = quotation_details.objects.filter(user=request.user)
@@ -1428,86 +1467,12 @@ def emp_updatequotation(request,id):
     else:
         quotation = leavedata(instance=uquotation)
     view_branchdata = branches.objects.all()
-    view_emp = allemployee.objects.all()
-    return render(request,"quotation_pages/add_quotation.html",{"quotation":quotation,"view_branchdata":view_branchdata,"view_emp":view_emp})
+    view_emp = allemployee.objects.filter(user=request.user)
+    return render(request,"quotation_pages/add_quotation.html",{"quotation":quotation,"view_branchdata":    view_branchdata,"view_emp":view_emp})
 
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++ Quotation page End ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-
-# ++++++++++++++++++++++++++++++++++++++++++++++ Attendance page Start ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-# @login_required(login_url='adminlogin')
-# def employee_addattendance(request):
-#     if request.method == "POST":
-#         alemp = attendence_data(request.POST, request.FILES)
-#         if alemp.is_valid():
-#             alemp.save()
-#             return redirect("/employee_view_attendance")
-#         else:
-#             print(alemp.errors)
-#             messages.error(request, "The Employee could not be registerd because the data didn't validate.")
-#     else:
-#         alemp = attendence_data()
-            
-#     viewmanagers_details = allmanagers.objects.all()
-#     view_branchdata = branches.objects.all()
-#     return render(request,"Employee-Pages/add_attendance.html",{"viewmanagers_details":viewmanagers_details,"view_branchdata":view_branchdata,"alemp":alemp})
-
-# @login_required(login_url='adminlogin')
-# def employee_viewattendance(request):
-#     view_attendace = attendences.objects.filter(user=request.user)
-#     return render(request,"Employee-Pages/view_attendance.html",{"view_attendace":view_attendace})
-
-
-# def employee_deleteattendance(request):     
-#     del_leavesdata = attendences.objects.get(id=id)
-#     if del_leavesdata !=[]:
-#         del_leavesdata.delete()
-#         return redirect("/employee_view_attendance")
-#     return render(request,"Employee-Page/view_attendance.html")
-
-# def employee_updateattendance(request,id):
-#     ueleave = get_object_or_404(attendence_data,id=id)
-#     if request.method == "POST":
-#         ueleave = attendence_data(request.POST,request.FILES,instance=ueleave)
-#         if ueleave.is_valid():
-#             ueleave.save()
-#             return redirect('/employee_view_attendance')
-#         else:
-#             print(ueleave.errors)
-#             return render(request,"Employee-Page/view_attendance.html",{"ueleave":ueleave})
-#     else:
-#         ueleave = attendence_data(instance=ueleave)
-            
-#     viewmanagers_details = allmanagers.objects.all()
-#     view_branchdata = branches.objects.all()
-#     return render(request,"Employee-Page/view_attendance.html",{"viewmanagers_details":viewmanagers_details,"view_branchdata":view_branchdata})
-
-# ++++++++++++++++++++++++++++++++++++++++++++++++ Attendance page End ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
-
-
-# ++++++++++++++++++++++++++++++++++++++++++++++++ attendance page start ++++++++++++++++++++++++++++++++++++++++++++++++
-# def markattendence(request):
-#     if request.method == "POST" :
-#        mat = attendence_data(request.POST,request.Files) 
-#        if mat.is_valid():
-#            mat.save()
-#            return redirect("/view_attendence")
-#        else:
-#            print(mat.errors)
-#            messages.error(request,"Your Attendence Is Not Marked Please Try Again")
-#            return render(request,"employee-Pages/register_employee.html",{"mat":mat})
-#     else:
-#         mat = attendence_data()
-#     return render(request,"mark_attendence.html",{"mat":mat})
-
-# def marked_empattendance(request):
-#     memp_attendance = attendences.objects.all()
-#     return render(request,"view_attendance.html",{"memp_attendance":memp_attendance})
-# ++++++++++++++++++++++++++++++++++++++++++++++++ attendence page end ++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 

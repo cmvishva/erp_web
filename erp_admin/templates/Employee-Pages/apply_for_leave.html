@@ -42,10 +42,10 @@
                             </div>
                             <div class="col-sm-6">
                                 <select name="employee" id="employee" class="form-select form-control form-control-lg">
-                                    <option value="" disabled {% if not employee %}selected{% endif %}>Please Select Name</option>
-                                    {% for emp in view_emp %}
-                                    <option value="{{ emp.id }}" {% if employee.id == employee.id %}selected{% endif %} >{{emp.fname}} {{emp.lname}} {{emp.surname}}</option>
-                                    {% endfor %}
+                                    <!-- <option value="" disabled {% if not employee %}selected{% endif %}>Please Select Name</option> -->
+                                    <!-- {% for emp in view_emp %} -->
+                                    <option value="{{ emp.id }}" {% if employee.id == employee.id %}selected{% endif %} selected>{{emp.fname}} {{emp.lname}} {{emp.surname}}</option>
+                                    <!-- {% endfor %} -->
                                 </select>
                             </div>
 

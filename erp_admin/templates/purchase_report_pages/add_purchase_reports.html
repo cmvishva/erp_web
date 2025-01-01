@@ -17,6 +17,20 @@
                             <div class="panel-body">
                                 <div class="row g-lg-4 g-2 align-items-center">
                                     
+                                        <div class="col-sm-2">
+                                            <label for="branch_details">Branch:</label>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <select name="branch_details" id="branch_details" required class="form-select form-control form-control-lg">
+                                                <option value="" disabled {% if not apr or not apr.instance.branch_details %}selected{% endif %}>Select Branch</option>
+                                                {% for branches in view_branchdata %}
+                                                    <option value="{{ branches.id }}" {% if apr and branches.id == apr.instance.branch_details.id %}selected{% endif %}>
+                                                        {{ branches.name }} ({{ branches.code }})
+                                                    </option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+
                                     <div class="col-sm-2">
                                         <label for="order_id">Purchase Order ID :</label>
                                     </div>
@@ -81,6 +95,20 @@
                                     </div>
 
                                     <div class="col-sm-2">
+                                        <label for="total_purchase_cost">Advance Payment :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="advance_payment" name="advance_payment" value="{{ apr.instance.advance_payment|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Purchase Cost" required>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <label for="total_purchase_cost">Pending Payment :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="pending_payment" name="pending_payment" value="{{ apr.instance.pending_payment|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Purchase Cost" required>
+                                    </div>
+
+                                    <div class="col-sm-2">
                                         <label for="payment_method">Payment Method :</label>
                                     </div>
                                     <div class="col-sm-4">
@@ -89,12 +117,26 @@
                                         <input class="form-check-input" type="radio" name="payment_method" id="payment_method" value="online" {% if apr.instance.payment_method == 'online' %}checked{% endif %}>
                                         <label class="form-check-label" for="online">Online</label>
                                     </div>
+
                                     
                                     <div class="col-sm-2">
                                         <label for="status">Status  :</label>
                                     </div>
                                     <div class="col-sm-4">
-                                        <input type="text" id="status" name="status" value="{{ apr.instance.status|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Status" required>
+                                        <select name="status" id="status" class="form-control form-control-lg" required>
+                                            <option value="" disabled {% if not status %}selected{% endif %}>Select Status</option>
+                                            <option value="Lead" {% if status == 'Lead' %}selected{% endif %}>Lead</option>
+                                            <option value="In Transist" {% if status == 'In Transist' %}selected{% endif %}>In Transist</option>
+                                            <option value="Delivered" {% if status == 'Delivered' %}selected{% endif %}>Delivered</option>
+                                        </select>
+                                        <!-- <select name="status" id="status" required class="form-select form-control form-control-lg">
+                                            <option value="" disabled {% if not emp or not emp.instance.branch_details %}selected{% endif %}>Select Branch</option>
+                                            {% for branches in view_branchdata %}
+                                                <option value="{{ branches.id }}" {% if emp and branches.id == emp.instance.branch_details.id %}selected{% endif %}>
+                                                    {{ branches.name }} ({{ branches.code }})
+                                                </option>
+                                            {% endfor %}
+                                        </select> -->
                                     </div>
                                     
                                     <div class="col-12">

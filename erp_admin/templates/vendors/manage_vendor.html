@@ -21,37 +21,37 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">Branch</th>
-                                            <th scope="col">Fullname</th>
+                                            <th scope="col">Vender Name</th>
+                                            <th scope="col">Employee</th>
                                             <th scope="col">Email</th>
-                                            <th scope="col">Phone</th>
-                                            <th scope="col">Companyname</th>
-                                            <th scope="col">Website</th>
-                                            <th scope="col">Source</th>
-                                            <th scope="col">Followup Date</th>
-                                            <th scope="col">Followup Method</th>
-                                            <th scope="col">Budget</th>
+                                            <th scope="col">Product</th>
+                                            <th scope="col">Address</th>
+                                            <th scope="col">State</th>
+                                            <th scope="col">Country</th>
+                                            <th scope="col">Category </th>
+                                            <th scope="col">Payment</th>
+                                            <th scope="col">Date</th>
                                             <th scope="col">Action</th>
                                             
                                         </tr>
                                     </thead>
                                     <tbody>
-                                      {% for lead in emp_leadsentry %}
+                                      {% for allvendor in vendor_details %}
                                         <tr>
-                                            <td>{{lead.branch_details.name}} ({{lead.branch_details.code}}) </td>
-                                            <td>{{lead.fullname}}</td>
-                                            <td>{{lead.email}}</td>
-                                            <td>{{lead.phone}}</td>
-                                            <td>{{lead.companyname}}</td>
-                                            <td>{{lead.website}}</td>
-                                            <td>{{lead.source}}</td>
-                                            <td>{{lead.followup_date}}</td>
-                                            <td>{{lead.followup_method}}</td>
-                                            <td>{{lead.budget}}</td>
+                                            <td>{{alllead.id}}</td>
+                                            <td>{{alllead.fullname}}</td>
+                                            <td>{{alllead.email}}</td>
+                                            <td>{{alllead.phone}}</td>
+                                            <td>{{alllead.companyname}}</td>
+                                            <td>{{alllead.website}}</td>
+                                            <td>{{alllead.source}}</td>
+                                            <td>{{alllead.followup_date}}</td>
+                                            <td>{{alllead.followup_method}}</td>
+                                            <td>{{alllead.budget}}</td>
                                             <td>
                                                 <div class="btn-box">
-                                                    {% comment %} <a href="/view_leadsentry_fulldetails/{{ lead.id }}" class="btn btn-sm btn-secondary text-white"><i class="bi bi-eye-fill"></a></i> {% endcomment %}
-                                                    <a href="/employee_update_leadsentry/{{ lead.id }}" class="btn btn-sm btn-success text-white"><i class="bi bi-pencil-square"></a></i>
-                                                    <a href="/employee_delete_leadsentry/{{ lead.id }}" class="btn btn-sm btn-danger text-white"><i class="bi bi-trash"></a></i>
+                                                    <a href="/update_vendor/{{ alllead.id }}" class="btn btn-sm btn-success text-white"><i class="bi bi-pencil-square"></a></i>
+                                                    <a href="/delete_vendor/{{ alllead.id }}" class="btn btn-sm btn-danger text-white"><i class="bi bi-trash"></a></i>
                                                 </div>
                                             </td>
                                         </tr>

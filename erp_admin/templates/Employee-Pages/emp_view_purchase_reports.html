@@ -20,6 +20,7 @@
                                 <table id="myTable" class="table data-table">
                                     <thead>
                                         <tr>
+                                            <th scope="col">Branch</th>
                                             <th scope="col">Purchase ID</th>
                                             <th scope="col">Date Of Purchase</th>
                                             <th scope="col">Vendor Name</th>
@@ -37,6 +38,7 @@
                                     <tbody>
                                       {% for vpr in emp_purchase_report %}
                                         <tr>
+                                            <td>{{vpr.branch_details.name}} ({{vpr.branch_details.code}}) </td>
                                             <td>{{vpr.purchaseid}}</td>
                                             <td>{{vpr.dateof_purchase}}</td>
                                             <td>{{vpr.vendor_name}}</td>

@@ -19,6 +19,30 @@
                             <div class="panel-body">
                                 <div class="row g-lg-4 g-2 align-items-center">
                                     
+                                    <div class="col-sm-4 text-center">
+                                        <label for="branch_details">Branch:</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <select name="branch_details" id="branch_details" required class="form-select form-control form-control-lg">
+                                            <option value="" disabled {% if not lead or not lead.instance.branch_details %}selected{% endif %}>Select Branch</option>
+                                            {% for branches in view_branchdata %}
+                                                <option value="{{ branches.id }}" {% if lead and branches.id == lead.instance.branch_details.id %}selected{% endif %}>
+                                                    {{ branches.name }} ({{ branches.code }})
+                                                </option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                    <div class="col-sm-4 text-center">
+                                        <label for="ProductDscr">Purpose :</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input class="form-check-input" type="radio" name="purpose" id="purpose_product" value="product" {% if lead.instance.purpose == 'product' %}checked{% endif %} required>
+                                            <label class="form-check-label me-3 " for="gender_female">Product</label>
+                                        <input class="form-check-input" type="radio" name="purpose" id="purpose_service" value="service" {% if lead.instance.purpose == 'service' %}checked{% endif %} required>
+                                            <label class="form-check-label" for="gender_female">Service</label>
+                                    </div>
+
                                         <div class="col-sm-4 text-center">
                                             <label for="Full Name">Full Name:</label>
                                         </div>
@@ -90,11 +114,19 @@
                                     <div class="col-sm-4">
                                         <input type="text" id="leadstatus" name="leadstatus" value="{{ lead.instance.leadstatus|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Lead Status" required>
                                     </div>
+
                                     <div class="col-sm-2 text-center">
                                         <label for="Lead Owner">Lead Owner :</label>
                                     </div>
                                     <div class="col-sm-4">
                                         <input type="text" id="leadowner" name="leadowner" value="{{ lead.instance.leadowner|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Lead Owner Name" required>
+                                    </div>
+
+                                    <div class="col-sm-2 text-center">
+                                        <label for="Lead Owner">Remark :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <textarea type="text" id="remark" name="remark" value="{{ lead.instance.remark|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Lead Owner Name" required></textarea>
                                     </div>
                                   
                                     <div class="col-12">

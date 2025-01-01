@@ -20,7 +20,7 @@
                                 <table id="myTable" class="table data-table">
                                     <thead>
                                         <tr>
-                                            <!-- <th scope="col">ID</th> -->
+                                            <th scope="col">Branch</th>
                                             <th scope="col">Full Name</th>
                                             <th scope="col">Work</th>
                                             <th scope="col">Start Date</th>
@@ -34,7 +34,7 @@
                                     <tbody>
                                       {% for viewtodo in todoworks %}
                                         <tr>
-                                            <!-- <td>{{viewtodo.id}}</td> -->
+                                            <td>{{viewtodo.branch_details.name}} ({{viewtodo.branch_details.code}})</td>
                                             <td>{{viewtodo.fullname.fname}} {{viewtodo.fullname.lname}} {{viewtodo.fullname.surname}}</td>
                                             <td>{{viewtodo.work}}</td>
                                             <td>{{viewtodo.start_date}}</td>
@@ -44,7 +44,6 @@
                                             <td>{{viewtodo.delay_reason}}</td>
                                             <td>
                                                 <div class="btn-box">
-                                                    {% comment %} <a href="/view_todowork_fulldetails/{{ viewtodo.id }}" class="btn btn-sm btn-secondary text-white"><i class="bi bi-eye-fill"></a></i> {% endcomment %}
                                                     <a href="/update_todowork/{{ viewtodo.id }}" class="btn btn-sm btn-success text-white"><i class="bi bi-pencil-square"></a></i>
                                                     <a href="/delete_todowork/{{ viewtodo.id }}" class="btn btn-sm btn-danger text-white"><i class="bi bi-trash"></a></i>
                                                 </div>
