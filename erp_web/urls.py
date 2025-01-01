@@ -28,7 +28,7 @@ from erp_user.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     
-    path('rosetta/',include('rosetta.urls')),
+    # path('rosetta/',include('rosetta.urls')),
     
     path('', adminlogin,name=""),
     
@@ -84,7 +84,7 @@ urlpatterns = [
      
      
       
-     path('add_vender/', add_vender, name='add_vender'),
+    #  path('add_vender/', add_vender, name='add_vender'),
     # path('view_venders/', view_venders, name='view_venders'),
      
     #==================================== Quotation Report Page ============================================== 
