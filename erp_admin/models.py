@@ -61,7 +61,7 @@ class branches(models.Model):
     email = models.EmailField(max_length=120,blank=True)
     code = models.CharField(max_length=120,blank=True)
     address = models.TextField()
-    contactno = models.IntegerField(max_length=20)
+    contactno = models.IntegerField(blank=True, null=True)
     manager_name = models.CharField(max_length=120,blank=True)
     manager_email = models.CharField(max_length=120,blank=True)
     oppening_date = models.DateField()
@@ -103,7 +103,7 @@ class jobroles(models.Model):
     jobname = models.CharField(max_length=500)
  
     
-class allemployee(models.Model):
+class  allemployee(models.Model):
     branch_details = models.ForeignKey(branches,on_delete=models.CASCADE)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     # manager_details = models.ForeignKey(allmanagers,on_delete=models.CASCADE)
@@ -138,6 +138,7 @@ class employee_data(ModelForm):
        
 class salesreport(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    branch = models.ForeignKey(branches, on_delete=models.CASCADE, related_name="sales_reports")  
     orderid = models.CharField(max_length=100000)
     dateof_sale = models.DateField()
     customer_name = models.CharField(max_length=10000)
@@ -152,7 +153,10 @@ class salesreport(models.Model):
     payment_method = models.CharField(max_length=500,choices=payment_methods)
     unitprice = models.CharField(max_length=10000)
     total = models.IntegerField()
-    status = models.CharField(max_length=10000,blank=True)
+    status = models.CharField(max_length=10000,blank=True, choices=[('Pending', 'Pending'), ('Progresing', 'Progresing'), ('Packing', 'Packing'),('On-Way','On-Way'),('Deliver','Deliver')])
+
+    def __str__(self):
+        return f"Order {self.orderid} - {self.customer_name} ({self.branch.name})"
     
     
 class salesreport_data(ModelForm):
@@ -163,6 +167,7 @@ class salesreport_data(ModelForm):
         
 class purchasereport(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    branch = models.ForeignKey(branches, on_delete=models.CASCADE, related_name="purchase_reports")
     purchaseid = models.CharField(max_length=100000)
     dateof_purchase = models.DateField()
     vendor_name = models.CharField(max_length=10000)
@@ -177,7 +182,12 @@ class purchasereport(models.Model):
     payment_method = models.CharField(max_length=500,choices=payment_methods)
     unitprice = models.CharField(max_length=10000)
     total_purchasecost = models.CharField(max_length=100000)
-    status = models.CharField(max_length=10000)
+    advance_payment = models.IntegerField(blank=True, null=True)
+    pending_payment = models.IntegerField(blank=True, null=True)
+    status = models.CharField(max_length=10000,choices=[('Load', 'Load'), ('In-Tranlist', 'In-Tranlist'),('Deliver','Deliver')])
+
+    def __str__(self):
+        return f"Purchase {self.purchaseid} - {self.vendor_name} ({self.branch.name})"
     
     
 class purchasereport_data(ModelForm):
@@ -199,6 +209,7 @@ class leadsentry(models.Model):
     budget = models.CharField(max_length=20000,blank=True)
     leadstatus = models.CharField(max_length=1200,blank=True)
     leadowner = models.CharField(max_length=1200,blank=True)
+    purpose = models.CharField(max_length=10000,choices=[('Product', 'Product'), ('Service', 'Service ')])
     
 class leadsentry_data(ModelForm):
     class Meta:
@@ -230,12 +241,27 @@ class leaves(models.Model):
     leavestatus = models.CharField(max_length=50, choices=STATUS_CHOICES,default="Pending",blank=True)
     email = models.EmailField(max_length=120)
     mobile = models.CharField(max_length=20)
+    remark = models.CharField(max_length=20, null=True)
     
 class leavedata(ModelForm):
     class Meta:
         model = leaves
         fields = ["employee","branch_details","image","gender","leavesdate","leaveedate","leavestatus","nofdays","reasontype","reason","document","email","mobile"]    
-        
+class Vender(models.Model):
+    vender_name = models.CharField(max_length=255, blank=True, null=True)
+    employee = models.ForeignKey('AllEmployee', on_delete=models.CASCADE)
+    contact_number = models.CharField(max_length=15, blank=True, null=True) 
+    email = models.EmailField(blank=True, null=True)  
+    product = models.CharField(max_length=255, blank=True, null=True)
+    address = models.CharField(max_length=10000,blank=True)
+    state = models.CharField(max_length=10000,blank=True)
+    country = models.CharField(max_length=100, blank=True, null=True)
+    category = models.CharField(max_length=100, blank=True, null=True)
+    payment = models.IntegerField(blank=True, null=True)
+    date = models.DateField(blank=True, null=True)
+
+    def __str__(self):
+        return self.vender_name or "Unnamed Vendor"
 class attendences(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     branch_details = models.ForeignKey(branches,on_delete=models.CASCADE)
