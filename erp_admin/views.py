@@ -1215,6 +1215,22 @@ def emp_update_purchasereport(request,id):
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++ Purchase Report Page End ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+def add_vender(request):
+    if request.method == "POST":
+        # Bind form with POST data
+        form = Vender(request.POST, request.FILES)
+        if form.is_valid():
+            # Save the form data to the database
+            form.save()
+            return redirect("/view_venders")  # Redirect to a view that lists all vendors
+        else:
+            # Print errors if the form is invalid
+            print(form.errors)
+            return render(request, "venders/add-vender.html", {"form": form})
+    else:
+        # If the request method is GET, render an empty form
+        form = Vender()
+        return render(request, "venders/add-vender.html", {"form": form})
 
 # ++++++++++++++++++++++++++++++++++++++++++++++ To Do Work Page Start ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 @login_required(login_url='adminlogin')
