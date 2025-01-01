@@ -17,11 +17,24 @@
                                 <div class="row g-lg-4 g-2 align-items-center">
                                     
                                     <div class="col-sm-4">
+                                        <label for="branch_details">Branch:</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <select name="branch_details" id="branch_details" required class="form-select form-control form-control-lg">
+                                            <option value="" disabled {% if not todo_work or not todo_work.instance.branch_details %}selected{% endif %}>Select Branch</option>
+                                            {% for branches in view_branchdata %}
+                                                <option value="{{ branches.id }}" {% if todo_work and branches.id == todo_work.instance.branch_details.id %}selected{% endif %}>
+                                                    {{ branches.name }} ({{ branches.code }})
+                                                </option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                    <div class="col-sm-4">
                                         <label for="order_id">Full Name :</label>
                                     </div>
                                     <div class="col-sm-6">
                                         <select name="fullname" id="fullname" class="form-control form-control-lg">
-                                            <option value="" disabled {% if not fullname %}selected{% endif %}>Select Employee Name</option>
                                             {% for emp in allemp %}
                                                 <option value="{{ emp.id }}" {% if emp.id == fullname.id %}selected{% endif %}>{{ emp.fname }} {{ emp.lname }} {{ emp.surname }}</option>
                                             {% endfor %}

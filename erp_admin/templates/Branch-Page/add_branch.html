@@ -48,7 +48,7 @@
                       <label for="Status">Branch Contact No :</label>
                   </div>
                   <div class="col-sm-8">
-                      <input type="number" id="ProductName" name="{{ bd.contactno.name }}" value="{{ bd.contactno.value|default_if_none:'' }}" class="form-control form-control-lg" required/>
+                      <input type="text" id="ProductName" name="{{ bd.contactno.name }}" value="{{ bd.contactno.value|default_if_none:'' }}" class="form-control form-control-lg" maxlength="10" required/>
                   </div>
                   <div class="col-sm-4">
                       <label for="AddProduct">Manager Name :</label>

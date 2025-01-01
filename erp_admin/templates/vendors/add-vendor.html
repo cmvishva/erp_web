@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <!-- main-content -->
+        <div class="main-content">
+            <div class="row">
+               <div class="col-xl-12">
+            
+                    <div class="panel mb-g">
+                        <div class="panel-heading">
+                            <h3>Add Sales Report</h3>
+                        </div>
+   
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="panel-body">
+                                <div class="row g-lg-4 g-2 align-items-center">
+                                    
+                                    <div class="col-sm-2">
+                                        <label for="branch_details">Branch :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <select name="branch_details" id="branch_details" required class="form-select form-control form-control-lg">
+                                            <option value="" disabled {% if not form or not form.instance.branch_details %}selected{% endif %}>Select Branch</option>
+                                            {% for branches in view_branchdata %}
+                                                <option value="{{ branches.id }}" {% if form and branches.id == form.instance.branch_details.id %}selected{% endif %}>
+                                                    {{ branches.name }} ({{ branches.code }})
+                                                </option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <label for="order_id">Vender Name  :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="order_id" name="vender_name " value="{{ form.instance.vender_name |default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Order ID" required>
+                                    </div>
+                        
+                                    <div class="col-sm-2">
+                                        <label for="password">Employee  :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="date" id="dateof_sale" name="employee " value="{{form.instance.employee _if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Date Of Sales" required>
+                                    </div>
+                                
+                                    <div class="col-sm-2">
+                                        <label for="customer_name">Contact Number :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="contact_number " name="contact_number " value="{{ form.instance.contact_number |default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Customer Name" required>
+                                    </div>
+
+                                    <div class="col-sm-2 ">
+                                        <label for="customer_contact">Email :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="email " name="email " value="{{ form.instance.email |default_if_none:'' }}" maxlength="10" class="form-control form-control-lg" placeholder="Enter Customer Contact" required>
+                                    </div>
+                        
+                                    <div class="col-sm-2">
+                                        <label for="product_name">Product :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="product " name="product " value="{{ form.instance.product |default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Product Name" required>
+                                    </div>
+                        
+                                    <div class="col-sm-2">
+                                        <label for="product_category">Address  :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="address " name="address " value="{{ form.instance.address |default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Product Category" required>
+                                    </div>
+                        
+                                    <div class="col-sm-2">
+                                        <label for="quantity_sold">State  :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="number" id="state " name="state " value="{{ form.instance.state |default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Quantity Sold" required>
+                                    </div>
+                        
+                                    <div class="col-sm-2">
+                                        <label for="birthdate">Country :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="number" id="country " name="country " value="{{ form.instance.country |default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Unit Price" required>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <label for="birthdate">Category  :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="category" name="category" value="{{ form.instance.category|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Total" required>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <label for="birthdate">Payment :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" id="payment" name="payment" value="{{ form.instance.payment|default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Total" required>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <label for="birthdate">Date :</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="date" id="date " name="date " value="{{ form.instance.date |default_if_none:'' }}" class="form-control form-control-lg" placeholder="Enter Total" required>
+                                    </div>
+
+                                    
+                                    <div class="col-12">
+                                        <div class="btn-box justify-content-end">
+                                            <input type="reset" class="btn btn-secondary" value="Reset">
+                                            <input type="submit" value="Submit" class="btn btn-primary">
+                                        </div>
+                                    </div> 
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+               </div>
+
+            </div>
+        </div>
+
+        
+        <!-- main-content -->
+
+        
+{% endblock %}

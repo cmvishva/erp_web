@@ -15,6 +15,21 @@
                             {% csrf_token %}
                             <div class="panel-body">
                                 <div class="row g-lg-4 g-2 align-items-center">
+
+                                    <div class="col-sm-2">
+                                        <label for="branch_details">Branch:</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <select name="branch_details" id="branch_details" required class="form-select form-control form-control-lg">
+                                            <option value="" disabled {% if not regm or not regm.instance.branch_details %}selected{% endif %}>Select Branch</option>
+                                            {% for branches in view_branchdata %}
+                                                <option value="{{ branches.id }}" {% if regm and branches.id == regm.instance.branch_details.id %}selected{% endif %}>
+                                                    {{ branches.name }} ({{ branches.code }})
+                                                </option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
                                     <h4 class="fw-bold">CONSIGNEE DETAILS</h4>
                                     <div class="col-sm-2 text-center">
                                         <label for="order_id">Consignee Name :</label>

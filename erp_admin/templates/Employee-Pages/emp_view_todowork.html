@@ -35,6 +35,7 @@
                                       {% for etdw in emp_todowork %}
                                         <tr>
                                             <!-- <td>{{etdw.id}}</td> -->
+                                            <td>{{etdw.branch_details.name}} ({{lead.branch_details.code}}) </td>
                                             <td>{{etdw.fullname.fname}} {{etdw.fullname.lname}} {{etdw.fullname.surname}}</td>
                                             <td>{{etdw.work}}</td>
                                             <td>{{etdw.start_date}}</td>

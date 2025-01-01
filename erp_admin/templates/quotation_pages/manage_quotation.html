@@ -76,6 +76,7 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">ID</th>
+                                            <th scope="col">Branch</th>
                                             <th scope="col">Consignee Name</th>
                                             <th scope="col">PI No</th>
                                             <th scope="col">Date</th>
@@ -89,6 +90,7 @@
                                       {% for vq in view_quotation %}
                                         <tr>
                                             <td>{{vq.id}}</td>
+                                            <td>{{vq.branch_details.name}} ({{vq.branch_details.code}}) </td>
                                             <td>{{vq.consignee_name}}</td>
                                             <td>{{vq.pi_no}}</td>
                                             <td>{{vq.date}}</td>

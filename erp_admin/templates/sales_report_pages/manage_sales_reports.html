@@ -88,6 +88,7 @@
                                 <table id="myTable" class="table data-table">
                                     <thead>
                                         <tr>
+                                            <th scope="col">Branch</th>
                                             <th scope="col">Order ID</th>
                                             <th scope="col">Date Of Sale</th>
                                             <th scope="col">Customer Name</th>
@@ -105,6 +106,7 @@
                                     <tbody>
                                       {% for vsr in search_data %}
                                         <tr>
+                                            <td>{{vsr.branch_details.name}} ({{vsr.branch_details.code}}) </td>
                                             <td>{{vsr.orderid}}</td>
                                             <td>{{vsr.dateof_sale}}</td>
                                             <td>{{vsr.customer_name}}</td>
