@@ -138,7 +138,7 @@ class employee_data(ModelForm):
        
 class salesreport(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    branch = models.ForeignKey(branches, on_delete=models.CASCADE, related_name="sales_reports")  
+    branch_details = models.ForeignKey(branches, on_delete=models.CASCADE, related_name="sales_reports")  
     orderid = models.CharField(max_length=100000)
     dateof_sale = models.DateField()
     customer_name = models.CharField(max_length=10000)
@@ -167,7 +167,7 @@ class salesreport_data(ModelForm):
         
 class purchasereport(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    branch = models.ForeignKey(branches, on_delete=models.CASCADE, related_name="purchase_reports")
+    branch_details = models.ForeignKey(branches, on_delete=models.CASCADE, related_name="purchase_reports")
     purchaseid = models.CharField(max_length=100000)
     dateof_purchase = models.DateField()
     vendor_name = models.CharField(max_length=10000)
@@ -197,6 +197,7 @@ class purchasereport_data(ModelForm):
 
 class leadsentry(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    branch_details = models.ForeignKey(branches,on_delete=models.CASCADE)
     fullname = models.TextField(max_length=1000)
     email = models.EmailField(max_length=1000,blank=True)
     phone = models.CharField(max_length=1000,blank=True)
@@ -249,6 +250,7 @@ class leavedata(ModelForm):
         fields = ["employee","branch_details","image","gender","leavesdate","leaveedate","leavestatus","nofdays","reasontype","reason","document","email","mobile"]    
 class Vender(models.Model):
     vender_name = models.CharField(max_length=255, blank=True, null=True)
+    branch_details = models.ForeignKey(branches,on_delete=models.CASCADE)
     employee = models.ForeignKey('AllEmployee', on_delete=models.CASCADE)
     contact_number = models.CharField(max_length=15, blank=True, null=True) 
     email = models.EmailField(blank=True, null=True)  
